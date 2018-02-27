@@ -1,4 +1,4 @@
-package com.pettopia.utilities;
+package com.pettopia.view.utilities;
 
 import java.time.LocalDate;
 import java.util.regex.Matcher;
