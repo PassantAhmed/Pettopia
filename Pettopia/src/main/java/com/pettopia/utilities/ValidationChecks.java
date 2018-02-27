@@ -1,4 +1,4 @@
-package com.bfdaparent.pettopia.utilities;
+package com.pettopia.utilities;
 
 import java.time.LocalDate;
 import java.util.regex.Matcher;
@@ -44,6 +44,21 @@ public class ValidationChecks {
     public boolean isName(String name) {
         patternMatcher = NAME_PATTERN.matcher(name);
         return !isEmptyString(name) && patternMatcher.matches();
+    }
+
+    /**
+    * check if the age of the user is legal or not 
+    * @param dateOfBirth 
+    * @return - true if legal <br> 
+    *          - false if not 
+    **/
+    public boolean isLegalAged(LocalDate dateOfBirth){
+        boolean legalAge = false;
+        if(!isEmptyString(dateOfBirth.toString()) && dateOfBirth.getYear() <= 2000){
+            legalAge = true;
+        }
+    
+        return legalAge;
     }
     
     /**
