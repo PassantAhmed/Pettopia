@@ -37,7 +37,7 @@ public class SignUpServlet extends HttpServlet {
         user.setCreditLimit(request.getParameter("creditLimit"));
         //user.setBirthDate(request.getParameter("birthdate"));
         if (checkValidation(user, request.getParameter("rePassword"))) {
-            //  TODO
+            //  TODO calling db methods 
         }
     }
 
