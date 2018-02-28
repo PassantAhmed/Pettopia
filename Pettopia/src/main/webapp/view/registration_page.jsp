@@ -23,20 +23,47 @@
                             <td>First Name:</td>
                             <td><input type="text" name="firstName" /></td>
                         </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td><input type="text" name="lastName" /></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input type="email" name="email" /></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><input type="password" name="password" /></td>
+                        </tr>
+                        <tr>
+                            <td>Re-password:</td>
+                            <td><input type="password" name="rePassword" /></td>
+                        </tr>
+                        <tr>
+                            <td>Birth-date:</td>
+                            <td><input type="date" name="birthdate" /></td>
+                        </tr>
+                        <tr>
+                            <td>Job:</td>
+                            <td><input type="text" name="job" /></td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td><input type="text" name="address" /></td>
+                        </tr>
+                        <tr>
+                            <td>Credit Number:</td>
+                            <td><input type="text" name="creditNo1" size="2" maxlength="4" />&nbsp; - &nbsp;
+                                <input type="text" name="creditNo2" size="2" maxlength="4" />&nbsp; - &nbsp;
+                                <input type="text" name="creditNo3" size="2" maxlength="4" />&nbsp; - &nbsp;
+                                <input type="text" name="creditNo4" size="2" maxlength="4" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Credit-Limit:</td>
+                            <td><input type="number" name="creditLimit" /></td>
+                        </tr>
                     </table>
-              
-                    Last Name: <input type="text" name="lastName" /><br/>
-                    Email: <input type="email" name="email" /><br/>
-                    Password: <input type="password" name="password" /><br/>
-                    Re-password: <input type="password" name="rePassword" /><br/>
-                    Birth-date: <input type="date" name="birthdate" /><br/>
-                    Job: <input type="text" name="job" /><br/>
-                    Address: <input type="text" name="address" /><br/>
-                    Credit Number: <input type="text" name="creditNo1" size="2" maxlength="4" />&nbsp; - &nbsp;
-                    <input type="text" name="creditNo2" size="2" maxlength="4" />&nbsp; - &nbsp;
-                    <input type="text" name="creditNo3" size="2" maxlength="4" />&nbsp; - &nbsp;
-                    <input type="text" name="creditNo4" size="2" maxlength="4" /><br/>
-                    Credit-Limit: <input type="number" name="creditLimit" /><br/>
                     <button class="btnSearch">Register</button> 
                 </form>
             </div>

@@ -26,7 +26,6 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
         user = new User();
         user.setFirstName(request.getParameter("firstName"));
         user.setLastName(request.getParameter("lastName"));
@@ -37,15 +36,8 @@ public class SignUpServlet extends HttpServlet {
         user.setCreditNo(request.getParameter("creditNo1") + request.getParameter("creditNo2") + request.getParameter("creditNo3") + request.getParameter("creditNo4"));
         user.setCreditLimit(request.getParameter("creditLimit"));
         //user.setBirthDate(request.getParameter("birthdate"));
-        out.println("HELOO");
         if (checkValidation(user, request.getParameter("rePassword"))) {
             //  TODO
-            out.println("HII");
-        }
-        else{
-            out.println("WRONG");
-            out.println(user.getAddress());
-            out.println(request.getParameter("rePassword"));
         }
     }
 
