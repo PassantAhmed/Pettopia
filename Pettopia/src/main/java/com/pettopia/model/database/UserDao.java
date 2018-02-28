@@ -13,42 +13,31 @@ import java.util.ArrayList;
  *
  * @author Passant
  */
-public class UserDao  implements UsersDatabaseOperationInterface
-{
+public class UserDao implements UsersDatabaseOperationInterface {
 
-   UsersCrud usersCrud;
+    UsersCrud usersCrud;
 
-    public  UserDao() 
-    {
+    public UserDao() {
         usersCrud = new UsersCrud();
     }
 
-
-
     @Override
-    public ArrayList<User> selectUsers(String usrEmail) 
-    {
-           String selectStatement = "select  * from petusers where  useremail= '"+usrEmail+"'";
-                return (ArrayList<User>) usersCrud.select(selectStatement);
+    public ArrayList<User> selectUsers(String usrEmail) {
+        String selectStatement = "select  * from petusers where  useremail= '" + usrEmail + "'";
+        return (ArrayList<User>) usersCrud.select(selectStatement);
     }
 
     @Override
-    public boolean registerNewUser(User usrDataObj) 
-    {
-        String selectStatment="insert into petusers (id,firstName,lastName,birthDate,password,job,email,address,creditLimit,creditNo) values ('"+usrDataObj.getId()+"' ,'"+usrDataObj.getFirstName()+"' ,'"+usrDataObj.getLastName()+"' ,'"+usrDataObj.getBirthDate()+"' ,'"+usrDataObj.getPassword()+"' ,'"+usrDataObj.getJob()+"' ,'"+usrDataObj.getEmail()+"' ,'"+usrDataObj.getAddress()+"' ,'"+usrDataObj.getCreditLimit()+"','"+usrDataObj.getCreditNo()+"')";
-       
+    public boolean registerNewUser(User usrDataObj) {
+        String selectStatment = "insert into petusers (id,firstName,lastName,birthDate,password,job,email,address,creditLimit,creditNo) values ('" + usrDataObj.getId() + "' ,'" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' ,'" + usrDataObj.getBirthDate() + "' ,'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ,'" + usrDataObj.getCreditLimit() + "','" + usrDataObj.getCreditNo() + "')";
+
         return usersCrud.insert(selectStatment);
     }
 
     @Override
-    public boolean updateUser(User usrDataObj) 
-    {
-                String selectStatment="update petusers set id='"+usrDataObj.getId()+"' ,firstName='"+usrDataObj.getFirstName()+"' ,lastName='"+usrDataObj.getLastName()+"' ,birthDate='"+usrDataObj.getBirthDate()+"' ,password='"+usrDataObj.getPassword()+"' ,job='"+usrDataObj.getJob()+"' ,email='"+usrDataObj.getEmail()+"' ,address='"+usrDataObj.getAddress()+"' ,creditLimit='"+usrDataObj.getCreditLimit()+"' ,creditNo='"+usrDataObj.getCreditNo()+"' ";
-                return usersCrud.update(selectStatment);
+    public boolean updateUser(User usrDataObj) {
+        String selectStatment = "update petusers set id='" + usrDataObj.getId() + "' ,firstName='" + usrDataObj.getFirstName() + "' ,lastName='" + usrDataObj.getLastName() + "' ,birthDate='" + usrDataObj.getBirthDate() + "' ,password='" + usrDataObj.getPassword() + "' ,job='" + usrDataObj.getJob() + "' ,email='" + usrDataObj.getEmail() + "' ,address='" + usrDataObj.getAddress() + "' ,creditLimit='" + usrDataObj.getCreditLimit() + "' ,creditNo='" + usrDataObj.getCreditNo() + "' ";
+        return usersCrud.update(selectStatment);
     }
-    
-    
 
-    
-    
 }

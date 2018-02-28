@@ -9,10 +9,9 @@ package com.pettopia.model.database;
  *
  * @author ahmedelgawesh
  */
-public class HelperForFunctions 
-{
+public class HelperForFunctions {
 
-            /*
+    /*
     
     
             String selectStatement = "select id,name,username,email,password,gender,country,birthdate,userpicture,statusflag,statusmode from User where id= '"+usrInformation+"' or username= '"+usrInformation+"'";
@@ -75,6 +74,5 @@ public class HelperForFunctions
     
     
     
-        */
-    
+     */
 }

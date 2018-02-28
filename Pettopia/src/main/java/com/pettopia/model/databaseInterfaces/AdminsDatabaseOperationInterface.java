@@ -8,19 +8,14 @@ package com.pettopia.model.databaseInterfaces;
 import com.pettopia.model.bean.User;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author ahmedelgawesh
  */
-public interface AdminsDatabaseOperationInterface
-{
-    
-        public ArrayList<User> isExisAsAdmin(User adminEmail);
-    
-        public boolean addNewAdmin(String adminEmail,String adminPassword);
-        
-        
-            
-    
+public interface AdminsDatabaseOperationInterface {
+
+    public ArrayList<User> isExisAsAdmin(User adminEmail);
+
+    public boolean addNewAdmin(String adminEmail, String adminPassword);
+
 }

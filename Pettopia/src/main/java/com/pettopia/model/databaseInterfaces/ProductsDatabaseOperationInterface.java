@@ -7,21 +7,19 @@ package com.pettopia.model.databaseInterfaces;
 
 import com.pettopia.model.bean.Product;
 import java.util.ArrayList;
+
 /**
  *
  * @author ahmedelgawesh
  */
-public interface ProductsDatabaseOperationInterface 
-{
-    
-        public boolean insertProducts(Product productsInformations);
-        
-        public boolean updateProducts(Product productsInformations);
-        
-        public boolean deleteProducts(String productName);
-        
-        public ArrayList<Product> selectProducts(String productsInformations);
+public interface ProductsDatabaseOperationInterface {
 
+    public boolean insertProducts(Product productsInformations);
 
-    
+    public boolean updateProducts(Product productsInformations);
+
+    public boolean deleteProducts(String productName);
+
+    public ArrayList<Product> selectProducts(String productsInformations);
+
 }

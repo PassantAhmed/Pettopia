@@ -15,24 +15,19 @@ import java.util.logging.Logger;
  * @author ahmedelgawesh
  */
 public class ProductsCrud {
-    
+
     Database dbClass;
     Connection conn;
     Statement stmt = null;
 
+    public ProductsCrud() {
 
-public  ProductsCrud()
-    {
-
-        try
-        {
+        try {
             dbClass = Database.getInstance();
             conn = dbClass.getConnection();
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-        
+
 }

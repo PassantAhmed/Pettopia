@@ -21,14 +21,14 @@ public class User {
     private String job;
     private String email;
     private String address;
-    private int creditLimit;
+    private String creditLimit;
     private String creditNo;
 
         /********* sobhy (start)**********/
     
     public User(){}
     
-     public  User(int id, String firstName, String lastName, LocalDate birthDate, String password,String job,String email, String address,int creditLimit, String creditNo)
+     public  User(int id, String firstName, String lastName, LocalDate birthDate, String password,String job,String email, String address,String creditLimit, String creditNo)
       {
       this.id= id;
       this.firstName=firstName;
@@ -69,11 +69,11 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public int getCreditLimit() {
+    public String getCreditLimit() {
         return creditLimit;
     }
 
-    public void setCreditLimit(int creditLimit) {
+    public void setCreditLimit(String creditLimit) {
         this.creditLimit = creditLimit;
     }
 

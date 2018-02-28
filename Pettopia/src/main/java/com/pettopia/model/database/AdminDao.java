@@ -13,25 +13,22 @@ import java.util.ArrayList;
  *
  * @author ahmedelgawesh
  */
- public class AdminDao implements AdminsDatabaseOperationInterface
- {
-     
-     AdminsCrud adminCrud=new AdminsCrud();
-     
-     @Override
-    public ArrayList<User> isExisAsAdmin(User adminEmail) 
-    {
-        String statm="select * from petadmin where adminemail='"+adminEmail+"'";
+public class AdminDao implements AdminsDatabaseOperationInterface {
+
+    AdminsCrud adminCrud = new AdminsCrud();
+
+    @Override
+    public ArrayList<User> isExisAsAdmin(User adminEmail) {
+        String statm = "select * from petadmin where adminemail='" + adminEmail + "'";
         return adminCrud.select(statm);
-        
+
     }
 
     @Override
-    public boolean addNewAdmin(String adminEmail,String adminPassword) 
-    {
-        String statm="insert into  petadmin (adminemail,adminpassword) VALUES ('"+adminEmail+"','"+adminPassword+"')";
+    public boolean addNewAdmin(String adminEmail, String adminPassword) {
+        String statm = "insert into  petadmin (adminemail,adminpassword) VALUES ('" + adminEmail + "','" + adminPassword + "')";
         return adminCrud.insert(statm);
-    
+
     }
- 
- }
+
+}

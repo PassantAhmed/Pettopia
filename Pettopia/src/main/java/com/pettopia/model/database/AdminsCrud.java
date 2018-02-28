@@ -5,7 +5,6 @@
  */
 package com.pettopia.model.database;
 
-
 /**
  *
  * @author ahmedelgawesh
@@ -25,64 +24,49 @@ public class AdminsCrud {
     Connection conn;
     Statement stmt = null;
 
+    public AdminsCrud() {
 
-public  AdminsCrud()
-    {
-
-        try
-        {
+        try {
             dbClass = Database.getInstance();
             conn = dbClass.getConnection();
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-        
-    /**************  select all admins the admin table ************************/
 
-    public ArrayList<User> select(String strStatement)
-    {
+    /**
+     * ************ select all admins the admin table ***********************
+     */
+    public ArrayList<User> select(String strStatement) {
         ArrayList<User> adminsList = new ArrayList<User>();
-         try
-         {    
-                stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(strStatement);
-                while (rs.next())
-                {
-                        adminsList.add(new User(rs.getString("adminemail"),rs.getString("adminpassword")));
-                }
-               
-         } 
-         catch (SQLException ex)
-         {
-                    Logger.getLogger(AdminsCrud.class.getName()).log(Level.SEVERE, null, ex);
-                 
-         }
-         return adminsList;
-      }
-  
-               
-       
-    /**************  select all admins the admin table ************************/
+        try {
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(strStatement);
+            while (rs.next()) {
+                adminsList.add(new User(rs.getString("adminemail"), rs.getString("adminpassword")));
+            }
 
-    public boolean insert(String strStatement)
-    {
-         try
-         {    
-                stmt = conn.createStatement();
-                stmt.executeUpdate(strStatement);
-                System.out.println("Record saved");
-               
-         } 
-         catch (SQLException ex)
-         {
-                    Logger.getLogger(AdminsCrud.class.getName()).log(Level.SEVERE, null, ex);
-                    return false;
-         }
-         return true;
-      }   
-    
-    
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminsCrud.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return adminsList;
+    }
+
+    /**
+     * ************ select all admins the admin table ***********************
+     */
+    public boolean insert(String strStatement) {
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(strStatement);
+            System.out.println("Record saved");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminsCrud.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return true;
+    }
+
 }

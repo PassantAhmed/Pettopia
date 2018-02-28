@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author ahmedelgawesh
  */
-public class ProductDao implements ProductsDatabaseOperationInterface{
+public class ProductDao implements ProductsDatabaseOperationInterface {
 
     @Override
     public boolean insertProducts(Product productsInformations) {
@@ -34,5 +34,5 @@ public class ProductDao implements ProductsDatabaseOperationInterface{
     public ArrayList<Product> selectProducts(String productsInformations) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
