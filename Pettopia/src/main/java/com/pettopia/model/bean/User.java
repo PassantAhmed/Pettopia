@@ -24,6 +24,35 @@ public class User {
     private int creditLimit;
     private String creditNo;
 
+        /********* sobhy (start)**********/
+    
+    public User(){}
+    
+     public  User(int id, String firstName, String lastName, LocalDate birthDate, String password,String job,String email, String address,int creditLimit, String creditNo)
+      {
+      this.id= id;
+      this.firstName=firstName;
+      this.lastName=lastName;
+      this.birthDate=birthDate;
+      this.password=password;
+      this.job=job;
+      this.email=email;
+      this.address=address;
+      this.creditLimit=creditLimit;
+      this.creditNo=creditNo;
+    }
+    
+    public  User(String adminEmail,String adminPassword)
+    {
+        
+        this.email = adminEmail;
+        this.password= adminPassword;
+    
+    }
+    
+    
+    /********* sobhy (end)**********/
+    
     public String getAddress() {
         return address;
     }
