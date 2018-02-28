@@ -7,8 +7,14 @@ package com.pettopia.model.database;
 
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.pettopia.model.bean.Product;
+import com.pettopia.model.bean.User;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -28,6 +34,63 @@ public class ProductsCrud {
         } catch (Exception ex) {
             Logger.getLogger(AdminDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public boolean insert(String sqlStatment) {
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(sqlStatment);
+            System.out.println("Record saved");
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersCrud.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return true;
+
+    }
+
+    public boolean delete(String sqlStatment) {
+        try {
+            //Create statement
+            stmt = conn.createStatement();
+            stmt.executeUpdate(sqlStatment);
+            System.out.println("Records deleted");
+        } catch (SQLException e) {
+            System.out.println("com.pettopia.model.database.UsersCrud.delete()" + e);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean update(String sqlStatment) {
+
+        try {
+            //Create statement(update)
+            stmt = conn.createStatement();
+            stmt.executeUpdate(sqlStatment);
+            System.out.println("Records updated");
+        } catch (SQLException e) {
+            System.out.println(e + "com.pettopia.model.database.UsersCrud.updateException()");
+            return false;
+        }
+        return true;
+    }
+
+    public ArrayList<Product> select(String sqlStatment) {
+
+        ArrayList<Product> productsList = new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlStatment);
+            while (rs.next()) {
+                productsList.add(new Product(rs.getString("productname"), rs.getDouble("productprice"), rs.getInt("productquantity"), rs.getString("productdescription"), rs.getString("category")));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminsCrud.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return productsList;
     }
 
 }

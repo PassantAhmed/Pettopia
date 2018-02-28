@@ -10,13 +10,29 @@ package com.pettopia.model.bean;
  * @author Passant
  */
 public class Product {
-    
+
     private int id;
     private String name;
     private double price;
     private int quantity;
     private String description;
+    private String category;
 
+    public Product(String name, double price, int quantity, String description,String category) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.description = description;
+        this.category=category;
+    }
+
+    public String getCategory(){
+        return category;
+    }
+    
+    public  void setCategory(String category){
+        this.category=category;
+    }
     public int getId() {
         return id;
     }
@@ -56,5 +72,5 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
+
 }

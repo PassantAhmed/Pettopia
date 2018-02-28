@@ -36,7 +36,7 @@ public class UserDao implements UsersDatabaseOperationInterface {
 
     @Override
     public boolean updateUser(User usrDataObj) {
-        String selectStatment = "update petusers set id='" + usrDataObj.getId() + "' ,firstName='" + usrDataObj.getFirstName() + "' ,lastName='" + usrDataObj.getLastName() + "' ,birthDate='" + usrDataObj.getBirthDate() + "' ,password='" + usrDataObj.getPassword() + "' ,job='" + usrDataObj.getJob() + "' ,email='" + usrDataObj.getEmail() + "' ,address='" + usrDataObj.getAddress() + "' ,creditLimit='" + usrDataObj.getCreditLimit() + "' ,creditNo='" + usrDataObj.getCreditNo() + "' ";
+        String selectStatment = "update petusers set id='" + usrDataObj.getId() + "' ,firstName='" + usrDataObj.getFirstName() + "' ,lastName='" + usrDataObj.getLastName() + "' ,birthDate='" + usrDataObj.getBirthDate() + "' ,password='" + usrDataObj.getPassword() + "' ,job='" + usrDataObj.getJob() + "' ,email='" + usrDataObj.getEmail() + "' ,address='" + usrDataObj.getAddress() + "' ,creditLimit='" + usrDataObj.getCreditLimit() + "' ,creditNo='" + usrDataObj.getCreditNo() + "' where userid ='" + usrDataObj.getId() + "' ";
         return usersCrud.update(selectStatment);
     }
 
