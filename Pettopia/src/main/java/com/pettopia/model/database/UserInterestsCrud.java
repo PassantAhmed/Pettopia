@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pettopia.model.databaseInterfaces;
+package com.pettopia.model.database;
 
 /**
  *
  * @author ahmedelgawesh
  */
-public interface UserInterestsDatabaseInterface {
-    
-    public boolean insert(int userid,String hisInterest);
+public class UserInterestsCrud {
     
 }

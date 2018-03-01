@@ -18,7 +18,7 @@ public interface ProductsDatabaseOperationInterface {
 
     public boolean updateProducts(Product productsInformations);
 
-    public boolean deleteProducts(String productName);
+    public boolean deleteProducts(Product productsInformations);
 
     public ArrayList<Product> selectProducts(String productsInformations);
 

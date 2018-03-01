@@ -6,8 +6,13 @@
 package com.pettopia.model.database;
 
 import com.pettopia.model.bean.Product;
+import com.pettopia.model.bean.User;
 import com.pettopia.model.databaseInterfaces.ProductsDatabaseOperationInterface;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,24 +20,36 @@ import java.util.ArrayList;
  */
 public class ProductDao implements ProductsDatabaseOperationInterface {
 
+    ProductsCrud productsCrud;
+
+    public ProductDao() {
+        productsCrud = new ProductsCrud();
+    }
+
     @Override
     public boolean insertProducts(Product productsInformations) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        String strStatment = "insert into petproducts (productname,productprice,productquantity,productdescription,category) values ('" + productsInformations.getName() + "','" + productsInformations.getPrice() + "','" + productsInformations.getQuantity() + "','" + productsInformations.getDescription() + "','" + productsInformations.getCategory() + "')";
+        return productsCrud.insert(strStatment);
     }
 
     @Override
     public boolean updateProducts(Product productsInformations) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        String strStatment = "update petproducts set productname='" + productsInformations.getName() + "',productprice='" + productsInformations.getPrice() + "',productquantity='" + productsInformations.getQuantity() + "',productdescription='" + productsInformations.getDescription() + "',category='" + productsInformations.getCategory() + "' where produuctid='" + productsInformations.getId() + "')";
+        return productsCrud.update(strStatment);
     }
 
     @Override
-    public boolean deleteProducts(String productName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean deleteProducts(Product productsInformations) {
+        String strStatment = "delete * from petproducts where produuctid ='" + productsInformations.getId() + "' ";
+        return productsCrud.update(strStatment);
     }
 
     @Override
-    public ArrayList<Product> selectProducts(String productsInformations) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<Product> selectProducts(String productsName) {
+        String selectStatement = "select  * from petusers where  useremail= '" + productsName + "'";
+        return (ArrayList<Product>) productsCrud.select(selectStatement);
     }
 
 }
