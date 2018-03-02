@@ -46,14 +46,14 @@ public class UserDao implements UsersDatabaseOperationInterface {
 
     @Override
     public boolean registerNewUser(User usrDataObj) {
-        String selectStatment = "insert into petusers (id,firstName,lastName,birthDate,password,job,email,address,creditLimit,creditNo) values ('" + usrDataObj.getId() + "' ,'" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' ,'" + usrDataObj.getBirthDate() + "' ,'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ,'" + usrDataObj.getCreditLimit() + "','" + usrDataObj.getCreditNo() + "')";
+        String selectStatment = "insert into petusers (userid,userfirstName,userlastName,userbirthDate,userpassword,userjob,useremail,useraddress,usercreditLimit,usercreditNo) values ('" + usrDataObj.getId() + "' ,'" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' ,'" + usrDataObj.getBirthDate() + "' ,'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ,'" + usrDataObj.getCreditLimit() + "','" + usrDataObj.getCreditNo() + "')";
 
         return usersCrud.insert(selectStatment);
     }
 
     @Override
     public boolean updateUser(User usrDataObj) {
-        String selectStatment = "update petusers set id='" + usrDataObj.getId() + "' ,firstName='" + usrDataObj.getFirstName() + "' ,lastName='" + usrDataObj.getLastName() + "' ,birthDate='" + usrDataObj.getBirthDate() + "' ,password='" + usrDataObj.getPassword() + "' ,job='" + usrDataObj.getJob() + "' ,email='" + usrDataObj.getEmail() + "' ,address='" + usrDataObj.getAddress() + "' ,creditLimit='" + usrDataObj.getCreditLimit() + "' ,creditNo='" + usrDataObj.getCreditNo() + "' where userid ='" + usrDataObj.getId() + "' ";
+        String selectStatment = "update petusers set userid='" + usrDataObj.getId() + "' ,userfirstName='" + usrDataObj.getFirstName() + "' ,userlastName='" + usrDataObj.getLastName() + "' ,userbirthDate='" + usrDataObj.getBirthDate() + "' ,userpassword='" + usrDataObj.getPassword() + "' ,userjob='" + usrDataObj.getJob() + "' ,useremail='" + usrDataObj.getEmail() + "' ,useraddress='" + usrDataObj.getAddress() + "' ,usercreditlimit='" + usrDataObj.getCreditLimit() + "' ,usercreditnumber='" + usrDataObj.getCreditNo() + "' where userid ='" + usrDataObj.getId() + "' ";
         return usersCrud.update(selectStatment);
     }
 
