@@ -5,9 +5,11 @@
  */
 package com.pettopia.view.controller;
 
+import com.pettopia.controller.HelperController;
 import com.pettopia.view.utilities.ValidationChecks;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,13 +23,45 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
+    private HelperController loginController;
+    private List<String> data;
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        if (checkValidation(email,password)) {
-            //  TODO calling db methods 
-            
+        PrintWriter out = response.getWriter();
+        if (checkValidation(email, password)) {
+            loginController = new HelperController();
+            if (loginController.login(email, password)) {
+
+                data = loginController.getUser(email);
+                if (data.get(3).equals(password)) {
+                    request.getSession(true).setAttribute("firstName", data.get(0));
+                    request.getSession().setAttribute("lastName", data.get(1));
+                    request.getSession().setAttribute("email", data.get(2));
+                    request.getSession().setAttribute("password", data.get(3));
+                    request.getSession().setAttribute("job", data.get(4));
+                    request.getSession().setAttribute("address", data.get(5));
+                    request.getSession().setAttribute("creditNo", data.get(6));
+                    request.getSession().setAttribute("creditLimit", data.get(7));
+                    request.getSession().setAttribute("birthdate", data.get(8));
+                    
+                    //TODO redirect user
+                    out.println("redirect user");
+                    
+                } else {
+                    //TODO return error message wrong pass
+                    out.println("wrong pass");
+                }
+                
+            } else {
+                //TODO return error message wrong email
+                out.println("wrong email");
+            }
+        } else {
+            //TODO return error validation message
+            out.println("rror validation message");
         }
     }
 
