@@ -14,7 +14,10 @@ import java.util.ArrayList;
  */
 public interface UsersDatabaseOperationInterface {
 
-    public ArrayList<User> selectUsers(String usrEmail);
+    public ArrayList<User> selectAllUsers(String usrEmail);
+    
+        public User selectUser(String usrEmail);
+
 
     public boolean registerNewUser(User usrDataObj);
 

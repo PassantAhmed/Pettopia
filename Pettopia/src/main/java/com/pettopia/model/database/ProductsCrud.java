@@ -83,7 +83,7 @@ public class ProductsCrud {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sqlStatment);
             while (rs.next()) {
-                productsList.add(new Product(rs.getString("productname"), rs.getDouble("productprice"), rs.getInt("productquantity"), rs.getString("productdescription"), rs.getString("category")));
+                productsList.add(new Product(rs.getInt("produuctid"),rs.getString("productname"), rs.getDouble("productprice"), rs.getInt("productquantity"), rs.getString("productdescription"), rs.getString("category")));
             }
 
         } catch (SQLException ex) {
@@ -93,4 +93,33 @@ public class ProductsCrud {
         return productsList;
     }
 
+    
+    
+    
+    
+    public Product select(String sqlStatment,String dontUse) {
+
+        Product produstObj= new Product();
+        try {
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlStatment);
+            while (rs.next()) {
+                produstObj.setId(rs.getInt("produuctid"));
+                produstObj.setName(rs.getString("productname"));
+                produstObj.setPrice(rs.getDouble("productprice"));
+                produstObj.setQuantity(rs.getInt("productquantity"));
+                produstObj.setCategory(rs.getString("category"));
+                produstObj.setDescription(rs.getString("productdescription"));
+           
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminsCrud.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return produstObj;
+    }
+
+    
+    
 }
