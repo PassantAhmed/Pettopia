@@ -28,7 +28,7 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
 
     @Override
     public ArrayList<Product> getAllProducts(){
-        String statement = "select * from petproducts";
+        String statement = "select * from petproducts where lower(sold_yn)='n'";
         return productsCrud.getAll(statement);
     }
     @Override

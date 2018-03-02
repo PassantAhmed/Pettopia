@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,7 +49,7 @@
                                         <li><a href="login.jsp"><i class="fa" aria-hidden="true"></i>Sign In</a></li>
                                         <li><a href="registration.jsp"><i class="fa" aria-hidden="true"></i>Register</a></li>
                                         <li><a href="#"><i class="fa" aria-hidden="true"></i>checkout</a></li>
-                                        <li><a href="products.html"><i class="fa" aria-hidden="true"></i>shop</a></li>
+                                        <li><a href="products"><i class="fa" aria-hidden="true"></i>shop</a></li>
                                         <li><a href="contact.html">contact us</a></li>
                                     </ul>
                                     <ul class="navbar_user">
@@ -88,7 +89,7 @@
                         <li class="menu_item"><a href="login.jsp">sign in</a></li>
                         <li class="menu_item"><a href="registration.jsp">register</a></li>
 
-                        <li class="menu_item"><a href="products.html">shop</a></li>
+                        <li class="menu_item"><a href="products">shop</a></li>
                         <li class="menu_item"><a href="#">checkout</a></li>
                         <li class="menu_item"><a href="contact.html">contact</a></li>
                     </ul>
@@ -102,21 +103,25 @@
                 <div class="container">
 
                     <br><br><br><br><br><br><br><br><br>
-
-                    <!-- Product 1 -->
-                    <div class="product-item men">
+                    <c:forEach items="${requestScope.products}" var="item">
+                        <div class="product-item men">
                         <div class="product discount product_filter">
                             <div class="product_image">
                                 <img src="images/product_1.png" alt="">
                             </div>
 
                             <div class="product_info">
-                                <h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
-                                <div class="product_price">$520.00</div>
+                                <h6 class="product_name"><a href="single.html">${item.name}</a></h6>
+                                <div class="product_price">$ ${item.price}</div>
                             </div>
                         </div>
                         <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
                     </div>
+                       
+                    </c:forEach>
+                     
+                    <!-- Product 1 -->
+                    
 
 
 

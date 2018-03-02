@@ -103,7 +103,7 @@ public class ProductsCrud {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sqlStatment);
             while (rs.next()) {
-                productsList.add(new Product(rs.getInt("produuctid"),rs.getString("productname"), rs.getDouble("productprice"), rs.getInt("productquantity"), rs.getString("productdescription"), rs.getString("category")));
+                productsList.add(new Product(rs.getInt("productid"),rs.getString("productname"), rs.getDouble("productprice"), rs.getString("sold_yn"), rs.getString("productdescription"), rs.getString("category")));
             }
 
         } catch (SQLException ex) {
@@ -124,10 +124,10 @@ public class ProductsCrud {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sqlStatment);
             while (rs.next()) {
-                produstObj.setId(rs.getInt("produuctid"));
+                produstObj.setId(rs.getInt("productid"));
                 produstObj.setName(rs.getString("productname"));
                 produstObj.setPrice(rs.getDouble("productprice"));
-                produstObj.setQuantity(rs.getInt("productquantity"));
+                produstObj.setQuantity(rs.getString("sold_yn"));
                 produstObj.setCategory(rs.getString("category"));
                 produstObj.setDescription(rs.getString("productdescription"));
            
