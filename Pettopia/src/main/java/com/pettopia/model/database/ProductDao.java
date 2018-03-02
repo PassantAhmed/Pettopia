@@ -27,6 +27,11 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
     }
 
     @Override
+    public ArrayList<Product> getAllProducts(){
+        String statement = "select * from petproducts";
+        return productsCrud.getAll(statement);
+    }
+    @Override
     public boolean insertProducts(Product productsInformations) {
 
         String strStatment = "insert into petproducts (productname,productprice,productquantity,productdescription,category) values ('" + productsInformations.getName() + "','" + productsInformations.getPrice() + "','" + productsInformations.getQuantity() + "','" + productsInformations.getDescription() + "','" + productsInformations.getCategory() + "')";

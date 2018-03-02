@@ -1,7 +1,14 @@
+<%-- 
+    Document   : products
+    Created on : Mar 2, 2018, 4:52:39 PM
+    Author     : khaled
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Colo Shop</title>
+        <title>pets offered</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Colo Shop Template">
@@ -146,7 +153,7 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>cach on delivery</h6>
+                        <h6>cash on delivery</h6>
                         <p>The Internet Tend To Repeat</p>
                     </div>
                 </div>
@@ -237,4 +244,3 @@
 <script src="js/custom.js"></script>
 </body>
 
-</html>

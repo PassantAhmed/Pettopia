@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 public interface ProductsDatabaseOperationInterface {
 
+    public ArrayList<Product> getAllProducts();
     public boolean insertProducts(Product productsInformations);
 
     public boolean updateProducts(Product productsInformations);
@@ -22,7 +23,7 @@ public interface ProductsDatabaseOperationInterface {
 
     public ArrayList<Product> selectProducts(String productsInformations);
     
-        public Product selectOneProduct(String productsInformations);
+    public Product selectOneProduct(String productsInformations);
 
 
 }

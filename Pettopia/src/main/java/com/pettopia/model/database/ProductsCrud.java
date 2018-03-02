@@ -36,6 +36,26 @@ public class ProductsCrud {
         }
     }
 
+    public ArrayList<Product> getAll(String statement){
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(statement); 
+            while(rs.next()){
+                int id = rs.getInt("productid");
+                String name = rs.getString("productname");
+                double price = rs.getDouble("productprice");
+                String isSold = rs.getString("sold_yn");
+                String description = rs.getString("productdescription");
+                String category = rs.getString("category");
+                products.add(new Product(id,name,price ,isSold , description, category));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersCrud.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+    
     public boolean insert(String sqlStatment) {
         try {
             stmt = conn.createStatement();
