@@ -37,20 +37,23 @@ public class AdminsCrud {
     /**
      * ************ select all admins the admin table ***********************
      */
-    public ArrayList<User> select(String strStatement) {
-        ArrayList<User> adminsList = new ArrayList<User>();
+    public boolean select(String strStatement) {
+        int count = 0;
         try {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(strStatement);
             while (rs.next()) {
-                adminsList.add(new User(rs.getString("adminemail"), rs.getString("adminpassword")));
+                count++;
             }
-
         } catch (SQLException ex) {
-            Logger.getLogger(AdminsCrud.class.getName()).log(Level.SEVERE, null, ex);
-
+            System.out.println("com.pettopia.model.database.UsersCrud.select()");
         }
-        return adminsList;
+        if (count == 0) {
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
     /**

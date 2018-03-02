@@ -73,7 +73,7 @@ public class UsersCrud {
         return true;
     }
 
-    public User select(String strStatement,String x) {
+    public User select(String strStatement, String x) {
         User usr = new User();
         try {
             stmt = conn.createStatement();
@@ -100,18 +100,15 @@ public class UsersCrud {
         return usr;
     }
 
-    
-    
     public ArrayList<User> select(String strStatement) {
-            ArrayList<User> usersList= new  ArrayList<>();
+        ArrayList<User> usersList = new ArrayList<>();
 
         try {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(strStatement);
             while (rs.next()) {
-                usersList.add(new User(rs.getInt("userid"),rs.getString("userfname"),rs.getString("userlname"),rs.getDate("userbirthdate").toLocalDate(),rs.getString("userpassword"),rs.getString("userjob"),rs.getString("useremail"), rs.getString("useraddress"),rs.getInt("usercreditnumber"),rs.getInt("usercreditlimit")));
-                
-      
+                usersList.add(new User(rs.getInt("userid"), rs.getString("userfname"), rs.getString("userlname"), rs.getDate("userbirthdate").toLocalDate(), rs.getString("userpassword"), rs.getString("userjob"), rs.getString("useremail"), rs.getString("useraddress"), rs.getInt("usercreditnumber"), rs.getInt("usercreditlimit")));
+
             }
 
         } catch (SQLException ex) {
@@ -120,6 +117,25 @@ public class UsersCrud {
         }
         return usersList;
     }
-    
-    
+
+    public boolean select(String strStatement, String DontCare, String DontCare2) {
+        int count = 0;
+        try {
+
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(strStatement);
+            while (rs.next()) {
+                count++;
+            }
+        } catch (SQLException ex) {
+            System.out.println("com.pettopia.model.database.UsersCrud.select()");
+        }
+        if (count == 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
 }

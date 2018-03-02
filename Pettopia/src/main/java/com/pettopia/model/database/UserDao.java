@@ -33,6 +33,14 @@ public class UserDao implements UsersDatabaseOperationInterface {
         return  usersCrud.select(selectStatement,"onlyone");
 
     }
+
+    @Override
+    public boolean isUserExist(String usrEmail) {
+   String selectStatement = "select  * from petusers where  useremail= '" + usrEmail + "'";
+        return  usersCrud.select(selectStatement,"","");
+    }
+    
+    
     
     
 

@@ -18,7 +18,7 @@ public class AdminDao implements AdminsDatabaseOperationInterface {
     AdminsCrud adminCrud = new AdminsCrud();
 
     @Override
-    public ArrayList<User> isExisAsAdmin(User adminEmail) {
+    public boolean isExisAsAdmin(User adminEmail) {
         String statm = "select * from petadmin where adminemail='" + adminEmail + "'";
         return adminCrud.select(statm);
 

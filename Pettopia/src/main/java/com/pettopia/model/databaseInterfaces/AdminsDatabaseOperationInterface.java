@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public interface AdminsDatabaseOperationInterface {
 
-    public ArrayList<User> isExisAsAdmin(User adminEmail);
+    boolean  isExisAsAdmin(User adminEmail);
 
     public boolean addNewAdmin(String adminEmail, String adminPassword);
 

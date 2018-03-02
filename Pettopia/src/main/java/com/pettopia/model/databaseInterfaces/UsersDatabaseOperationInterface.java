@@ -22,5 +22,7 @@ public interface UsersDatabaseOperationInterface {
     public boolean registerNewUser(User usrDataObj);
 
     public boolean updateUser(User usrDataObj);
+    
+    public boolean isUserExist(String usrEmail);
 
 }
