@@ -12,6 +12,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+
+
+        <form action="../AdminLoginServlet" method="POST">
+            <input type="text" name="usr" placeholder="Enter Your Password" />
+            <input type="password" name="pass" placeholder="Enter Your Password"/>
+            <input type="submit" value="Login"/>
+
+        </form>
+
+
     </body>
 </html>
