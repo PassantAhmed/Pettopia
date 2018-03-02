@@ -49,7 +49,17 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
     @Override
     public ArrayList<Product> selectProducts(String productsName) {
         String selectStatement = "select  * from petusers where  useremail= '" + productsName + "'";
-        return (ArrayList<Product>) productsCrud.select(selectStatement);
+        return productsCrud.select(selectStatement);
     }
+
+    @Override
+    public Product selectOneProduct(String productsName) {
+        
+         String selectStatement = "select  * from petusers where  useremail= '" + productsName + "'";
+        return productsCrud.select(selectStatement,"one");
+
+    }
+    
+    
 
 }

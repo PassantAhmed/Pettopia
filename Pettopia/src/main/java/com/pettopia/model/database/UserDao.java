@@ -22,10 +22,19 @@ public class UserDao implements UsersDatabaseOperationInterface {
     }
 
     @Override
-    public ArrayList<User> selectUsers(String usrEmail) {
+    public ArrayList<User> selectAllUsers(String usrEmail) {
         String selectStatement = "select  * from petusers where  useremail= '" + usrEmail + "'";
-        return (ArrayList<User>) usersCrud.select(selectStatement);
+        return  usersCrud.select(selectStatement);
     }
+
+    @Override
+    public User selectUser(String usrEmail) {
+ String selectStatement = "select  * from petusers where  useremail= '" + usrEmail + "'";
+        return  usersCrud.select(selectStatement,"onlyone");
+
+    }
+    
+    
 
     @Override
     public boolean registerNewUser(User usrDataObj) {

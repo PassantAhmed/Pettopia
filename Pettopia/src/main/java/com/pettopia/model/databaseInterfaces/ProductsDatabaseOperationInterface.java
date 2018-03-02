@@ -21,5 +21,8 @@ public interface ProductsDatabaseOperationInterface {
     public boolean deleteProducts(Product productsInformations);
 
     public ArrayList<Product> selectProducts(String productsInformations);
+    
+        public Product selectOneProduct(String productsInformations);
+
 
 }
