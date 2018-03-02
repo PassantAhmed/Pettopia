@@ -9,6 +9,7 @@
 <html>
     <head>
         <title>Login Page</title>
+        <link rel="icon" href="styles/imgs/pettopialogo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
@@ -37,6 +38,7 @@
                         <div class="row">
                             <div class="col-lg-12 text-right">
                                 <div class="logo_container">
+                                    <img src="styles/imgs/pettopialogo.png" style="width: 40px; height: 35px; margin-bottom: 10px;" />
                                     <a href="index.html">PeT<span>topia</span></a>
                                 </div>
                                 <nav class="navbar">
@@ -95,7 +97,7 @@
                     <div class="row align-items-center fill_height">
                         <div class="col-lg-12 ">
                             <center>
-                            <div class="login">
+                                <div class="login">
                                     <div class="login-top">
                                         <form action="LoginServlet" method="POST">
                                             <table class="loginTable">
@@ -120,7 +122,7 @@
                                         </h4>
                                     </div>
                                 </div>
-                                </center>
+                            </center>
                         </div>
                     </div>
                 </div>
@@ -158,6 +160,6 @@
             </footer>
 
         </div>
-        
+
     </body>
 </html>

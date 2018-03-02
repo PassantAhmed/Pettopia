@@ -10,6 +10,7 @@
 <html lang="en">
     <head>
         <title>pets offered</title>
+        <link rel="icon" href="styles/imgs/pettopialogo.png" />
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Colo Shop Template">
@@ -41,6 +42,7 @@
                         <div class="row">
                             <div class="col-lg-12 text-right">
                                 <div class="logo_container">
+                                    <img src="styles/imgs/pettopialogo.png" style="width: 40px; height: 35px; margin-bottom: 10px;" />
                                     <a href="#">pet<span>topia</span></a>
                                 </div>
                                 <nav class="navbar">
@@ -105,23 +107,23 @@
                     <br><br><br><br><br><br><br><br><br>
                     <c:forEach items="${requestScope.products}" var="item">
                         <div class="product-item men">
-                        <div class="product discount product_filter">
-                            <div class="product_image">
-                                <img src="images/product_1.png" alt="">
-                            </div>
+                            <div class="product discount product_filter">
+                                <div class="product_image">
+                                    <img src="images/product_1.png" alt="">
+                                </div>
 
-                            <div class="product_info">
-                                <h6 class="product_name"><a href="single.html">${item.name}</a></h6>
-                                <div class="product_price">$ ${item.price}</div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="single.html">${item.name}</a></h6>
+                                    <div class="product_price">$ ${item.price}</div>
+                                </div>
                             </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
                         </div>
-                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                    </div>
-                       
+
                     </c:forEach>
-                     
+
                     <!-- Product 1 -->
-                    
+
 
 
 
