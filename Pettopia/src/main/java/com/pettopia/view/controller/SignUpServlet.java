@@ -53,7 +53,8 @@ public class SignUpServlet extends HttpServlet {
                 request.setAttribute("errorMessage", "User Exits, Please enter different email address");
             }
         } else{
-            request.setAttribute("errorMessage", "Please make sure that your data is valid");
+            request.setAttribute("errorMessage", "Please make sure that your data is valid, Name must not contain special characters or numbers."
+                    + "<br/>2. Password must be 8 to 30 digits. & Age must be +18, Also make sure that you've entered valid credit number and valid credit limit.");
         }
         request.getRequestDispatcher("registration.jsp").forward(request, response);
     }
