@@ -47,13 +47,14 @@ public class UserDao implements UsersDatabaseOperationInterface {
 
     @Override
     public boolean registerNewUser(User usrDataObj) {
-        String selectStatment = "insert into petusers (userfName,userlName,userbirthDate,userpassword,userjob,useremail,useraddress,usercreditLimit,usercreditNumber) values ('" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' ,'" + java.sql.Date.valueOf(usrDataObj.getBirthDate()) + "' ,'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ," + usrDataObj.getCreditLimit() + "," + usrDataObj.getCreditNo() + ")";
+        System.out.println(String.valueOf(java.sql.Date.valueOf(usrDataObj.getBirthDate())));
+        String selectStatment = "insert into petusers (userfName,userlName,userbirthDate,userpassword,userjob,useremail,useraddress,usercreditLimit,usercreditNumber) values ('" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' , TO_DATE('"+usrDataObj.getBirthDate()+"','YYYY-MM-DD'),'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ," + usrDataObj.getCreditLimit() + "," + usrDataObj.getCreditNo() + ")";
         return usersCrud.insert(selectStatment);
     }
 
     @Override
     public boolean updateUser(User usrDataObj) {
-        String selectStatment = "update petusers set userid='" + usrDataObj.getId() + "' ,userfName='" + usrDataObj.getFirstName() + "' ,userlName='" + usrDataObj.getLastName() + "' ,userbirthDate='" + java.sql.Date.valueOf(usrDataObj.getBirthDate()) + "' ,userpassword='" + usrDataObj.getPassword() + "' ,userjob='" + usrDataObj.getJob() + "' ,useremail='" + usrDataObj.getEmail() + "' ,useraddress='" + usrDataObj.getAddress() + "' ,usercreditlimit=" + usrDataObj.getCreditLimit() + " ,usercreditnumber=" + usrDataObj.getCreditNo() + " where userid =" + usrDataObj.getId();
+        String selectStatment = "update petusers set userid='" + usrDataObj.getId() + "' ,userfName='" + usrDataObj.getFirstName() + "' ,userlName='" + usrDataObj.getLastName() + "' ,userbirthDate= TO_DATE('"+usrDataObj.getBirthDate()+"','YYYY-MM-DD'), userpassword='" + usrDataObj.getPassword() + "' ,userjob='" + usrDataObj.getJob() + "' ,useremail='" + usrDataObj.getEmail() + "' ,useraddress='" + usrDataObj.getAddress() + "' ,usercreditlimit=" + usrDataObj.getCreditLimit() + " ,usercreditnumber='" + usrDataObj.getCreditNo() + "' where userid ='" + usrDataObj.getId()+"'";
         return usersCrud.update(selectStatment);
     }
 

@@ -26,15 +26,15 @@ public class HelperController {
     }
 
     public void setUser(List<String> data) {
-        user = new User();
+
         user.setFirstName(data.get(0));
         user.setLastName(data.get(1));
         user.setEmail(data.get(2));
         user.setPassword(data.get(3));
         user.setJob(data.get(4));
         user.setAddress(data.get(5));
-        user.setCreditNo(Integer.parseInt(data.get(6)));
-        user.setCreditLimit(Integer.parseInt(data.get(7)));
+        user.setCreditNo(Long.parseLong(data.get(6)));
+        user.setCreditLimit(Long.parseLong(data.get(7)));
         user.setBirthDate(LocalDate.parse(data.get(8)));
     }
 
@@ -59,7 +59,6 @@ public class HelperController {
         if (!userDao.isUserExist(userData.get(2))) {
             setUser(userData);
             if (userDao.registerNewUser(user)) {
-                System.out.println("HHH");
                 isRegistered = true;
             }
         }
@@ -69,9 +68,7 @@ public class HelperController {
     public boolean login(String email, String pass) {
         boolean isLoggedIn = false;
         if (userDao.isUserExist(email)) {
-            System.out.println("HELO");
             user = userDao.selectUser(email);
-            System.out.println("HELOOO");
             isLoggedIn = true;
         }
         return isLoggedIn;
