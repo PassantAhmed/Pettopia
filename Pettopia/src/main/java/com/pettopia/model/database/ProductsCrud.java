@@ -36,6 +36,26 @@ public class ProductsCrud {
         }
     }
 
+    public ArrayList<Product> getAll(String statement){
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(statement); 
+            while(rs.next()){
+                int id = rs.getInt("productid");
+                String name = rs.getString("productname");
+                double price = rs.getDouble("productprice");
+                String isSold = rs.getString("sold_yn");
+                String description = rs.getString("productdescription");
+                String category = rs.getString("category");
+                products.add(new Product(id,name,price ,isSold , description, category));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersCrud.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+    
     public boolean insert(String sqlStatment) {
         try {
             stmt = conn.createStatement();
@@ -83,7 +103,7 @@ public class ProductsCrud {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sqlStatment);
             while (rs.next()) {
-                productsList.add(new Product(rs.getInt("produuctid"),rs.getString("productname"), rs.getDouble("productprice"), rs.getInt("productquantity"), rs.getString("productdescription"), rs.getString("category")));
+                productsList.add(new Product(rs.getInt("productid"),rs.getString("productname"), rs.getDouble("productprice"), rs.getString("sold_yn"), rs.getString("productdescription"), rs.getString("category")));
             }
 
         } catch (SQLException ex) {
@@ -104,10 +124,10 @@ public class ProductsCrud {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sqlStatment);
             while (rs.next()) {
-                produstObj.setId(rs.getInt("produuctid"));
+                produstObj.setId(rs.getInt("productid"));
                 produstObj.setName(rs.getString("productname"));
                 produstObj.setPrice(rs.getDouble("productprice"));
-                produstObj.setQuantity(rs.getInt("productquantity"));
+                produstObj.setQuantity(rs.getString("sold_yn"));
                 produstObj.setCategory(rs.getString("category"));
                 produstObj.setDescription(rs.getString("productdescription"));
            
