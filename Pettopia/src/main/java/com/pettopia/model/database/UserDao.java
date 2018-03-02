@@ -7,6 +7,7 @@ package com.pettopia.model.database;
 
 import com.pettopia.model.bean.User;
 import com.pettopia.model.databaseInterfaces.UsersDatabaseOperationInterface;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -36,7 +37,7 @@ public class UserDao implements UsersDatabaseOperationInterface {
 
     @Override
     public boolean isUserExist(String usrEmail) {
-   String selectStatement = "select  * from petusers where  useremail= '" + usrEmail + "'";
+   String selectStatement = "select userid, userfirstName, userlastName, userbirthDate, userpassword, userjob, useremail, useraddress, usercreditLimit, usercreditNo from petusers where  useremail= '" + usrEmail + "'";
         return  usersCrud.select(selectStatement,"","");
     }
     
@@ -46,7 +47,7 @@ public class UserDao implements UsersDatabaseOperationInterface {
 
     @Override
     public boolean registerNewUser(User usrDataObj) {
-        String selectStatment = "insert into petusers (userid,userfirstName,userlastName,userbirthDate,userpassword,userjob,useremail,useraddress,usercreditLimit,usercreditNo) values ('" + usrDataObj.getId() + "' ,'" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' ,'" + usrDataObj.getBirthDate() + "' ,'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ,'" + usrDataObj.getCreditLimit() + "','" + usrDataObj.getCreditNo() + "')";
+        String selectStatment = "insert into petusers (userfirstName,userlastName,userbirthDate,userpassword,userjob,useremail,useraddress,usercreditLimit,usercreditNo) values ('" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' ,'" + java.sql.Date.valueOf(usrDataObj.getBirthDate()) + "' ,'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ," + usrDataObj.getCreditLimit() + "," + usrDataObj.getCreditNo() + ")";
 
         return usersCrud.insert(selectStatment);
     }

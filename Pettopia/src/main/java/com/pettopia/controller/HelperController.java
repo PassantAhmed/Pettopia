@@ -55,9 +55,11 @@ public class HelperController {
 
     public boolean register(List<String> userData) {
         boolean isRegistered = false;
-        if (userDao.isUserExist(userData.get(2))) {
+        if (!userDao.isUserExist(userData.get(2))) {
+            System.out.println("HH");
             setUser(userData);
             if (userDao.registerNewUser(user)) {
+                 System.out.println("HHH");
                 isRegistered = true;
             }
         }
@@ -67,7 +69,9 @@ public class HelperController {
     public boolean login(String email, String pass) {
         boolean isLoggedIn = false;
         if (userDao.isUserExist(email)) {
+            System.out.println("HELO");
             user = userDao.selectUser(email);
+            System.out.println("HELOOO");
             isLoggedIn = true;
         }
         return isLoggedIn;
