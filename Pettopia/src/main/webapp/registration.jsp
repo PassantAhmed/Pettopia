@@ -134,6 +134,7 @@
                                                     <td class="inputs"><input type="text" name="job" class="reginputFields" required="true" size="34" tabindex="13"/></td>
                                                 </tr>
                                             </table>
+                                            <div style="color: #FF0000;">${errorMessage}</div>
                                             <button class="loginBtn">Sign Up</button>
                                         </form>
                                     </div>

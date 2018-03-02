@@ -47,22 +47,19 @@ public class LoginServlet extends HttpServlet {
                     request.getSession().setAttribute("creditLimit", data.get(7));
                     request.getSession().setAttribute("birthdate", data.get(8));
                     
-                    //TODO redirect user
-                    out.println("redirect user");
+                    response.sendRedirect("index.html");
                     
                 } else {
-                    //TODO return error message wrong pass
-                    out.println("wrong pass");
+                    request.setAttribute("errorMessage", "Wrong password, Please enter correct password");
                 }
                 
             } else {
-                //TODO return error message wrong email
-                out.println("wrong email");
+                request.setAttribute("errorMessage", "Wrong E-mail Address, Please enter correct email");
             }
         } else {
-            //TODO return error validation message
-            out.println("rror validation message");
+            request.setAttribute("errorMessage", "Please make sure that your data is valid");
         }
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     private boolean checkValidation(String email, String pass) {

@@ -47,17 +47,15 @@ public class SignUpServlet extends HttpServlet {
         if (checkValidation(data)) {
             if(regController.register(data)){
                 
-                // TODO Redirect to page
-                out.println("Redirect to page");
+                response.sendRedirect("login.jsp");
                 
             } else{
-                //TODO returning error existing user
-                out.println("error existing user");
+                request.setAttribute("errorMessage", "User Exits, Please enter different email address");
             }
         } else{
-            //TODO returning error validation message
-            out.println("error validation message");
+            request.setAttribute("errorMessage", "Please make sure that your data is valid");
         }
+        request.getRequestDispatcher("registration.jsp").forward(request, response);
     }
 
     private boolean checkValidation(List<String> data) {

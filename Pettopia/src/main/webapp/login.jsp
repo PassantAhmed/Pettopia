@@ -109,6 +109,7 @@
                                                     <td class="inputs"><input type="password" name="password" required="true" size="40" class="inputFields" /></td>
                                                 </tr>
                                             </table>
+                                            <div style="color: #FF0000;">${errorMessage}</div>
                                             <button class="loginBtn">Login</button>
                                         </form>
                                     </div>
