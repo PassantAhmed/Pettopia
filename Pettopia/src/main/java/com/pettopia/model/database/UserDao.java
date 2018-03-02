@@ -48,7 +48,6 @@ public class UserDao implements UsersDatabaseOperationInterface {
     @Override
     public boolean registerNewUser(User usrDataObj) {
         String selectStatment = "insert into petusers (userfirstName,userlastName,userbirthDate,userpassword,userjob,useremail,useraddress,usercreditLimit,usercreditNo) values ('" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' ,'" + java.sql.Date.valueOf(usrDataObj.getBirthDate()) + "' ,'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ," + usrDataObj.getCreditLimit() + "," + usrDataObj.getCreditNo() + ")";
-
         return usersCrud.insert(selectStatment);
     }
 
