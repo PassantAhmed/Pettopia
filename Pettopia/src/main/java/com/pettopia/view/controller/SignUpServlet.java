@@ -9,6 +9,7 @@ import com.pettopia.model.bean.User;
 import com.pettopia.view.utilities.ValidationChecks;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +27,7 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         user = new User();
         user.setFirstName(request.getParameter("firstName"));
         user.setLastName(request.getParameter("lastName"));
@@ -35,7 +37,8 @@ public class SignUpServlet extends HttpServlet {
         user.setAddress(request.getParameter("address"));
         user.setCreditNo(request.getParameter("creditNo1") + request.getParameter("creditNo2") + request.getParameter("creditNo3") + request.getParameter("creditNo4"));
         user.setCreditLimit(request.getParameter("creditLimit"));
-        //user.setBirthDate(request.getParameter("birthdate"));
+        user.setBirthDate(LocalDate.parse(request.getParameter("birthdate")));
+        
         if (checkValidation(user, request.getParameter("rePassword"))) {
             //  TODO calling db methods 
         }
@@ -46,7 +49,7 @@ public class SignUpServlet extends HttpServlet {
         ValidationChecks check = new ValidationChecks();
         if (check.isName(user.getFirstName()) && check.isName(user.getLastName())
                 && check.isEmail(user.getEmail()) && check.isValidPassword(user.getPassword())
-                && /*check.isLegalAged(user.getBirthDate()) && */ !check.isEmptyString(user.getAddress())
+                && check.isLegalAged(user.getBirthDate()) && !check.isEmptyString(user.getAddress())
                 && check.isMatchPassword(user.getPassword(), rePass) && !check.isEmptyString(user.getJob())
                 && check.isValidCreditLimit(user.getCreditLimit()) && check.isValidCreditNo(user.getCreditNo())) {
             isValidate = true;
