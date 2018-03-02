@@ -36,13 +36,13 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
     @Override
     public boolean updateProducts(Product productsInformations) {
 
-        String strStatment = "update petproducts set productname='" + productsInformations.getName() + "',productprice='" + productsInformations.getPrice() + "',productquantity='" + productsInformations.getQuantity() + "',productdescription='" + productsInformations.getDescription() + "',category='" + productsInformations.getCategory() + "' where produuctid='" + productsInformations.getId() + "')";
+        String strStatment = "update petproducts set productname='" + productsInformations.getName() + "',productprice='" + productsInformations.getPrice() + "',productquantity='" + productsInformations.getQuantity() + "',productdescription='" + productsInformations.getDescription() + "',category='" + productsInformations.getCategory() + "' where productid='" + productsInformations.getId() + "')";
         return productsCrud.update(strStatment);
     }
 
     @Override
     public boolean deleteProducts(Product productsInformations) {
-        String strStatment = "delete * from petproducts where produuctid ='" + productsInformations.getId() + "' ";
+        String strStatment = "delete  from petproducts where productid ='" + productsInformations.getId() + "' ";
         return productsCrud.update(strStatment);
     }
 
