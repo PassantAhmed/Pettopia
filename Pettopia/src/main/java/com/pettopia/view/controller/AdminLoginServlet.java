@@ -63,9 +63,6 @@ public class AdminLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        AdminsDatabaseOperationInterface adminsDatabses = new AdminDao();        
-        adminsDatabses.addNewAdmin(request.getParameter("usr"), request.getParameter("pass"));
-                
     }
 
     /**
