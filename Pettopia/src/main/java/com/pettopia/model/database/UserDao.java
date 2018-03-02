@@ -53,7 +53,7 @@ public class UserDao implements UsersDatabaseOperationInterface {
 
     @Override
     public boolean updateUser(User usrDataObj) {
-        String selectStatment = "update petusers set userid='" + usrDataObj.getId() + "' ,userfirstName='" + usrDataObj.getFirstName() + "' ,userlastName='" + usrDataObj.getLastName() + "' ,userbirthDate='" + usrDataObj.getBirthDate() + "' ,userpassword='" + usrDataObj.getPassword() + "' ,userjob='" + usrDataObj.getJob() + "' ,useremail='" + usrDataObj.getEmail() + "' ,useraddress='" + usrDataObj.getAddress() + "' ,usercreditlimit='" + usrDataObj.getCreditLimit() + "' ,usercreditnumber='" + usrDataObj.getCreditNo() + "' where userid ='" + usrDataObj.getId() + "' ";
+        String selectStatment = "update petusers set userid='" + usrDataObj.getId() + "' ,userfirstName='" + usrDataObj.getFirstName() + "' ,userlastName='" + usrDataObj.getLastName() + "' ,userbirthDate='" + java.sql.Date.valueOf(usrDataObj.getBirthDate()) + "' ,userpassword='" + usrDataObj.getPassword() + "' ,userjob='" + usrDataObj.getJob() + "' ,useremail='" + usrDataObj.getEmail() + "' ,useraddress='" + usrDataObj.getAddress() + "' ,usercreditlimit=" + usrDataObj.getCreditLimit() + " ,usercreditnumber=" + usrDataObj.getCreditNo() + " where userid =" + usrDataObj.getId();
         return usersCrud.update(selectStatment);
     }
 
