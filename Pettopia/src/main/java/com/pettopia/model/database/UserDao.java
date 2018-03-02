@@ -37,7 +37,7 @@ public class UserDao implements UsersDatabaseOperationInterface {
 
     @Override
     public boolean isUserExist(String usrEmail) {
-   String selectStatement = "select userid, userfirstName, userlastName, userbirthDate, userpassword, userjob, useremail, useraddress, usercreditLimit, usercreditNo from petusers where  useremail= '" + usrEmail + "'";
+   String selectStatement = "select userid, userfName, userlName, userbirthDate, userpassword, userjob, useremail, useraddress, usercreditLimit, usercreditNo from petusers where  useremail= '" + usrEmail + "'";
         return  usersCrud.select(selectStatement,"","");
     }
     
@@ -47,13 +47,13 @@ public class UserDao implements UsersDatabaseOperationInterface {
 
     @Override
     public boolean registerNewUser(User usrDataObj) {
-        String selectStatment = "insert into petusers (userfirstName,userlastName,userbirthDate,userpassword,userjob,useremail,useraddress,usercreditLimit,usercreditNo) values ('" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' ,'" + java.sql.Date.valueOf(usrDataObj.getBirthDate()) + "' ,'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ," + usrDataObj.getCreditLimit() + "," + usrDataObj.getCreditNo() + ")";
+        String selectStatment = "insert into petusers (userfName,userlName,userbirthDate,userpassword,userjob,useremail,useraddress,usercreditLimit,usercreditNo) values ('" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' ,'" + java.sql.Date.valueOf(usrDataObj.getBirthDate()) + "' ,'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ," + usrDataObj.getCreditLimit() + "," + usrDataObj.getCreditNo() + ")";
         return usersCrud.insert(selectStatment);
     }
 
     @Override
     public boolean updateUser(User usrDataObj) {
-        String selectStatment = "update petusers set userid='" + usrDataObj.getId() + "' ,userfirstName='" + usrDataObj.getFirstName() + "' ,userlastName='" + usrDataObj.getLastName() + "' ,userbirthDate='" + java.sql.Date.valueOf(usrDataObj.getBirthDate()) + "' ,userpassword='" + usrDataObj.getPassword() + "' ,userjob='" + usrDataObj.getJob() + "' ,useremail='" + usrDataObj.getEmail() + "' ,useraddress='" + usrDataObj.getAddress() + "' ,usercreditlimit=" + usrDataObj.getCreditLimit() + " ,usercreditnumber=" + usrDataObj.getCreditNo() + " where userid =" + usrDataObj.getId();
+        String selectStatment = "update petusers set userid='" + usrDataObj.getId() + "' ,userfName='" + usrDataObj.getFirstName() + "' ,userlName='" + usrDataObj.getLastName() + "' ,userbirthDate='" + java.sql.Date.valueOf(usrDataObj.getBirthDate()) + "' ,userpassword='" + usrDataObj.getPassword() + "' ,userjob='" + usrDataObj.getJob() + "' ,useremail='" + usrDataObj.getEmail() + "' ,useraddress='" + usrDataObj.getAddress() + "' ,usercreditlimit=" + usrDataObj.getCreditLimit() + " ,usercreditnumber=" + usrDataObj.getCreditNo() + " where userid =" + usrDataObj.getId();
         return usersCrud.update(selectStatment);
     }
 

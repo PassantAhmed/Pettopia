@@ -26,20 +26,21 @@ public class HelperController {
     }
 
     public void setUser(List<String> data) {
+        user = new User();
         user.setFirstName(data.get(0));
         user.setLastName(data.get(1));
         user.setEmail(data.get(2));
         user.setPassword(data.get(3));
         user.setJob(data.get(4));
         user.setAddress(data.get(5));
-        user.setCreditNo(Integer.getInteger(data.get(6)));
-        user.setCreditLimit(Integer.getInteger(data.get(7)));
+        user.setCreditNo(Integer.parseInt(data.get(6)));
+        user.setCreditLimit(Integer.parseInt(data.get(7)));
         user.setBirthDate(LocalDate.parse(data.get(8)));
     }
 
     public List<String> getUser(String email) {
         List<String> data = new ArrayList<>();
-        
+
         data.add(user.getFirstName());
         data.add(user.getLastName());
         data.add(user.getEmail());
@@ -49,17 +50,16 @@ public class HelperController {
         data.add(String.valueOf(user.getCreditNo()));
         data.add(String.valueOf(user.getCreditLimit()));
         data.add(user.getBirthDate().toString());
-        
+
         return data;
     }
 
     public boolean register(List<String> userData) {
         boolean isRegistered = false;
         if (!userDao.isUserExist(userData.get(2))) {
-            System.out.println("HH");
             setUser(userData);
             if (userDao.registerNewUser(user)) {
-                 System.out.println("HHH");
+                System.out.println("HHH");
                 isRegistered = true;
             }
         }
