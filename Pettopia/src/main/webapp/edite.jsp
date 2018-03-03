@@ -7,7 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ page import="com.pettopia.model.bean.User" %>
-<!DOCTYPE html>
+
+
 <html lang="en">
     <%--<%@page session="false" %>--%>
 
@@ -105,7 +106,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="firstname">First Name</label>
-                                <input type="text" class="form-control" id="firstname" value="${sessionScope.User.firstName}">
+                                <input type="text" class="form-control" name="firstname" value="${sessionScope.firstName}">
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -113,7 +114,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="lastname">Last Name</label>
-                                <input type="text" class="form-control" id="lastname" value="${sessionScope.User.lastName}">
+                                <input type="text" class="form-control" name="lastname" value="${sessionScope.lastName}">
                             </div>
                         </div>
 
@@ -123,7 +124,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" id="password">
+                                <input type="text" class="form-control" name="password" value="${sessionScope.password}">
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -131,7 +132,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="birthdate">Birth Date</label>
-                                <input type="date" class="form-control" id="birthdate" value="${sessionScope.User.birthDate}">
+                                <input type="date" class="form-control" name="birthdate" value="${sessionScope.birthdate}">
                             </div>
                         </div>
                     </div>
@@ -140,7 +141,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="address">Address</label>
-                                <input type="text" class="form-control" id="address" value="${sessionScope.User.address}">
+                                <input type="text" class="form-control" name="address" value="${sessionScope.address}">
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -148,7 +149,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="job">Job</label>
-                                <input type="text" class="form-control" id="job" value="${sessionScope.User.job}">
+                                <input type="text" class="form-control" name="job" value="${sessionScope.job}">
                             </div>
                         </div>
                     </div>
@@ -157,7 +158,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" value="${sessionScope.User.email}" disabled>
+                                <input type="email" class="form-control" name="email" value="${sessionScope.email}" disabled>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -165,7 +166,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="limit">Credit limit</label>
-                                <input type="number" class="form-control" id="limit" value="${sessionScope.User.creditLimit}">
+                                <input type="number" class="form-control" name="limit" value="${sessionScope.creditLimit}">
                             </div>
                         </div>
                     </div>
@@ -173,7 +174,7 @@
                         <div class="col-sm-12 text-center">
                             <div class="form-group">
                                 <label for="creditNo">Credit Number</label>
-                                <input type="number" class="form-control" id="creditNo" value="${sessionScope.User.creditNo}">
+                                <input type="number" class="form-control" name="creditNo" value="${sessionScope.creditNo}">
                             </div>
                         </div>
                     </div>

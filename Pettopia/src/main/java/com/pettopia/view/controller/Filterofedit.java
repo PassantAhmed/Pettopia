@@ -16,6 +16,10 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 /**
  *
@@ -100,36 +104,15 @@ public class Filterofedit implements Filter {
             FilterChain chain)
             throws IOException, ServletException {
         
-        if (debug) {
-            log("Filterofedit:doFilter()");
-        }
-        
-        doBeforeProcessing(request, response);
-        
-        Throwable problem = null;
-        try {
-            chain.doFilter(request, response);
-        } catch (Throwable t) {
-            // If an exception is thrown somewhere down the filter chain,
-            // we still want to execute our after processing, and then
-            // rethrow the problem after that.
-            problem = t;
-            t.printStackTrace();
-        }
-        
-        doAfterProcessing(request, response);
-
-        // If there was a problem, we want to rethrow it if it is
-        // a known type, otherwise log it.
-        if (problem != null) {
-            if (problem instanceof ServletException) {
-                throw (ServletException) problem;
-            }
-            if (problem instanceof IOException) {
-                throw (IOException) problem;
-            }
-            sendProcessingError(problem, response);
-        }
+             HttpServletRequest req = (HttpServletRequest) request;
+             if(req.getSession(false)==null){
+                  HttpServletResponse resp = (HttpServletResponse) response;
+                resp.sendRedirect("login.jsp");
+             }
+             else
+            //response.sendRedirect("edite.jsp");
+                  request.getRequestDispatcher("edite.jsp").forward(request, response);
+       
     }
 
     /**
@@ -157,13 +140,9 @@ public class Filterofedit implements Filter {
     /**
      * Init method for this filter
      */
-    public void init(FilterConfig filterConfig) {        
-        this.filterConfig = filterConfig;
-        if (filterConfig != null) {
-            if (debug) {                
-                log("Filterofedit:Initializing filter");
-            }
-        }
+    public void init(FilterConfig fc) {        
+          System.out.println("editefilter initialized");
+        filterConfig = fc;
     }
 
     /**
@@ -227,5 +206,7 @@ public class Filterofedit implements Filter {
     public void log(String msg) {
         filterConfig.getServletContext().log(msg);        
     }
+
+    
     
 }
