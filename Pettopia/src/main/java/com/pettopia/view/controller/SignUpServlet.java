@@ -38,7 +38,7 @@ public class SignUpServlet extends HttpServlet {
         data.add(request.getParameter("email"));
         data.add(request.getParameter("password"));
         data.add(request.getParameter("job"));
-        data.add(request.getParameter("address"));
+        data.add(request.getParameter("address")); 
         data.add(request.getParameter("creditNo1") + request.getParameter("creditNo2") + request.getParameter("creditNo3") + request.getParameter("creditNo4"));
         data.add(request.getParameter("creditLimit"));
         data.add(request.getParameter("birthdate"));
