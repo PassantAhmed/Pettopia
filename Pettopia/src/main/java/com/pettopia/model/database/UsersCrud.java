@@ -73,13 +73,42 @@ public class UsersCrud {
         return true;
     }
 
-    public ArrayList<User> select(String strStatement) {
-        ArrayList<User> usersList = new ArrayList<User>();
+    public User select(String strStatement, String x) {
+        User usr = new User();
         try {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(strStatement);
             while (rs.next()) {
-                usersList.add(new User(rs.getString("adminemail"), rs.getString("adminpassword")));
+                usr.setId(rs.getInt("userid"));
+                usr.setFirstName(rs.getString("userfname"));
+                usr.setLastName(rs.getString("userlname"));
+                usr.setBirthDate(rs.getDate("userbirthdate").toLocalDate());
+                usr.setPassword(rs.getString("userpassword"));
+                usr.setLastName(rs.getString("userjob"));
+                usr.setEmail(rs.getString("useremail"));
+                usr.setCreditNo(rs.getInt("usercreditnumber"));
+                usr.setCreditNo(rs.getInt("usercreditlimit"));
+                usr.setLastName(rs.getString("useraddress"));
+                usr.setLastName(rs.getString("useraddress"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminsCrud.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return usr;
+    }
+
+    public ArrayList<User> select(String strStatement) {
+        ArrayList<User> usersList = new ArrayList<>();
+
+        try {
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(strStatement);
+            while (rs.next()) {
+                usersList.add(new User(rs.getInt("userid"), rs.getString("userfname"), rs.getString("userlname"), rs.getDate("userbirthdate").toLocalDate(), rs.getString("userpassword"), rs.getString("userjob"), rs.getString("useremail"), rs.getString("useraddress"), rs.getInt("usercreditnumber"), rs.getInt("usercreditlimit")));
+
             }
 
         } catch (SQLException ex) {
@@ -87,6 +116,26 @@ public class UsersCrud {
 
         }
         return usersList;
+    }
+
+    public boolean select(String strStatement, String DontCare, String DontCare2) {
+        int count = 0;
+        try {
+
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(strStatement);
+            while (rs.next()) {
+                count++;
+            }
+        } catch (SQLException ex) {
+            System.out.println("com.pettopia.model.database.UsersCrud.select()");
+        }
+        if (count == 0) {
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
 }

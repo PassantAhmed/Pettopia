@@ -5,10 +5,13 @@
  */
 package com.pettopia.view.controller;
 
-import com.pettopia.model.bean.User;
+import com.pettopia.controller.HelperController;
 import com.pettopia.view.utilities.ValidationChecks;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,33 +25,49 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "SignUpServlet", urlPatterns = {"/SignUpServlet"})
 public class SignUpServlet extends HttpServlet {
 
-    User user;
-
+    HelperController regController;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        user = new User();
-        user.setFirstName(request.getParameter("firstName"));
-        user.setLastName(request.getParameter("lastName"));
-        user.setEmail(request.getParameter("email"));
-        user.setPassword(request.getParameter("password"));
-        user.setJob(request.getParameter("job"));
-        user.setAddress(request.getParameter("address"));
-        user.setCreditNo(request.getParameter("creditNo1") + request.getParameter("creditNo2") + request.getParameter("creditNo3") + request.getParameter("creditNo4"));
-        user.setCreditLimit(request.getParameter("creditLimit"));
-        //user.setBirthDate(request.getParameter("birthdate"));
-        if (checkValidation(user, request.getParameter("rePassword"))) {
-            //  TODO calling db methods 
+
+        PrintWriter out = response.getWriter();
+        regController = new HelperController();
+        List<String> data = new ArrayList<>();
+        
+        data.add(request.getParameter("firstName"));
+        data.add(request.getParameter("lastName"));
+        data.add(request.getParameter("email"));
+        data.add(request.getParameter("password"));
+        data.add(request.getParameter("job"));
+        data.add(request.getParameter("address"));
+        data.add(request.getParameter("creditNo1") + request.getParameter("creditNo2") + request.getParameter("creditNo3") + request.getParameter("creditNo4"));
+        data.add(request.getParameter("creditLimit"));
+        data.add(request.getParameter("birthdate"));
+        data.add(request.getParameter("rePassword"));
+       
+        if (checkValidation(data)) {
+            if(regController.register(data)){
+                
+                response.sendRedirect("login.jsp");
+                
+            } else{
+                request.setAttribute("errorMessage", "User Exits, Please enter different email address");
+            }
+        } else{
+            request.setAttribute("errorMessage", "Please make sure that your data is valid, Name must not contain special characters or numbers."
+                    + "<br/>2. Password must be 8 to 30 digits. & Age must be +18, Also make sure that you've entered valid credit number and valid credit limit.");
         }
+        request.getRequestDispatcher("registration.jsp").forward(request, response);
     }
 
-    private boolean checkValidation(User user, String rePass) {
+    private boolean checkValidation(List<String> data) {
         boolean isValidate = false;
         ValidationChecks check = new ValidationChecks();
-        if (check.isName(user.getFirstName()) && check.isName(user.getLastName())
-                && check.isEmail(user.getEmail()) && check.isValidPassword(user.getPassword())
-                && /*check.isLegalAged(user.getBirthDate()) && */ !check.isEmptyString(user.getAddress())
-                && check.isMatchPassword(user.getPassword(), rePass) && !check.isEmptyString(user.getJob())
-                && check.isValidCreditLimit(user.getCreditLimit()) && check.isValidCreditNo(user.getCreditNo())) {
+        if (check.isName(data.get(0)) && check.isName(data.get(1))
+                && check.isEmail(data.get(2)) && check.isValidPassword(data.get(3)) 
+                && !check.isEmptyString(data.get(4)) && !check.isEmptyString(data.get(5))
+                && check.isValidCreditNo(data.get(6)) &&  check.isValidCreditLimit(data.get(7))
+                && check.isLegalAged(LocalDate.parse(data.get(8))) 
+                && check.isMatchPassword(data.get(3), data.get(9))) {
             isValidate = true;
         }
         return isValidate;

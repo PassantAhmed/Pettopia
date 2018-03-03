@@ -7,6 +7,7 @@ package com.pettopia.model.database;
 
 import com.pettopia.model.bean.User;
 import com.pettopia.model.databaseInterfaces.UsersDatabaseOperationInterface;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -22,21 +23,38 @@ public class UserDao implements UsersDatabaseOperationInterface {
     }
 
     @Override
-    public ArrayList<User> selectUsers(String usrEmail) {
+    public ArrayList<User> selectAllUsers(String usrEmail) {
         String selectStatement = "select  * from petusers where  useremail= '" + usrEmail + "'";
-        return (ArrayList<User>) usersCrud.select(selectStatement);
+        return  usersCrud.select(selectStatement);
     }
 
     @Override
-    public boolean registerNewUser(User usrDataObj) {
-        String selectStatment = "insert into petusers (id,firstName,lastName,birthDate,password,job,email,address,creditLimit,creditNo) values ('" + usrDataObj.getId() + "' ,'" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' ,'" + usrDataObj.getBirthDate() + "' ,'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ,'" + usrDataObj.getCreditLimit() + "','" + usrDataObj.getCreditNo() + "')";
+    public User selectUser(String usrEmail) {
+ String selectStatement = "select  * from petusers where  useremail= '" + usrEmail + "'";
+        return  usersCrud.select(selectStatement,"onlyone");
 
+    }
+
+    @Override
+    public boolean isUserExist(String usrEmail) {
+   String selectStatement = "select userid, userfName, userlName, userbirthDate, userpassword, userjob, useremail, useraddress, usercreditLimit, usercreditnumber from petusers where  useremail= '" + usrEmail + "'";
+        return  usersCrud.select(selectStatement,"","");
+    }
+    
+    
+    
+    
+
+    @Override
+    public boolean registerNewUser(User usrDataObj) {
+        System.out.println(String.valueOf(java.sql.Date.valueOf(usrDataObj.getBirthDate())));
+        String selectStatment = "insert into petusers (userfName,userlName,userbirthDate,userpassword,userjob,useremail,useraddress,usercreditLimit,usercreditNumber) values ('" + usrDataObj.getFirstName() + "' ,'" + usrDataObj.getLastName() + "' , TO_DATE('"+usrDataObj.getBirthDate()+"','YYYY-MM-DD'),'" + usrDataObj.getPassword() + "' ,'" + usrDataObj.getJob() + "' ,'" + usrDataObj.getEmail() + "' ,'" + usrDataObj.getAddress() + "' ," + usrDataObj.getCreditLimit() + "," + usrDataObj.getCreditNo() + ")";
         return usersCrud.insert(selectStatment);
     }
 
     @Override
     public boolean updateUser(User usrDataObj) {
-        String selectStatment = "update petusers set id='" + usrDataObj.getId() + "' ,firstName='" + usrDataObj.getFirstName() + "' ,lastName='" + usrDataObj.getLastName() + "' ,birthDate='" + usrDataObj.getBirthDate() + "' ,password='" + usrDataObj.getPassword() + "' ,job='" + usrDataObj.getJob() + "' ,email='" + usrDataObj.getEmail() + "' ,address='" + usrDataObj.getAddress() + "' ,creditLimit='" + usrDataObj.getCreditLimit() + "' ,creditNo='" + usrDataObj.getCreditNo() + "' where userid ='" + usrDataObj.getId() + "' ";
+        String selectStatment = "update petusers set userid='" + usrDataObj.getId() + "' ,userfName='" + usrDataObj.getFirstName() + "' ,userlName='" + usrDataObj.getLastName() + "' ,userbirthDate= TO_DATE('"+usrDataObj.getBirthDate()+"','YYYY-MM-DD'), userpassword='" + usrDataObj.getPassword() + "' ,userjob='" + usrDataObj.getJob() + "' ,useremail='" + usrDataObj.getEmail() + "' ,useraddress='" + usrDataObj.getAddress() + "' ,usercreditlimit=" + usrDataObj.getCreditLimit() + " ,usercreditnumber='" + usrDataObj.getCreditNo() + "' where userid ='" + usrDataObj.getId()+"'";
         return usersCrud.update(selectStatment);
     }
 

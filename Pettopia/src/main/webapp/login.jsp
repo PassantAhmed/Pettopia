@@ -1,25 +1,27 @@
+<%-- 
+    Document   : registration_page
+    Created on : Feb 28, 2018, 10:20:04 AM
+    Author     : Passant
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <title>Single Product</title>
+        <title>Login Page</title>
         <link rel="icon" href="styles/imgs/pettopialogo.png" />
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Colo Shop Template">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
         <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
         <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
         <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-        <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
-        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-        <link rel="stylesheet" type="text/css" href="styles/single_styles.css">
-        <link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
+        <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+        <link rel="stylesheet" type="text/css" href="styles/login_style.css">
+        <link rel="stylesheet" type="text/css" href="styles/responsive.css">
     </head>
-
     <body>
-
         <div class="super_container">
 
             <!-- Header -->
@@ -37,7 +39,7 @@
                             <div class="col-lg-12 text-right">
                                 <div class="logo_container">
                                     <img src="styles/imgs/pettopialogo.png" style="width: 40px; height: 35px; margin-bottom: 10px;" />
-                                    <a href="index.html">Pet<span>topia</span></a>
+                                    <a href="index.html">PeT<span>topia</span></a>
                                 </div>
                                 <nav class="navbar">
                                     <ul class="navbar_menu">
@@ -68,8 +70,8 @@
                 </div>
 
             </header>
-            <div class="fs_menu_overlay"></div>
 
+            <div class="fs_menu_overlay"></div>
             <!-- Hamburger Menu -->
 
             <div class="hamburger_menu">
@@ -81,7 +83,6 @@
                         <li class="menu_item"><a href="index.html">home</a></li>
                         <li class="menu_item"><a href="login.jsp">sign in</a></li>
                         <li class="menu_item"><a href="registration.jsp">register</a></li>
-
                         <li class="menu_item"><a href="products.html">shop</a></li>
                         <li class="menu_item"><a href="#">checkout</a></li>
                         <li class="menu_item"><a href="contact.html">contact</a></li>
@@ -89,60 +90,61 @@
                 </div>
             </div>
 
-            <div class="container single_product_container">
-                <div class="row">
-                    <div class="col">
+            <!-- Slider -->
 
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="single_product_pics">
-                            <div class="row">
-
-                                <div class="col-lg-12 image_col order-lg-2 order-1">
-                                    <div class="single_product_image">
-                                        <div class="single_product_image_background" style="background-image:url(images/single_2.jpg)"></div>
+            <div class="main_slider">
+                <div class="container fill_height">
+                    <div class="row align-items-center fill_height">
+                        <div class="col-lg-12 ">
+                            <center>
+                                <div class="login">
+                                    <div class="login-top">
+                                        <form action="LoginServlet" method="POST">
+                                            <table class="loginTable">
+                                                <tr class="tableRow">
+                                                    <td class="tableCell"><h5>Email:</h5></td><td></td>
+                                                    <td class="inputs"><input placeholder="example@ex.example" type="email" name="email" required="true" size="40" class="inputFields" /></td>
+                                                </tr>
+                                                <tr class="tableRow">
+                                                    <td class="tableCell"><h5>Password:</h5></td>
+                                                    <td></td>
+                                                    <td class="inputs"><input type="password" name="password" required="true" size="40" class="inputFields" /></td>
+                                                </tr>
+                                            </table>
+                                            <div style="color: #FF0000;">${errorMessage}</div>
+                                            <button class="loginBtn">Login</button>
+                                        </form>
+                                    </div>
+                                    <div class="login-bottom">
+                                        <hr style="height: 4px; background-color: #fe4c50; width: 56%; margin-bottom: 25px; border-radius: 5px;"/>
+                                        <h4>Have not an account yet?<br/>
+                                            <a href="registration.jsp" style="color: #e83e8c; margin-top: 10px; color: #fe4c50; font-weight: bolder; font-size: large;">Sign Up</a>
+                                        </h4>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="product_details">
-                            <div class="product_details_title">
-                                <h2>Pocket cotton sweatshirt</h2>
-                                <p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
-                            </div>
-                            <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-                                <span class="ti-truck"></span><span>free delivery</span>
-                            </div>
-                            <br><br>
-                            <div class="product_price">$495.00</div>
-
-
-                            <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-
-
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                            </div>
+                            </center>
                         </div>
                     </div>
                 </div>
-
             </div>
+
+            <!-- Banner -->
 
 
             <!-- Footer -->
 
+            <br><br><br><br>
             <footer class="footer">
                 <div class="container">
                     <div class="row">
+                        <div class="col-lg-6">
+                            <div class="footer_nav_container">
+                                <div class="cr">©2018 All Rights Reserverd. This site is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#">Colorlib</a></div>
+                            </div>
+                        </div>
 
-                        <div class="col-lg-12">
-                            <div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="footer_social d-flex  footer_nav_container">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -153,27 +155,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="footer_nav_container">
-                                <div class="cr">©2018 All Rights Reserverd. This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#">Colorlib</a></div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </footer>
 
         </div>
 
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="styles/bootstrap4/popper.js"></script>
-        <script src="styles/bootstrap4/bootstrap.min.js"></script>
-        <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-        <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-        <script src="plugins/easing/easing.js"></script>
-        <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-        <script src="js/single_custom.js"></script>
-        <script src="js/custom.js"></script>
     </body>
-
 </html>

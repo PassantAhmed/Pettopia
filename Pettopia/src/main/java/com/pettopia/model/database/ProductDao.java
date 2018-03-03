@@ -27,6 +27,11 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
     }
 
     @Override
+    public ArrayList<Product> getAllProducts(){
+        String statement = "select * from petproducts where lower(sold_yn)='n'";
+        return productsCrud.getAll(statement);
+    }
+    @Override
     public boolean insertProducts(Product productsInformations) {
 
         String strStatment = "insert into petproducts (productname,productprice,productquantity,productdescription,category) values ('" + productsInformations.getName() + "','" + productsInformations.getPrice() + "','" + productsInformations.getQuantity() + "','" + productsInformations.getDescription() + "','" + productsInformations.getCategory() + "')";
@@ -36,20 +41,30 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
     @Override
     public boolean updateProducts(Product productsInformations) {
 
-        String strStatment = "update petproducts set productname='" + productsInformations.getName() + "',productprice='" + productsInformations.getPrice() + "',productquantity='" + productsInformations.getQuantity() + "',productdescription='" + productsInformations.getDescription() + "',category='" + productsInformations.getCategory() + "' where produuctid='" + productsInformations.getId() + "')";
+        String strStatment = "update petproducts set productname='" + productsInformations.getName() + "',productprice='" + productsInformations.getPrice() + "',productquantity='" + productsInformations.getQuantity() + "',productdescription='" + productsInformations.getDescription() + "',category='" + productsInformations.getCategory() + "' where productid='" + productsInformations.getId() + "')";
         return productsCrud.update(strStatment);
     }
 
     @Override
     public boolean deleteProducts(Product productsInformations) {
-        String strStatment = "delete * from petproducts where produuctid ='" + productsInformations.getId() + "' ";
+        String strStatment = "delete  from petproducts where productid ='" + productsInformations.getId() + "' ";
         return productsCrud.update(strStatment);
     }
 
     @Override
     public ArrayList<Product> selectProducts(String productsName) {
         String selectStatement = "select  * from petusers where  useremail= '" + productsName + "'";
-        return (ArrayList<Product>) productsCrud.select(selectStatement);
+        return productsCrud.select(selectStatement);
     }
+
+    @Override
+    public Product selectOneProduct(String productsName) {
+        
+         String selectStatement = "select  * from petusers where  useremail= '" + productsName + "'";
+        return productsCrud.select(selectStatement,"one");
+
+    }
+    
+    
 
 }
