@@ -23,12 +23,10 @@
         <meta name="keywords" content="">
 
         <title>
-          edit profile
+            edit profile
         </title>
 
         <meta name="keywords" content="">
-
-
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -41,10 +39,8 @@
                 position: absolute;
                 left: -9999px;
             }
-
             #profile-image1 {
                 cursor: pointer;
-
                 width: 100px;
                 height: 100px;
                 border:2px solid #03b1ce ;}
@@ -192,4 +188,3 @@
     </body>
 
 </html>
-
