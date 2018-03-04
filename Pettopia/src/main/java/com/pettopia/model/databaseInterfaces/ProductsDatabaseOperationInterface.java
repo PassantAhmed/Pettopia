@@ -20,11 +20,13 @@ public interface ProductsDatabaseOperationInterface {
 
     public boolean updateProducts(Product productsInformations);
 
-    public boolean deleteProducts(Product productsInformations);
+    public boolean deleteProducts(int productsId);
 
     public ArrayList<Product> selectProducts(String productsInformations);
     
-    public Product selectOneProduct(String productsInformations);
+    public Product selectOneProduct(int  productId);
 
+    public boolean buyProduct(int productId);
+    
 
 }

@@ -84,13 +84,11 @@ public class UsersCrud {
                 usr.setLastName(rs.getString("userlname"));
                 usr.setBirthDate(rs.getDate("userbirthdate").toLocalDate());
                 usr.setPassword(rs.getString("userpassword"));
-                usr.setLastName(rs.getString("userjob"));
+                usr.setJob(rs.getString("userjob"));
                 usr.setEmail(rs.getString("useremail"));
-                usr.setCreditNo(rs.getInt("usercreditnumber"));
-                usr.setCreditNo(rs.getInt("usercreditlimit"));
-                usr.setLastName(rs.getString("useraddress"));
-                usr.setLastName(rs.getString("useraddress"));
-
+                usr.setCreditNo(rs.getLong("usercreditnumber"));
+                usr.setCreditLimit(rs.getLong("usercreditlimit"));
+                usr.setAddress(rs.getString("useraddress"));
             }
 
         } catch (SQLException ex) {

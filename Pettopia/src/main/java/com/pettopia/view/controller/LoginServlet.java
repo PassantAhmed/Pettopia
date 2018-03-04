@@ -51,15 +51,17 @@ public class LoginServlet extends HttpServlet {
                     
                 } else {
                     request.setAttribute("errorMessage", "Wrong password, Please enter correct password");
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
                 
             } else {
                 request.setAttribute("errorMessage", "Wrong E-mail Address, Please enter correct email");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } else {
             request.setAttribute("errorMessage", "Please make sure that your data is valid");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     private boolean checkValidation(String email, String pass) {

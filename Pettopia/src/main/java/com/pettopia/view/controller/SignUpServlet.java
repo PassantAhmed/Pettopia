@@ -38,25 +38,24 @@ public class SignUpServlet extends HttpServlet {
         data.add(request.getParameter("email"));
         data.add(request.getParameter("password"));
         data.add(request.getParameter("job"));
-        data.add(request.getParameter("address"));
+        data.add(request.getParameter("address")); 
         data.add(request.getParameter("creditNo1") + request.getParameter("creditNo2") + request.getParameter("creditNo3") + request.getParameter("creditNo4"));
         data.add(request.getParameter("creditLimit"));
         data.add(request.getParameter("birthdate"));
         data.add(request.getParameter("rePassword"));
        
         if (checkValidation(data)) {
-            if(regController.register(data)){
-                
+            if(regController.register(data)){  
                 response.sendRedirect("login.jsp");
-                
             } else{
                 request.setAttribute("errorMessage", "User Exits, Please enter different email address");
+                request.getRequestDispatcher("registration.jsp").forward(request, response);
             }
         } else{
             request.setAttribute("errorMessage", "Please make sure that your data is valid, Name must not contain special characters or numbers."
                     + "<br/>2. Password must be 8 to 30 digits. & Age must be +18, Also make sure that you've entered valid credit number and valid credit limit.");
+            request.getRequestDispatcher("registration.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("registration.jsp").forward(request, response);
     }
 
     private boolean checkValidation(List<String> data) {

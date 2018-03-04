@@ -47,12 +47,12 @@
                                         <li><a href="login.jsp"><i class="fa" aria-hidden="true"></i>Sign In</a></li>
                                         <li><a href="registration.jsp"><i class="fa" aria-hidden="true"></i>Register</a></li>
                                         <li><a href="#"><i class="fa" aria-hidden="true"></i>checkout</a></li>
-                                        <li><a href="products.html"><i class="fa" aria-hidden="true"></i>shop</a></li>
+                                        <li><a href="products"><i class="fa" aria-hidden="true"></i>shop</a></li>
                                         <li><a href="contact.html">contact us</a></li>
                                     </ul>
                                     <ul class="navbar_user">
                                         <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                        <li><a href="editprofile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                                         <li class="checkout">
                                             <a href="#">
                                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -83,7 +83,7 @@
                         <li class="menu_item"><a href="index.html">home</a></li>
                         <li class="menu_item"><a href="login.jsp">sign in</a></li>
                         <li class="menu_item"><a href="registration.jsp">register</a></li>
-                        <li class="menu_item"><a href="products.html">shop</a></li>
+                        <li class="menu_item"><a href="products">shop</a></li>
                         <li class="menu_item"><a href="#">checkout</a></li>
                         <li class="menu_item"><a href="contact.html">contact</a></li>
                     </ul>
