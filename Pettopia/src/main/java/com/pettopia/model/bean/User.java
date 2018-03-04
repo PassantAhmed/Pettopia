@@ -23,8 +23,8 @@ public class User {
     private String job;
     private String email;
     private String address;
-    private int  creditLimit;
-    private int  creditNo;
+    private long creditLimit;
+    private long creditNo;
     
         /********* sobhy (start)**********/
     
