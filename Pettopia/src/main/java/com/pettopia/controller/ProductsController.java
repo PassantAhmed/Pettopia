@@ -13,9 +13,16 @@ import java.util.ArrayList;
  *
  * @author khaled
  */
+
 public class ProductsController {
+    ProductDao dao = new ProductDao();
     public ArrayList<Product> getAvailableProducts(){
-        ProductDao dao = new ProductDao();
+       
         return dao.getAllProducts();
+    }
+    
+    public boolean adminInsertProduct(Product p)
+    {
+      return dao.insertProducts(p);
     }
 }

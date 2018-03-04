@@ -5,6 +5,8 @@
  */
 package com.pettopia.view.controller;
 
+import com.pettopia.controller.ProductsController;
+import com.pettopia.model.bean.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -41,9 +43,22 @@ public class AdminAddProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+       
+          ProductsController c = new ProductsController();
+         PrintWriter out = response.getWriter();
+         Product temp = new Product();
+        
+        temp.setId(1);
+        temp.setName(request.getParameter("productname"));
+        temp.setDescription(request.getParameter("productdesc"));
+        temp.setPrice(Double.parseDouble(request.getParameter("productprice").trim()));
+        temp.setQuantity("y");
+        
+        c.adminInsertProduct(temp);
+    
+        out.println("data added");
+  
     }
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -55,17 +70,9 @@ public class AdminAddProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+       
+       
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+  
 }

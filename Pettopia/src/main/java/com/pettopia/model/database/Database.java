@@ -12,7 +12,8 @@ public class Database {
 
         Class.forName("oracle.jdbc.driver.OracleDriver");
         //step2 create  the connection object  
-        conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "pet", "pet");
+       //conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "pet", "pet");
+        conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "pet", "pet");
     }
 
     public static Database getInstance() throws SQLException, ClassNotFoundException {

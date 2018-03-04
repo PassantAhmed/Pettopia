@@ -12,6 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form action="AdminAddProduct" method="get">
+            <label>product name : </label><input type="text" name="productname" ><br>
+            <label>product price :</label><input type="text" name="productprice"><br>
+            <label>product desc :</label><input type="text" name="productdesc"><br>
+            <input type="submit">
+        </form>
     </body>
 </html>
