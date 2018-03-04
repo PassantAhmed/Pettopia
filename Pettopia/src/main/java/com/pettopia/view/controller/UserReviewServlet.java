@@ -1,14 +1,19 @@
+package admin;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pettopia.view.controller;
 
-import com.pettopia.model.database.AdminDao;
-import com.pettopia.view.utilities.ValidationChecks;
+
+import com.google.gson.Gson;
+import com.pettopia.model.bean.User;
+import com.pettopia.model.database.UserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +24,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Hesham Kadry
  */
-@WebServlet(name = "AddAdminServlet", urlPatterns = {"/AddAdminServlet"})
-public class AddAdminServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/UserReviewServlet"})
+public class UserReviewServlet extends HttpServlet implements Serializable {
+User user = new User() ;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,11 +37,7 @@ public class AddAdminServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
 
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -49,7 +51,19 @@ public class AddAdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+              
+        //PrintWriter out = response.getWriter();
+        
+        UserDao ud = new UserDao();
+
+        if(request.getParameter("email") != null)
+        {
+            user = ud.selectUser(request.getParameter("email"));
+        }
+        
+        RequestDispatcher rd = request.getRequestDispatcher("Review.html");
+        rd.forward(request, response);
+        
     }
 
     /**
@@ -62,38 +76,13 @@ public class AddAdminServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException {        
+       
+            response.setContentType("application/json");
+            Gson gson = new Gson();
+            response.getWriter().write(gson.toJson(user));
+            response.getWriter().close();
         
-        AdminDao ad = new AdminDao();
-        PrintWriter out = response.getWriter();
-        boolean added = false;
-        
-        String adminEmail = request.getParameter("adminEmail");
-        String adminPassword = request.getParameter("adminPassword");
-        if(checkValidation(adminEmail, adminPassword))
-        {
-            added = ad.addNewAdmin(adminEmail, adminPassword);
-            if(added)
-            {
-                // redirect to Admin page or what ever :D
-            }else{               
-                response.sendRedirect("addAdmin.jsp");
-            }
-        }else{
-            response.sendRedirect("addAdmin.jsp");
-        }
-        
-    }
-    public boolean checkValidation(String email , String password)
-    {
-        boolean isTrue = false;
-        ValidationChecks check = new ValidationChecks();
-        if(check.isEmail(email)&&check.isValidPassword(password))
-        {
-            isTrue = true;
-        } 
-        return isTrue;
     }
 
     /**
