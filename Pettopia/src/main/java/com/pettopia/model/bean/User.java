@@ -5,6 +5,8 @@
  */
 package com.pettopia.model.bean;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import java.time.LocalDate;
 
 /**
@@ -21,9 +23,9 @@ public class User {
     private String job;
     private String email;
     private String address;
-    private long  creditLimit;
-    private long  creditNo;
-
+    private int  creditLimit;
+    private int  creditNo;
+    
         /********* sobhy (start)**********/
     
     public User(){}
