@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class ProductsController {
     ProductDao dao = new ProductDao();
+    
     public ArrayList<Product> getAvailableProducts(){
        
         return dao.getAllProducts();
@@ -25,4 +26,6 @@ public class ProductsController {
     {
       return dao.insertProducts(p);
     }
+    
+    
 }
