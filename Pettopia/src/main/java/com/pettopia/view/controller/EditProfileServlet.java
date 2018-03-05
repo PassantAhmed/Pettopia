@@ -50,7 +50,6 @@ public class EditProfileServlet extends HttpServlet {
             
             request.getSession().setAttribute("firstName", data.get(0));
             request.getSession().setAttribute("lastName", data.get(1));
-            request.getSession().setAttribute("email", data.get(2));
             request.getSession().setAttribute("password", data.get(3));
             request.getSession().setAttribute("job", data.get(4));
             request.getSession().setAttribute("address", data.get(5));
