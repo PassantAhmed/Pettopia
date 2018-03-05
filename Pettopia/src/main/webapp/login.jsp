@@ -103,12 +103,12 @@
                                             <table class="loginTable">
                                                 <tr class="tableRow">
                                                     <td class="tableCell"><h5>Email:</h5></td><td></td>
-                                                    <td class="inputs"><input placeholder="example@ex.example" type="email" name="email" required="true" size="40" class="inputFields" /></td>
+                                                    <td class="inputs"><input placeholder="example@ex.example" type="email" name="email" required="true" size="40" class="inputFields form-control" /></td>
                                                 </tr>
                                                 <tr class="tableRow">
                                                     <td class="tableCell"><h5>Password:</h5></td>
                                                     <td></td>
-                                                    <td class="inputs"><input type="password" name="password" required="true" size="40" class="inputFields" /></td>
+                                                    <td class="inputs"><input type="password" name="password" required="true" size="40" class="inputFields form-control" /></td>
                                                 </tr>
                                             </table>
                                             <div style="color: #FF0000;">${errorMessage}</div>
