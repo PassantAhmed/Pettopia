@@ -37,23 +37,29 @@ public class LoginServlet extends HttpServlet {
 
                 data = loginController.getUser(email);
                 if (data.get(3).equals(password)) {
+                    
+                    request.getSession().setAttribute("userLoggedIn", "false");
+
                     request.getSession(true).setAttribute("firstName", data.get(0));
                     request.getSession().setAttribute("lastName", data.get(1));
                     request.getSession().setAttribute("email", data.get(2));
                     request.getSession().setAttribute("password", data.get(3));
                     request.getSession().setAttribute("job", data.get(4));
                     request.getSession().setAttribute("address", data.get(5));
-                    request.getSession().setAttribute("creditNo", data.get(6));
+                    request.getSession().setAttribute("creditNo1", data.get(6).subSequence(0, 4));
+                    request.getSession().setAttribute("creditNo2", data.get(6).subSequence(4, 8));
+                    request.getSession().setAttribute("creditNo3", data.get(6).subSequence(8, 12));
+                    request.getSession().setAttribute("creditNo4", data.get(6).subSequence(12,data.get(6).length()));
                     request.getSession().setAttribute("creditLimit", data.get(7));
                     request.getSession().setAttribute("birthdate", data.get(8));
-                    
+
                     response.sendRedirect("index.html");
-                    
+
                 } else {
                     request.setAttribute("errorMessage", "Wrong password, Please enter correct password");
                     request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
-                
+
             } else {
                 request.setAttribute("errorMessage", "Wrong E-mail Address, Please enter correct email");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
