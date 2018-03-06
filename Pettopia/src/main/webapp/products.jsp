@@ -29,75 +29,16 @@
         <div class="super_container">
 
             <!-- Header -->
-
-            <header class="header trans_300">
-
-                <!-- Top Navigation -->
-
-
-                <!-- Main Navigation -->
-
-                <div class="main_nav_container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 text-right">
-                                <div class="logo_container">
-                                    <img src="styles/imgs/pettopialogo.png" style="width: 40px; height: 35px; margin-bottom: 10px;" />
-                                    <a href="#">pet<span>topia</span></a>
-                                </div>
-                                <nav class="navbar">
-                                    <ul class="navbar_menu">
-                                        <li><a href="index.html">home</a></li>
-                                        <li><a href="login.jsp"><i class="fa" aria-hidden="true"></i>Sign In</a></li>
-                                        <li><a href="registration.jsp"><i class="fa" aria-hidden="true"></i>Register</a></li>
-                                        <li><a href="#"><i class="fa" aria-hidden="true"></i>checkout</a></li>
-                                        <li><a href="products"><i class="fa" aria-hidden="true"></i>shop</a></li>
-                                        <li><a href="contact.html">contact us</a></li>
-                                    </ul>
-                                    <ul class="navbar_user">
-                                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                        <li><a href="editprofile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                                        <li class="checkout">
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                <span id="checkout_items" class="checkout_items">2</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="hamburger_container">
-                                        <i class="fa fa-bars" aria-hidden="true"></i>
-                                    </div>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </header>
-
-            <div class="fs_menu_overlay"></div>
-
-            <!-- products-->
-
-            <!-- Hamburger Menu -->
-
-            <div class="hamburger_menu">
-                <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-                <div class="hamburger_menu_content text-right">
-                    <ul class="menu_top_nav">
-
-
-                        <li class="menu_item"><a href="index.html">home</a></li>
-                        <li class="menu_item"><a href="login.jsp">sign in</a></li>
-                        <li class="menu_item"><a href="registration.jsp">register</a></li>
-
-                        <li class="menu_item"><a href="products">shop</a></li>
-                        <li class="menu_item"><a href="#">checkout</a></li>
-                        <li class="menu_item"><a href="contact.html">contact</a></li>
-                    </ul>
-                </div>
-            </div>
-
+            <c:if test="${sessionScope.userLoggedIn == 'true'}">
+                <jsp:include page="headerLogged.html" />
+            </c:if>
+            <c:if test="${sessionScope.userLoggedIn == 'false'}">
+                <jsp:include page="headerNotLogged.html" />
+            </c:if>
+            <c:if test="${sessionScope.userLoggedIn == null }">
+                <jsp:include page="headerNotLogged.html" />
+            </c:if>
+            
             <!-- New Arrivals -->
 
             <div class="new_arrivals">
@@ -213,33 +154,7 @@
 </div>
 
 <!-- Footer -->
-
-<br><br><br><br>
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="footer_nav_container">
-                    <div class="cr">©2018 All Rights Reserverd. This site is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#">Colorlib</a></div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="footer_social d-flex  footer_nav_container">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</footer>
-
+    <jsp:include page="footer.html" />
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>

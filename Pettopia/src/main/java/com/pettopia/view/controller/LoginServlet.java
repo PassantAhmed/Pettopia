@@ -38,9 +38,8 @@ public class LoginServlet extends HttpServlet {
                 data = loginController.getUser(email);
                 if (data.get(3).equals(password)) {
                     
-                    request.getSession().setAttribute("userLoggedIn", "false");
-
-                    request.getSession(true).setAttribute("firstName", data.get(0));
+                    request.getSession(true).setAttribute("userLoggedIn", "true");
+                    request.getSession().setAttribute("firstName", data.get(0));
                     request.getSession().setAttribute("lastName", data.get(1));
                     request.getSession().setAttribute("email", data.get(2));
                     request.getSession().setAttribute("password", data.get(3));
@@ -53,7 +52,7 @@ public class LoginServlet extends HttpServlet {
                     request.getSession().setAttribute("creditLimit", data.get(7));
                     request.getSession().setAttribute("birthdate", data.get(8));
 
-                    response.sendRedirect("index.html");
+                    response.sendRedirect("index.jsp");
 
                 } else {
                     request.setAttribute("errorMessage", "Wrong password, Please enter correct password");
