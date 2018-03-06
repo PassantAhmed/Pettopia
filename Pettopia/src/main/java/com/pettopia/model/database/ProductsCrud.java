@@ -148,7 +148,7 @@ public class ProductsCrud {
             ResultSet rs = stmt.executeQuery(s);
             while(rs.next())
             {
-             result=rs.getInt(0);
+             result=rs.getInt(1);
              
             }
         } catch (SQLException ex) {

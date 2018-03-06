@@ -60,11 +60,11 @@
                                 <div class="col-md-12">
                         			<h2>Add product</h2>
                                      
-                                                <form action="/AdminAddProduct" method="post" enctype="multipart/form-data">
-                                                    <label >product name : </label><input type="text" name="productname" ><br>
-                                                    <label>product price :</label><input type="text" name="productprice"><br>
-                                                    <label>product desc :</label><input type="text" name="productdesc"><br>
-                                                    <label>Select picture for your product :</label><input type="file" name="fileName" accept="image/*" >
+                                                <form action="../AdminAddProduct" method="post" enctype="multipart/form-data">
+                                                    <label >product name : </label><input type="text" name="productname" required="true"/><br>
+                                                    <label>product price :</label><input type="text" name="productprice" required="true"><br>
+                                                    <label>product desc :</label><input type="text" name="productdesc" required="true"><br>
+                                                    <label>Select picture for your product :</label><input type="file" name="fileName" accept="image/*" required="true" >
                                                     <input type="submit" id="submitadd">
                                                 </form>
                                 </div>
