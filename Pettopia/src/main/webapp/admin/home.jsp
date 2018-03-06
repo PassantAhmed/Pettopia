@@ -15,7 +15,7 @@
         <title>JSP Page</title>
     </head>
 
-    <body>
+    <body id="main">
         <!-- tabs -->
 
 
@@ -26,7 +26,7 @@
         </div>
 
         <div id="productsPanel" class="tabcontent" hidden="">
-            <jsp:include page="TEST.jsp"/>
+            <jsp:include page="productManage.jsp"/>
         </div>
 
         <div id="usersPanel" class="tabcontent" hidden="">
@@ -40,10 +40,6 @@
         <!-- ********************** end of tabs *************************  -->
 
     </body>
-
-
-
-
 
 </body>
 </html>

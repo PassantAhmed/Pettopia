@@ -27,5 +27,10 @@ public class ProductsController {
       return dao.insertProducts(p);
     }
     
+    public int getNextSeq ()
+    { 
+        return dao.getNextSeq();
+    }
+    
     
 }

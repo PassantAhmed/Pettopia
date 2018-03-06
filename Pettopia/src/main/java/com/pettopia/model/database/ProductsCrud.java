@@ -139,6 +139,24 @@ public class ProductsCrud {
         }
         return produstObj;
     }
+    
+    public int getLast (String s)
+    {
+        int result = 0;
+        try {
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(s);
+            while(rs.next())
+            {
+             result=rs.getInt(0);
+             
+            }
+        } catch (SQLException ex) {
+         
+            result = -1;
+        }
+        return result;
+    }
 
     
     

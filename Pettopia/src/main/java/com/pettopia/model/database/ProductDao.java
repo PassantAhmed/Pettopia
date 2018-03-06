@@ -74,6 +74,15 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
         return productsCrud.select(selectStatement,"one");
 
     }
+
+    @Override
+    public int getNextSeq() {
+     
+        String ss = "select PRODUCTS_SEQ.currval from dual";
+        return productsCrud.getLast(ss);
+    }
+    
+    
     
     
 

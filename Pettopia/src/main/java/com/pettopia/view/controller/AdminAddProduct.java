@@ -44,19 +44,7 @@ public class AdminAddProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
-          ProductsController c = new ProductsController();
-         PrintWriter out = response.getWriter();
-         Product temp = new Product();
         
-        temp.setId(1);
-        temp.setName(request.getParameter("productname"));
-        temp.setDescription(request.getParameter("productdesc"));
-        temp.setPrice(Double.parseDouble(request.getParameter("productprice").trim()));
-        temp.setQuantity("y");
-        
-        c.adminInsertProduct(temp);
-    
-        out.println("data added");
   
     }
     /**
@@ -71,7 +59,18 @@ public class AdminAddProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
-       
+        ProductsController c = new ProductsController();
+         PrintWriter out = response.getWriter();
+         Product temp = new Product();
+        
+        temp.setId(1);
+        temp.setName(request.getParameter("productname"));
+        temp.setDescription(request.getParameter("productdesc"));
+        temp.setPrice(Double.parseDouble(request.getParameter("productprice").trim()));
+        temp.setQuantity("y");
+        
+        c.adminInsertProduct(temp);
+        out.println("data added");
     }
 
   

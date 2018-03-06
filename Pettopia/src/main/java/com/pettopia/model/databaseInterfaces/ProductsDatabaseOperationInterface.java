@@ -28,5 +28,7 @@ public interface ProductsDatabaseOperationInterface {
 
     public boolean buyProduct(int productId);
     
+    public int getNextSeq();
+    
 
 }
