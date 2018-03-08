@@ -50,7 +50,7 @@
                         <div class="product-item men">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <img src="images/product_1.png" alt="">
+                                    <img src="c:/Users/Public/Downloads/${item.id}.jpg" alt="">
                                 </div>
 
                                 <div class="product_info">
