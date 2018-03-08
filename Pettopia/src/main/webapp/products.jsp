@@ -58,7 +58,8 @@
                                     <div class="product_price">$ ${item.price}</div>
                                 </div>
                             </div>
-                            <form >
+                            <form action="CartServlet" method="POST">
+                                <input type="hidden" name="productID" value="${item.id}"/>
                                 <button class="red_button add_to_cart_button" style="color:#FFF;">add to cart</button>
                             </form>
                         </div>
