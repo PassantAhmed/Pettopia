@@ -38,7 +38,7 @@
             <c:if test="${sessionScope.userLoggedIn == null }">
                 <jsp:include page="headerNotLogged.html" />
             </c:if>
-            
+
             <!-- New Arrivals -->
 
             <div class="new_arrivals">
@@ -58,7 +58,9 @@
                                     <div class="product_price">$ ${item.price}</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <form >
+                                <button class="red_button add_to_cart_button" style="color:#FFF;">add to cart</button>
+                            </form>
                         </div>
 
                     </c:forEach>
@@ -154,7 +156,7 @@
 </div>
 
 <!-- Footer -->
-    <jsp:include page="footer.html" />
+<jsp:include page="footer.html" />
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
