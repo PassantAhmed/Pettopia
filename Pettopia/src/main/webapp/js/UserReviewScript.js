@@ -29,7 +29,7 @@ function refresh() {
 function refreshUser(val) {
     var user = val;
     console.log("job "+user.job);
-    if(user.firstName  !== "undefined")
+    if(typeof user.firstName  !== "undefined")
     {
        $("#tableRows tr").remove();
         console.log("user first name "+user.firstName);
