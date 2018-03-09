@@ -6,7 +6,24 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+
+
+
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
+  <c:if test="${sessionScope.adminLoggedin == 'false'}">
+                <c:redirect url = "denyPage.jsp" />
+            </c:if>
+ <c:if test="${sessionScope.adminLoggedin == null }">
+                <c:redirect url = "denyPage.jsp" />
+            </c:if>
+ <c:if test="${sessionScope.adminLoggedin == 'true'}">
+
+     
+     
+     
+     
+     <html>
     <head>
         <link rel="stylesheet" href="..\styles\adminPages_style.css">
         <script type="text/javascript" src="..\js\adminPages.js"></script>
@@ -42,4 +59,5 @@
     </body>
 
 </body>
+  </c:if>
 </html>
