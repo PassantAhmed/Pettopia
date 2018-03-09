@@ -42,9 +42,10 @@
                 cursor: pointer;
                 width: 100px;
                 height: 100px;
-                border:2px solid #03b1ce ;
+                border:2px solid rgba(0,0,0,0);
                 margin-bottom: 1%;
                 margin-top: 3%;
+                border-radius: 50%;
             }
             .tital{ font-size:16px; font-weight:500;}
             .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}
