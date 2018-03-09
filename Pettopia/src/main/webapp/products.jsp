@@ -54,7 +54,7 @@
                                 </div>
 
                                 <div class="product_info">
-                                    <h6 class="product_name"><a href="single.html">${item.name}</a></h6>
+                                    <h6 class="product_name"><a href="productDetails?id=${item.id}">${item.name}</a></h6>
                                     <div class="product_price">$ ${item.price}</div>
                                 </div>
                             </div>

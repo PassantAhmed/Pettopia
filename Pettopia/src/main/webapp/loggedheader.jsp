@@ -55,7 +55,7 @@
                                     <li><a href="adminAddProduct.jsp"><i class="fa" aria-hidden="true"></i>checkout</a></li>
                                     <li><a href="products"><i class="fa" aria-hidden="true"></i>shop</a></li>
                                     <li><a href="contact.jsp">contact us</a></li>
-                                    <li><a href="">log out</a></li>
+                                    <li><a href="logOut">log out</a></li>
                                 </ul>
                                 <ul class="navbar_user">
                                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
