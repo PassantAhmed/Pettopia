@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Hesham Kadry
  */
-@WebServlet(urlPatterns = {"/UserReviewServlet"})
+@WebServlet(urlPatterns = {"/admin/UserReviewServlet"})
 public class UserReviewServlet extends HttpServlet implements Serializable {
 User user = new User() ;
 
