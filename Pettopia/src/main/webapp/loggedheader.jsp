@@ -55,7 +55,7 @@
                                     <li><a href="adminAddProduct.jsp"><i class="fa" aria-hidden="true"></i>checkout</a></li>
                                     <li><a href="products"><i class="fa" aria-hidden="true"></i>shop</a></li>
                                     <li><a href="contact.jsp">contact us</a></li>
-                                    <li><a href="">log out</a></li>
+                                    <li><a href="logOut">log out</a></li>
                                 </ul>
                                 <ul class="navbar_user">
                                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -63,9 +63,9 @@
                                     <li><a href="editprofile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 
                                     <li class="checkout">
-                                        <a href="cartproducts.jsp">
+                                        <a href="productscart.jsp">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                            <span id="checkout_items" class="checkout_items">${sessionScope.productsNo}</span>
+                                            <span id="checkout_items" class="checkout_items">${sessionScope.cartProductsNo}</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -105,7 +105,7 @@
         <script src="js/custom.js"></script>
         <script>
             function render() {
-                document.getElementById("checkout_items").innerHTML = ${sessionScope.productsNo};
+                document.getElementById("checkout_items").innerHTML = ${sessionScope.cartProductsNo};
             }
         </script>
     </body>

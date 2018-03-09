@@ -56,7 +56,7 @@
 
                                 <div class="col-lg-12 image_col order-lg-2 order-1">
                                     <div class="single_product_image">
-                                        <div class="single_product_image_background" style="background-image:url(images/single_2.jpg)"></div>
+                                        <div class="single_product_image_background" style="background-image:url(c:/Users/Public/Downloads/${requestScope.product.id}.jpg)"></div>
                                     </div>
                                 </div>
                             </div>
@@ -65,20 +65,18 @@
                     <div class="col-lg-5">
                         <div class="product_details">
                             <div class="product_details_title">
-                                <h2>Pocket cotton sweatshirt</h2>
-                                <p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
+                                <h2>${requestScope.product.name}</h2>
+                                <p>${requestScope.product.description}</p>
                             </div>
                             <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                                 <span class="ti-truck"></span><span>free delivery</span>
                             </div>
                             <br><br>
-                            <div class="product_price">$495.00</div>
+                            <div class="product_price">$${requestScope.product.price}</div>
 
 
                             <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-
-
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                                <div class="red_button add_to_cart_button"><a href="">add to cart</a></div>
                             </div>
                         </div>
                     </div>
