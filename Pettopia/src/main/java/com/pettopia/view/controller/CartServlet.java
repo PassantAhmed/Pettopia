@@ -26,13 +26,16 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "CartServlet", urlPatterns = {"/CartServlet"})
 public class CartServlet extends HttpServlet {
 
-    List<String> productIds = new ArrayList<>();
     ProductsController controller = new ProductsController();
     List<Product> listedProducts = new ArrayList<>();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getSession().getAttribute("cartListedProducts") != null) {
+            listedProducts = (List<Product>) request.getSession().getAttribute("cartListedProducts");
+        }
         request.setAttribute("cartListedProducts", listedProducts);
+        request.getSession().setAttribute("cartListedProducts", listedProducts);
         RequestDispatcher dispatcher = request.getRequestDispatcher("productscart.jsp");
         dispatcher.forward(request, response);
     }
@@ -40,29 +43,18 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productId = request.getParameter("productID");
-        productIds.add(productId);
-        //request.getSession(true).setAttribute("cartProducts", productIds);
-        request.getSession().setAttribute("cartProductsNo", productIds.size());
-        Product product = controller.getProduct(Integer.parseInt(productId));
-        listedProducts.add(product);
-        //request.getSession().setAttribute("cartListedProducts", listedProducts);
-//        PrintWriter out = response.getWriter();
-//        out.print(productIds.size() + "   " + listedProducts.size()+" ");
-//        if(listedProducts.size()>0)
-//            out.print(listedProducts.get(0).getId()+"  "+listedProducts.get(0).getName());
-        response.sendRedirect("products");
-    }
-
-    @Override
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String productId = request.getParameter("deletedProductID");
-        for (int counter = 0; counter < productIds.size(); counter++) {
-            if (productId.equals(productIds.get(counter))) {
-                productIds.remove(counter);
-                request.getSession().setAttribute("cartProductsNo", productIds.size());
-                break;
+        boolean isExist = false;
+        for (int counter = 0; counter < listedProducts.size(); counter++) {
+            if (listedProducts.get(counter).getId() == Integer.parseInt(productId)) {
+                isExist = true;
             }
         }
+        if (isExist == false) {
+            Product product = controller.getProduct(Integer.parseInt(productId));
+            listedProducts.add(product);
+            request.getSession().setAttribute("cartProductsNo", listedProducts.size());
+        }
+        response.sendRedirect("products");
     }
 
 }
