@@ -30,13 +30,13 @@
 
             <!-- Header -->
             <c:if test="${sessionScope.userLoggedIn == 'true'}">
-                <jsp:include page="headerLogged.html" />
+                <jsp:include page="loggedheader.jsp" />
             </c:if>
             <c:if test="${sessionScope.userLoggedIn == 'false'}">
-                <jsp:include page="headerNotLogged.html" />
+                <jsp:include page="notloggedheader.jsp" />
             </c:if>
             <c:if test="${sessionScope.userLoggedIn == null }">
-                <jsp:include page="headerNotLogged.html" />
+                <jsp:include page="notloggedheader.jsp" />
             </c:if>
 
             <!-- New Arrivals -->
