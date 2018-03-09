@@ -5,6 +5,7 @@
  */
 package com.pettopia.view.controller;
 
+import com.pettopia.controller.HelperController;
 import com.pettopia.controller.UserController;
 import com.pettopia.model.bean.Product;
 import java.io.IOException;
@@ -26,7 +27,9 @@ import javax.servlet.http.HttpServletResponse;
 public class PayingServlet extends HttpServlet {
 
     UserController editController;
+    HelperController helperController;
     List<Product> listedProducts = new ArrayList<>();
+    List<String> data;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -67,25 +70,16 @@ public class PayingServlet extends HttpServlet {
                     request.getSession().setAttribute("cartProductsNo", listedProducts.size());
                     
                     editController = new UserController();
-                    List<String> data = new ArrayList<>();
-                    data.add((String) request.getSession().getAttribute("firstName"));
-                    data.add((String) request.getSession().getAttribute("lastName"));
-                    data.add(email);
-                    data.add((String) request.getSession().getAttribute("password"));
-                    data.add((String) request.getSession().getAttribute("job"));
-                    data.add((String) request.getSession().getAttribute("address"));
-                    data.add((String) request.getSession().getAttribute("creditNo1"));
-                    data.add((String) request.getSession().getAttribute("creditNo2"));
-                    data.add((String) request.getSession().getAttribute("creditNo3"));
-                    data.add((String) request.getSession().getAttribute("creditNo4"));
-
+//                    helperController = new HelperController();
+//                    data =  helperController.getUser(email);
                     Long theRest = Long.parseLong(creditLimit) - bill;
-                    request.getSession().setAttribute("creditLimit",theRest);
-                    data.add((String) request.getSession().getAttribute("creditLimit"));
-                    data.add((String) request.getSession().getAttribute("birthdate"));
-                    
-                    editController.update(data);
-                    response.sendRedirect("index.jsp");
+//                    data.remove(7);
+//                    data.add(7,String.valueOf(theRest));
+                    request.getSession().setAttribute("creditLimit",String.valueOf(theRest));
+//                    
+//                    editController.update(data);
+                    request.getSession().setAttribute("errorMessage", "Bought, please wait from 5-15 days to receive your products.");
+                    response.sendRedirect("CartServlet");
                 } else {
                     request.getSession().setAttribute("errorMessage", "You cannot buy all these products please check your credit limit.");
                     response.sendRedirect("CartServlet");
