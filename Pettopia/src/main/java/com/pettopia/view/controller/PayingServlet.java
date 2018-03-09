@@ -39,7 +39,6 @@ public class PayingServlet extends HttpServlet {
             for (int counter = 0; counter < listedProducts.size(); counter++) {
                 if (Integer.parseInt(productId) == listedProducts.get(counter).getId()) {
                     listedProducts.remove(counter);
-                    System.out.println("DONE");
                     request.getSession().setAttribute("cartProductsNo", listedProducts.size());
                     request.setAttribute("cartListedProducts", listedProducts);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("CartServlet");
@@ -87,10 +86,10 @@ public class PayingServlet extends HttpServlet {
                     data.add((String) request.getSession().getAttribute("birthdate"));
 
                     editController.update(data);
-                    request.getSession().setAttribute("errorMessage", "Bought, please wait from 5-15 days to receive your products.");
+                    request.getSession().setAttribute("errorMessage4", "Bought, please wait from 5-15 days to receive your products.");
                     response.sendRedirect("CartServlet");
                 } else {
-                    request.getSession().setAttribute("errorMessage", "You cannot buy all these products please check your credit limit.");
+                    request.getSession().setAttribute("errorMessage4", "You cannot buy all these products please check your credit limit.");
                     response.sendRedirect("CartServlet");
                 }
             }

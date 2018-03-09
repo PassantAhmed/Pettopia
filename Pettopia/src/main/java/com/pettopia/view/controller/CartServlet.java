@@ -56,7 +56,7 @@ public class CartServlet extends HttpServlet {
             Product product = controller.getProduct(Integer.parseInt(productId));
             listedProducts.add(product);
             request.getSession().setAttribute("cartProductsNo", listedProducts.size());
-            request.getSession().setAttribute("errorMessage", "");
+            request.getSession().setAttribute("errorMessage4", "");
         }
         request.getSession().setAttribute("cartListedProducts", listedProducts);
         response.sendRedirect("products");
