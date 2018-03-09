@@ -34,8 +34,5 @@ public class ProductsController {
         return dao.getNextSeq();
     }
     
-    public Product getProduct(int productId){
-        return dao.selectOneProduct(productId);
-    }
     
 }
