@@ -29,9 +29,11 @@ public class CartServlet extends HttpServlet {
     ProductsController controller = new ProductsController();
     List<Product> listedProducts = new ArrayList<>();
 
+    ;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("cartListedProducts") != null) {
+        if ((List<Product>) request.getSession().getAttribute("cartListedProducts") != null) {
             listedProducts = (List<Product>) request.getSession().getAttribute("cartListedProducts");
         }
         request.setAttribute("cartListedProducts", listedProducts);
@@ -42,6 +44,7 @@ public class CartServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String productId = request.getParameter("productID");
         boolean isExist = false;
         for (int counter = 0; counter < listedProducts.size(); counter++) {
@@ -54,7 +57,9 @@ public class CartServlet extends HttpServlet {
             listedProducts.add(product);
             request.getSession().setAttribute("cartProductsNo", listedProducts.size());
         }
+        request.getSession().setAttribute("cartListedProducts", listedProducts);
         response.sendRedirect("products");
+
     }
 
 }

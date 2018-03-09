@@ -58,7 +58,7 @@
                                     <div class="product_price">$ ${item.price}</div>
                                 </div>
                             </div>
-                            <form action="PayServlet" method="POST">
+                            <form action="PayingServlet" method="GET">
                                 <input type="hidden" name="deletedProductID" value="${item.id}"/>
                                 <button class="red_button add_to_cart_button" style="color:#FFF;">REMOVE</button>
                             </form>
@@ -91,9 +91,11 @@
     <div class="container">
         <div class="row" style="margin: 2%;">
             <div class="col-lg-12">
-                <center>
-                    <button class="newsletter_submit_btn trans_300" id="buyBtn" value="BUY" style="width: 20%; font-weight: bolder;margin-top: 20px;">BUY</button>
-                </center>
+                <form action="PayingServlet" method="POST">
+                    <center>
+                        <button class="newsletter_submit_btn trans_300" id="buyBtn" value="BUY" style="width: 20%; font-weight: bolder;margin-top: 20px;">BUY</button>
+                    </center>
+                </form>
             </div>
         </div>
     </div>
