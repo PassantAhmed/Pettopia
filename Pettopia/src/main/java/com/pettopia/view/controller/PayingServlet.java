@@ -54,7 +54,7 @@ public class PayingServlet extends HttpServlet {
             String creditLimit = (String) request.getSession().getAttribute("creditLimit");
             String email = (String) request.getSession().getAttribute("email");
             listedProducts = (List<Product>) request.getSession().getAttribute("cartListedProducts");
-            if (listedProducts != null && email != null && creditLimit!=null) {
+            if (listedProducts != null && email != null && creditLimit != null) {
                 long bill = 0;
                 for (int counter = 0; counter < listedProducts.size(); counter++) {
                     bill += listedProducts.get(counter).getPrice();
@@ -65,6 +65,9 @@ public class PayingServlet extends HttpServlet {
                     request.getSession().setAttribute("cartProductsNo", listedProducts.size());
                     //Calling DB
                     response.sendRedirect("index.jsp");
+                } else {
+                    request.getSession().setAttribute("errorMessage", "You cannot buy all these products please check your credit limit.");
+                    response.sendRedirect("CartServlet");
                 }
             }
         }

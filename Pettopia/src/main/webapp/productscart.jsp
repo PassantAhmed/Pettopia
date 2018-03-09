@@ -93,6 +93,7 @@
             <div class="col-lg-12">
                 <form action="PayingServlet" method="POST">
                     <center>
+                        <div style="color: #FF0000;">${sessionScope.errorMessage}</div>
                         <button class="newsletter_submit_btn trans_300" id="buyBtn" value="BUY" style="width: 20%; font-weight: bolder;margin-top: 20px;">BUY</button>
                     </center>
                 </form>
