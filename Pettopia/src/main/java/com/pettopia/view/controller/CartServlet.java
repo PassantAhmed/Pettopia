@@ -35,7 +35,6 @@ public class CartServlet extends HttpServlet {
         request.getSession().setAttribute("cartListedProducts", listedProducts);
         RequestDispatcher dispatcher = request.getRequestDispatcher("productscart.jsp");
         dispatcher.forward(request, response);
-
     }
 
     @Override
@@ -60,6 +59,7 @@ public class CartServlet extends HttpServlet {
         for (int counter = 0; counter < productIds.size(); counter++) {
             if (productId.equals(productIds.get(counter))) {
                 productIds.remove(counter);
+                request.getSession().setAttribute("cartProductsNo", productIds.size());
                 break;
             }
         }
