@@ -27,12 +27,13 @@
             <div class="container-login100">
                 <div class="wrap-login100">
                     <div class="login100-pic js-tilt" data-tilt>
-                        <img src="style/images/4.png" alt="IMG">
+                        <img style="margin-top: 20px" src="style/images/4.png" alt="IMG">
                     </div>
+                    <div style=" border-radius: 20px;float: top;background-color: #062c33;padding-bottom: 30px;padding-top: 60px;padding-left: 15px;padding-right: 15px">
 
                     <form class="login100-form validate-form" action="../AdminLoginServlet">
                         <span class="login100-form-title">
-                            Member Login
+                            <h2 style="color: wheat">Welcome for you</h2>
                         </span>
 
                         <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -74,6 +75,7 @@
                         </div>
 -->
                     </form>
+                    </div>
                 </div>
             </div>
         </div>

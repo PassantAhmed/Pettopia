@@ -76,13 +76,11 @@ public class AddAdminServlet extends HttpServlet {
             added = ad.addNewAdmin(adminEmail, adminPassword);
             if(added)
             {
-                // redirect to Admin page 
-            }else{               
-                response.sendRedirect("addAdmin.jsp");
-            }
+                response.sendRedirect("admin/adminPanel.jsp");
+              }else{               
+             }
         }else{
-            response.sendRedirect("addAdmin.jsp");
-        }
+           }
         
     }
     public boolean checkValidation(String email , String password)
