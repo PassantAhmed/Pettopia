@@ -5,6 +5,8 @@
  */
 package com.pettopia.view.controller;
 
+import com.pettopia.model.bean.Product;
+import com.pettopia.controller.ProductsController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -25,15 +27,15 @@ import javax.servlet.http.HttpSession;
 public class CartServlet extends HttpServlet {
 
     List<String> productIds = new ArrayList<>();
+    ProductsController controller = new ProductsController();
+    List<Product> listedProducts = new ArrayList<>();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        // TODO CALLING DB
-
-        request.getSession().setAttribute("cartProducts", productIds);
+        request.getSession().setAttribute("cartListedProducts", listedProducts);
         RequestDispatcher dispatcher = request.getRequestDispatcher("productscart.jsp");
         dispatcher.forward(request, response);
+
     }
 
     @Override
@@ -42,15 +44,21 @@ public class CartServlet extends HttpServlet {
         productIds.add(productId);
         request.getSession().setAttribute("cartProducts", productIds);
         request.getSession().setAttribute("cartProductsNo", productIds.size());
-        PrintWriter out = response.getWriter();
-        out.print(productIds.size());
+        Product product = controller.getProduct(Integer.parseInt(productId));
+        listedProducts.add(product);
+        request.getSession().setAttribute("cartListedProducts", listedProducts);
+//        PrintWriter out = response.getWriter();
+//        out.print(productIds.size() + "   " + listedProducts.size()+" ");
+//        if(listedProducts.size()>0)
+//            out.print(listedProducts.get(0).getId()+"  "+listedProducts.get(0).getName());
+        response.sendRedirect("products");
     }
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productId = request.getParameter("deletedProductID");
-        for(int counter = 0; counter<productIds.size(); counter++){
-            if(productId.equals(productIds.get(counter))){
+        for (int counter = 0; counter < productIds.size(); counter++) {
+            if (productId.equals(productIds.get(counter))) {
                 productIds.remove(counter);
                 break;
             }

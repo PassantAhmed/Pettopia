@@ -45,7 +45,7 @@
                 <div class="container">
 
                     <br><br><br><br><br><br><br><br><br>
-                    <c:forEach items="${requestScope.cartProducts}" var="item">
+                    <c:forEach items="${requestScope.cartListedProducts}" var="item">
                         <div class="product-item men">
                             <div class="product discount product_filter">
                                 <div class="product_image">
@@ -90,9 +90,8 @@
     <div class="container">
         <div class="row" style="margin: 2%;">
             <div class="col-lg-12">
-                <form action="CartServlet" method="DELETE">
+                <form action="#" method="POST">
                     <center>
-                        <input type="hidden" value="${item.id}" name="deletedProductID"/>
                         <button class="newsletter_submit_btn trans_300" value="BUY" style="width: 20%; font-weight: bolder;">BUY</button>
                     </center>
                 </form>
