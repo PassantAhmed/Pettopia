@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,12 +49,12 @@
                     <c:forEach items="${requestScope.cartListedProducts}" var="item">
                         <div class="product-item men">
                             <div class="product discount product_filter">
-                              <!--  <div class="product_image">
+                               <div class="product_image">
                                     <img src="c:/Users/Public/Downloads/${item.id}.jpg" alt="">
-                                </div> -->
+                                </div> 
 
                                 <div class="product_info">
-                                    <h6 class="product_name"><a href="single.html">${item.name}</a></h6>
+                                    <h6 class="product_name"><a href="productDetails?id=${item.id}">${item.name}</a></h6>
                                     <div class="product_price">$ ${item.price}</div>
                                 </div>
                             </div>
