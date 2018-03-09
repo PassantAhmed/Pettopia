@@ -32,7 +32,7 @@ public class CartServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().setAttribute("cartListedProducts", listedProducts);
+        request.setAttribute("cartListedProducts", listedProducts);
         RequestDispatcher dispatcher = request.getRequestDispatcher("productscart.jsp");
         dispatcher.forward(request, response);
     }
@@ -41,11 +41,11 @@ public class CartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productId = request.getParameter("productID");
         productIds.add(productId);
-        request.getSession().setAttribute("cartProducts", productIds);
+        //request.getSession(true).setAttribute("cartProducts", productIds);
         request.getSession().setAttribute("cartProductsNo", productIds.size());
         Product product = controller.getProduct(Integer.parseInt(productId));
         listedProducts.add(product);
-        request.getSession().setAttribute("cartListedProducts", listedProducts);
+        //request.getSession().setAttribute("cartListedProducts", listedProducts);
 //        PrintWriter out = response.getWriter();
 //        out.print(productIds.size() + "   " + listedProducts.size()+" ");
 //        if(listedProducts.size()>0)
