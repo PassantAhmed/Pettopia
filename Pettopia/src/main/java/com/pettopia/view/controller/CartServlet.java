@@ -31,10 +31,13 @@ public class CartServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
+        //HttpSession session = request.getSession();
         String productId = request.getParameter("productID");
-        request.getSession().setAttribute("productID",productId);
         productIds.add(productId);
+        request.getSession().setAttribute("products", productIds);
+        request.getSession().setAttribute("productsNo", productIds.size());
+        PrintWriter out = response.getWriter();
+        out.print(productIds.size());
     }
 
 }
