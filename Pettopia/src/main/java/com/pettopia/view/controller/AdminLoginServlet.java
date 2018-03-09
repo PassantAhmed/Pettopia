@@ -5,6 +5,7 @@
  */
 package com.pettopia.view.controller;
 
+import com.pettopia.model.bean.User;
 import com.pettopia.model.database.AdminDao;
 import com.pettopia.model.databaseInterfaces.AdminsDatabaseOperationInterface;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -48,7 +50,30 @@ public class AdminLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+   
+    
+        User usrObj = new User();
+        AdminDao adminDao= new AdminDao();
+        String adminEmail = request.getParameter("adminEmail");
+        String adminPassword = request.getParameter("adminPass");
+      
+        usrObj=adminDao.getAllAdmins(adminEmail);
+
+        if((usrObj.getEmail().equals(adminEmail))  )
+        {
+            if(usrObj.getPassword().equals(adminPassword))
+            {  response.sendRedirect("admin/adminPanel.html");
+                
+            HttpSession session = request.getSession();
+            session.setAttribute("adminLoggedin", "yes");
+            }
+            else
+            response.sendRedirect("admin/index.jsp");
+        }
+         else
+            response.sendRedirect("admin/index.jsp");
+            
+        
     }
 
     /**

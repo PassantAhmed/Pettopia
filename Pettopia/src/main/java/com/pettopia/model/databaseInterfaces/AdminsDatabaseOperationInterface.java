@@ -17,5 +17,8 @@ public interface AdminsDatabaseOperationInterface {
     boolean  isExisAsAdmin(User adminEmail);
 
     public boolean addNewAdmin(String adminEmail, String adminPassword);
+    
+   User getAllAdmins(String adminEmail);
+
 
 }
