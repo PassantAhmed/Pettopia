@@ -35,7 +35,7 @@ public class EditProfileServlet extends HttpServlet {
         editController = new UserController();
         data.add(request.getParameter("firstName"));
         data.add(request.getParameter("lastName"));
-        data.add(request.getParameter("email"));
+        data.add((String) request.getSession().getAttribute("email"));
         data.add(request.getParameter("password"));
         data.add(request.getParameter("job"));
         data.add(request.getParameter("address"));
@@ -50,6 +50,8 @@ public class EditProfileServlet extends HttpServlet {
             
             request.getSession().setAttribute("firstName", data.get(0));
             request.getSession().setAttribute("lastName", data.get(1));
+            String useremail = (String) request.getSession().getAttribute("email");
+            request.getSession().setAttribute("email", useremail);
             request.getSession().setAttribute("password", data.get(3));
             request.getSession().setAttribute("job", data.get(4));
             request.getSession().setAttribute("address", data.get(5));

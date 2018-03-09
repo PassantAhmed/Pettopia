@@ -68,16 +68,25 @@ public class PayingServlet extends HttpServlet {
                     listedProducts = new ArrayList<>();
                     request.getSession().setAttribute("cartListedProducts", listedProducts);
                     request.getSession().setAttribute("cartProductsNo", listedProducts.size());
-                    
+
                     editController = new UserController();
-//                    helperController = new HelperController();
-//                    data =  helperController.getUser(email);
+
                     Long theRest = Long.parseLong(creditLimit) - bill;
-//                    data.remove(7);
-//                    data.add(7,String.valueOf(theRest));
-                    request.getSession().setAttribute("creditLimit",String.valueOf(theRest));
-//                    
-//                    editController.update(data);
+                    request.getSession().setAttribute("creditLimit", String.valueOf(theRest));
+                    data = new ArrayList<>();
+                    data.add((String) request.getSession().getAttribute("firstName"));
+                    data.add((String) request.getSession().getAttribute("lastName"));
+                    data.add((String) request.getSession().getAttribute("email"));
+                    data.add((String) request.getSession().getAttribute("password"));
+                    data.add((String) request.getSession().getAttribute("job"));
+                    data.add((String) request.getSession().getAttribute("address"));
+                    String creditNo = (String) request.getSession().getAttribute("creditNo1") + (String) request.getSession().getAttribute("creditNo2")
+                            + (String) request.getSession().getAttribute("creditNo3") + (String) request.getSession().getAttribute("creditNo4");
+                    data.add(creditNo);
+                    data.add(String.valueOf(theRest));
+                    data.add((String) request.getSession().getAttribute("birthdate"));
+
+                    editController.update(data);
                     request.getSession().setAttribute("errorMessage", "Bought, please wait from 5-15 days to receive your products.");
                     response.sendRedirect("CartServlet");
                 } else {
