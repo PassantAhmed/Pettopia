@@ -99,6 +99,9 @@
         <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
         <script src="js/single_custom.js"></script>
         <script src="js/custom.js"></script>
+        <script>
+            function render(){}
+        </script>
     </body>
 
 </html>

@@ -109,6 +109,8 @@
             <!-- Footer -->
             <jsp:include page="footer.html" />
         </div>
-
+        <script>
+            function render(){}
+        </script>
     </body>
 </html>

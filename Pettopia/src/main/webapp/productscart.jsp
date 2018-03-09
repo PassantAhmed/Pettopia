@@ -58,8 +58,8 @@
                                     <div class="product_price">$ ${item.price}</div>
                                 </div>
                             </div>
-                            <form action="CartServlet" method="DELETE">
-                                <input type="hidden" name="productID" value="${item.id}"/>
+                            <form action="PayServlet" method="POST">
+                                <input type="hidden" name="deletedProductID" value="${item.id}"/>
                                 <button class="red_button add_to_cart_button" style="color:#FFF;">REMOVE</button>
                             </form>
                         </div>
@@ -91,11 +91,9 @@
     <div class="container">
         <div class="row" style="margin: 2%;">
             <div class="col-lg-12">
-                <form action="#" method="POST">
-                    <center>
-                        <button class="newsletter_submit_btn trans_300" value="BUY" style="width: 20%; font-weight: bolder;">BUY</button>
-                    </center>
-                </form>
+                <center>
+                    <button class="newsletter_submit_btn trans_300" id="buyBtn" value="BUY" style="width: 20%; font-weight: bolder;margin-top: 20px;">BUY</button>
+                </center>
             </div>
         </div>
     </div>
@@ -107,10 +105,13 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="styles/bootstrap4/popper.js"></script>
     <script src="styles/bootstrap4/bootstrap.min.js"></script>  
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="js/custom.js"></script>
+    <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        function render(){}
+    </script>
 </body>
 
 </html>
