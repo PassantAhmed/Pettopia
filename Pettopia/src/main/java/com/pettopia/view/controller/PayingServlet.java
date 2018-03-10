@@ -5,6 +5,8 @@
  */
 package com.pettopia.view.controller;
 
+import com.pettopia.controller.HelperController;
+import com.pettopia.controller.UserController;
 import com.pettopia.model.bean.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,7 +26,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "PayingServlet", urlPatterns = {"/PayingServlet"})
 public class PayingServlet extends HttpServlet {
 
+    UserController editController;
+    HelperController helperController;
     List<Product> listedProducts = new ArrayList<>();
+    List<String> data;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +39,6 @@ public class PayingServlet extends HttpServlet {
             for (int counter = 0; counter < listedProducts.size(); counter++) {
                 if (Integer.parseInt(productId) == listedProducts.get(counter).getId()) {
                     listedProducts.remove(counter);
-                    System.out.println("DONE");
                     request.getSession().setAttribute("cartProductsNo", listedProducts.size());
                     request.setAttribute("cartListedProducts", listedProducts);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("CartServlet");
@@ -63,10 +67,29 @@ public class PayingServlet extends HttpServlet {
                     listedProducts = new ArrayList<>();
                     request.getSession().setAttribute("cartListedProducts", listedProducts);
                     request.getSession().setAttribute("cartProductsNo", listedProducts.size());
-                    //Calling DB
-                    response.sendRedirect("index.jsp");
+
+                    editController = new UserController();
+
+                    Long theRest = Long.parseLong(creditLimit) - bill;
+                    request.getSession().setAttribute("creditLimit", String.valueOf(theRest));
+                    data = new ArrayList<>();
+                    data.add((String) request.getSession().getAttribute("firstName"));
+                    data.add((String) request.getSession().getAttribute("lastName"));
+                    data.add((String) request.getSession().getAttribute("email"));
+                    data.add((String) request.getSession().getAttribute("password"));
+                    data.add((String) request.getSession().getAttribute("job"));
+                    data.add((String) request.getSession().getAttribute("address"));
+                    String creditNo = (String) request.getSession().getAttribute("creditNo1") + (String) request.getSession().getAttribute("creditNo2")
+                            + (String) request.getSession().getAttribute("creditNo3") + (String) request.getSession().getAttribute("creditNo4");
+                    data.add(creditNo);
+                    data.add(String.valueOf(theRest));
+                    data.add((String) request.getSession().getAttribute("birthdate"));
+
+                    editController.update(data);
+                    request.getSession().setAttribute("errorMessage4", "Bought, please wait from 5-15 days to receive your products.");
+                    response.sendRedirect("CartServlet");
                 } else {
-                    request.getSession().setAttribute("errorMessage", "You cannot buy all these products please check your credit limit.");
+                    request.getSession().setAttribute("errorMessage4", "You cannot buy all these products please check your credit limit.");
                     response.sendRedirect("CartServlet");
                 }
             }

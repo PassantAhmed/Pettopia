@@ -44,3 +44,22 @@ $(document).ready(function() {
 
 	
 		});
+                
+                
+  //function to show or hide product 
+  
+  function showForm() {
+	  var i = document.getElementById("productid1").value;	
+      var x = document.getElementById("productDetail");
+    
+    if (x.style.display === "none" && !(i.trim()=='')) {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+    
+    var ii = document.getElementById("productid2");
+    ii.value=i;
+    
+    
+}

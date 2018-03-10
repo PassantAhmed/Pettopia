@@ -63,6 +63,7 @@ public class AdminAddProduct extends HttpServlet {
         temp.setName(request.getParameter("productname"));
         temp.setDescription(request.getParameter("productdesc"));
         temp.setPrice(Double.parseDouble(request.getParameter("productprice").trim()));
+        temp.setCategory(request.getParameter("productcategory"));
         temp.setQuantity("y");
 
         c.adminInsertProduct(temp);
@@ -105,6 +106,9 @@ public class AdminAddProduct extends HttpServlet {
                         case "productprice":
                             temp.setPrice(Double.valueOf(item.getString().trim()));
                             break;
+                        case "productcategory":
+                        	temp.setCategory(item.getString());
+                        	break;
                     }
                     temp.setQuantity("n");
                     

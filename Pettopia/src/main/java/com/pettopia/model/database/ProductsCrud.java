@@ -59,6 +59,7 @@ public class ProductsCrud {
     public boolean insert(String sqlStatment) {
         try {
             stmt = conn.createStatement();
+            System.out.println(sqlStatment);
             stmt.executeUpdate(sqlStatment);
             System.out.println("Record saved");
         } catch (SQLException ex) {
@@ -87,10 +88,11 @@ public class ProductsCrud {
         try {
             //Create statement(update)
             stmt = conn.createStatement();
+           System.out.println(sqlStatment);
             stmt.executeUpdate(sqlStatment);
             System.out.println("Records updated");
         } catch (SQLException e) {
-            System.out.println(e + "com.pettopia.model.database.UsersCrud.updateException()");
+            System.out.println(e + "com.pettopia.model.database.ProductsCrud.updateException()");
             return false;
         }
         return true;

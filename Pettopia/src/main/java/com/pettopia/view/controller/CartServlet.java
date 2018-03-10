@@ -44,7 +44,7 @@ public class CartServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
         String productId = request.getParameter("productID");
         boolean isExist = false;
         for (int counter = 0; counter < listedProducts.size(); counter++) {
@@ -56,6 +56,7 @@ public class CartServlet extends HttpServlet {
             Product product = controller.getProduct(Integer.parseInt(productId));
             listedProducts.add(product);
             request.getSession().setAttribute("cartProductsNo", listedProducts.size());
+            request.getSession().setAttribute("errorMessage4", "");
         }
         request.getSession().setAttribute("cartListedProducts", listedProducts);
         response.sendRedirect("products");

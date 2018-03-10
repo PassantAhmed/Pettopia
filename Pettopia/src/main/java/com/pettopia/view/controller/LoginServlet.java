@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 
                 data = loginController.getUser(email);
                 if (data.get(3).equals(password)) {
-                    
+
                     request.getSession(true).setAttribute("userLoggedIn", "true");
                     request.getSession().setAttribute("firstName", data.get(0));
                     request.getSession().setAttribute("lastName", data.get(1));
@@ -48,23 +48,23 @@ public class LoginServlet extends HttpServlet {
                     request.getSession().setAttribute("creditNo1", data.get(6).subSequence(0, 4));
                     request.getSession().setAttribute("creditNo2", data.get(6).subSequence(4, 8));
                     request.getSession().setAttribute("creditNo3", data.get(6).subSequence(8, 12));
-                    request.getSession().setAttribute("creditNo4", data.get(6).subSequence(12,data.get(6).length()));
+                    request.getSession().setAttribute("creditNo4", data.get(6).subSequence(12, data.get(6).length()));
                     request.getSession().setAttribute("creditLimit", data.get(7));
                     request.getSession().setAttribute("birthdate", data.get(8));
 
                     response.sendRedirect("index.jsp");
 
                 } else {
-                    request.setAttribute("errorMessage", "Wrong password, Please enter correct password");
+                    request.setAttribute("errorMessage1", "Wrong password, Please enter correct password");
                     request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
 
             } else {
-                request.setAttribute("errorMessage", "Wrong E-mail Address, Please enter correct email");
+                request.setAttribute("errorMessage1", "Wrong E-mail Address, Please enter correct email");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } else {
-            request.setAttribute("errorMessage", "Please make sure that your data is valid");
+            request.setAttribute("errorMessage1", "Please make sure that your data is valid");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
