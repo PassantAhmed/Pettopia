@@ -58,7 +58,7 @@
                                     <li><a href="logOut">log out</a></li>
                                 </ul>
                                 <ul class="navbar_user">
-                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                    <li><a href="search.jsp"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 
                                     <li><a href="editprofile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 

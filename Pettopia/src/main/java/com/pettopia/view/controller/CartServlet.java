@@ -29,8 +29,6 @@ public class CartServlet extends HttpServlet {
     ProductsController controller = new ProductsController();
     List<Product> listedProducts = new ArrayList<>();
 
-    ;
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if ((List<Product>) request.getSession().getAttribute("cartListedProducts") != null) {

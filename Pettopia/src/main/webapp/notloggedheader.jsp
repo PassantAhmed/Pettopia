@@ -59,7 +59,7 @@
                                         <li><a href="contact.jsp">contact us</a></li>
                                     </ul>
                                     <ul class="navbar_user">
-                                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                        <li><a href="search.jsp"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                                         <li class="checkout">
                                             <a href="CartServlet">
                                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>

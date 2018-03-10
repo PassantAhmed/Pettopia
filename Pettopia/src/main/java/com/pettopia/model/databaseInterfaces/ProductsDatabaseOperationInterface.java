@@ -32,5 +32,6 @@ public interface ProductsDatabaseOperationInterface {
     
     public int getNextSeq();
     
+    public ArrayList<Product> getNeededProducts(String item);
 
 }

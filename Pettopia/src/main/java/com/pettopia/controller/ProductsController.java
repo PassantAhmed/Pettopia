@@ -13,35 +13,38 @@ import java.util.ArrayList;
  *
  * @author khaled
  */
-
 public class ProductsController {
+
     ProductDao dao = new ProductDao();
-    
-    public ArrayList<Product> getAvailableProducts(){
-       
+
+    public ArrayList<Product> getAvailableProducts() {
+
         return dao.getAllProducts();
     }
-    public Product getProduct(int id){
+
+    public Product getProduct(int id) {
         return dao.getProduct(id);
     }
-    public boolean adminInsertProduct(Product p)
-    {
-      return dao.insertProducts(p);
+
+    public ArrayList<Product> getNeededProducts(String item) {
+        return dao.getNeededProducts(item);
     }
-    
-    public int getNextSeq ()
-    { 
+
+    public boolean adminInsertProduct(Product p) {
+        return dao.insertProducts(p);
+    }
+
+    public int getNextSeq() {
         return dao.getNextSeq();
     }
-    
-    public Product getProductById(int id)
-    {
-      return dao.selectOneProduct(id);
+
+    public Product getProductById(int id) {
+        return dao.selectOneProduct(id);
     }
-    
-    public boolean editProduct(Product p)
-    {
-    	
-    	return dao.updateProducts(p);
+
+    public boolean editProduct(Product p) {
+
+        return dao.updateProducts(p);
     }
+
 }
