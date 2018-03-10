@@ -30,15 +30,15 @@
 
             <!-- Header -->
             <c:if test="${sessionScope.userLoggedIn == 'true'}">
-                <jsp:include page="headerLogged.html" />
+                <jsp:include page="loggedheader.jsp" />
             </c:if>
             <c:if test="${sessionScope.userLoggedIn == 'false'}">
-                <jsp:include page="headerNotLogged.html" />
+                <jsp:include page="notloggedheader.jsp" />
             </c:if>
             <c:if test="${sessionScope.userLoggedIn == null }">
-                <jsp:include page="headerNotLogged.html" />
+                <jsp:include page="notloggedheader.jsp" />
             </c:if>
-            
+
             <!-- New Arrivals -->
 
             <div class="new_arrivals">
@@ -50,15 +50,18 @@
                         <div class="product-item men">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <img src="images/product_1.png" alt="">
+                                    <img src="c:/Users/Public/Downloads/${item.id}.jpg" alt="">
                                 </div>
 
                                 <div class="product_info">
-                                    <h6 class="product_name"><a href="single.html">${item.name}</a></h6>
+                                    <h6 class="product_name"><a href="productDetails?id=${item.id}">${item.name}</a></h6>
                                     <div class="product_price">$ ${item.price}</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <form action="CartServlet" method="POST">
+                                <input type="hidden" name="productID" value="${item.id}"/>
+                                <button class="red_button add_to_cart_button" style="color:#FFF;">add to cart</button>
+                            </form>
                         </div>
 
                     </c:forEach>
@@ -153,16 +156,20 @@
     </div>
 </div>
 
-<!-- Footer -->
-    <jsp:include page="footer.html" />
-</div>
+    <!-- Footer -->
+    <jsp:include page="footer.html" />  
+    </div>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="js/custom.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="styles/bootstrap4/popper.js"></script>
+    <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="js/custom.js"></script> 
+    <script>
+        function render(){}
+    </script>
 </body>
 
+</html>

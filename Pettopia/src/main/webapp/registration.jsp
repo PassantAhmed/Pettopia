@@ -27,13 +27,13 @@
 
             <!-- Header -->
             <c:if test="${sessionScope.userLoggedIn == 'true'}">
-                <jsp:include page="headerLogged.html" />
+                <jsp:include page="loggedheader.jsp" />
             </c:if>
             <c:if test="${sessionScope.userLoggedIn == 'false'}">
-                <jsp:include page="headerNotLogged.html" />
+                <jsp:include page="notloggedheader.jsp" />
             </c:if>
             <c:if test="${sessionScope.userLoggedIn == null }">
-                <jsp:include page="headerNotLogged.html" />
+                <jsp:include page="notloggedheader.jsp" />
             </c:if>
             
             <!-- Slider -->
@@ -86,7 +86,7 @@
                                                     <td class="inputs"><input type="text" name="job" class="reginputFields form-control" required="true" size="34" tabindex="13"/></td>
                                                 </tr>
                                             </table>
-                                            <div style="color: #FF0000;">${errorMessage}</div>
+                                            <div style="color: #FF0000;">${errorMessage2}</div>
                                             <button class="loginBtn">Sign Up</button>
                                         </form>
                                     </div>
@@ -109,6 +109,8 @@
             <!-- Footer -->
             <jsp:include page="footer.html" />
         </div>
-
+        <script>
+            function render(){}
+        </script>
     </body>
 </html>

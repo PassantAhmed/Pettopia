@@ -42,9 +42,10 @@
                 cursor: pointer;
                 width: 100px;
                 height: 100px;
-                border:2px solid #03b1ce ;
+                border:2px solid rgba(0,0,0,0);
                 margin-bottom: 1%;
                 margin-top: 3%;
+                border-radius: 50%;
             }
             .tital{ font-size:16px; font-weight:500;}
             .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}
@@ -56,13 +57,13 @@
 
             <!-- Header -->
             <c:if test="${sessionScope.userLoggedIn == 'true'}">
-                <jsp:include page="headerLogged.html" />
+                <jsp:include page="loggedheader.jsp" />
             </c:if>
             <c:if test="${sessionScope.userLoggedIn == 'false'}">
-                <jsp:include page="headerNotLogged.html" />
+                <jsp:include page="notloggedheader.jsp" />
             </c:if>
             <c:if test="${sessionScope.userLoggedIn == null }">
-                <jsp:include page="headerNotLogged.html" />
+                <jsp:include page="notloggedheader.jsp" />
             </c:if>
             
             <!-- Slider -->
@@ -119,7 +120,7 @@
                                                     <td class="inputs"><input type="text" name="job" class="reginputFields form-control" value="${sessionScope.job}" required="true" size="34" tabindex="13"/></td>
                                                 </tr>
                                             </table>
-                                            <div style="color: #FF0000;">${errorMessage}</div>
+                                            <div style="color: #FF0000;">${errorMessage3}</div>
                                             <button class="loginBtn">Save Changes</button>
                                         </form>
                                     </div>
@@ -137,7 +138,9 @@
 
             <jsp:include page="footer.html" />
         </div>
-
+        <script>
+            function render(){}
+        </script>
     </body>
 </html>
 

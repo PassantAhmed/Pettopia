@@ -16,6 +16,8 @@ public interface ProductsDatabaseOperationInterface {
 
     public ArrayList<Product> getAllProducts();
     
+    public Product getProduct(int id);
+    
     public boolean insertProducts(Product productsInformations);
 
     public boolean updateProducts(Product productsInformations);

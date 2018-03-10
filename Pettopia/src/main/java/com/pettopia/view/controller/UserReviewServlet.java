@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Hesham Kadry
  */
-@WebServlet(urlPatterns = {"/UserReviewServlet"})
+@WebServlet(urlPatterns = {"/admin/UserReviewServlet"})
 public class UserReviewServlet extends HttpServlet implements Serializable {
 User user = new User() ;
 
@@ -63,7 +63,7 @@ User user = new User() ;
             user = ud.selectUser(request.getParameter("email"));
         }
         
-        RequestDispatcher rd = request.getRequestDispatcher("Review.html");
+        RequestDispatcher rd = request.getRequestDispatcher("admin/Review.html");
         rd.forward(request, response);
         
     }

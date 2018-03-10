@@ -29,15 +29,17 @@
     <body>
 
         <div class="super_container">
+            <!-- Header -->
             <c:if test="${sessionScope.userLoggedIn == 'true'}">
-                <jsp:include page="headerLogged.html" />
+                <jsp:include page="loggedheader.jsp" />
             </c:if>
             <c:if test="${sessionScope.userLoggedIn == 'false'}">
-                <jsp:include page="headerNotLogged.html" />
+                <jsp:include page="notloggedheader.jsp" />
             </c:if>
             <c:if test="${sessionScope.userLoggedIn == null }">
-                <jsp:include page="headerNotLogged.html" />
+                <jsp:include page="notloggedheader.jsp" />
             </c:if>
+            
             <div class="container contact_container">
                 <div class="row">
                     <div class="col">
@@ -160,6 +162,9 @@
         <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
         <script src="js/contact_custom.js"></script>
         <script src="js/custom.js"></script>
+        <script>
+            function render(){}
+        </script>
     </body>
 
 </html>

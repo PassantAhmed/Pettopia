@@ -5,11 +5,13 @@
  */
 package com.pettopia.model.bean;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Passant
  */
-public class Product {
+public class Product implements Serializable{
 
     private int id;
     private String name;

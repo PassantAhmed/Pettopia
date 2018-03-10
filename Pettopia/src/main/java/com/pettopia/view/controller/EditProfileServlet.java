@@ -31,11 +31,11 @@ public class EditProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<String> data = new ArrayList<>();
-
+        
         editController = new UserController();
         data.add(request.getParameter("firstName"));
         data.add(request.getParameter("lastName"));
-        data.add(request.getParameter("email"));
+        data.add((String) request.getSession().getAttribute("email"));
         data.add(request.getParameter("password"));
         data.add(request.getParameter("job"));
         data.add(request.getParameter("address"));
@@ -45,11 +45,13 @@ public class EditProfileServlet extends HttpServlet {
         data.add(request.getParameter("rePassword"));
 
         if (checkValidation(data)) {
-        
+
             editController.update(data);
-            
+
             request.getSession().setAttribute("firstName", data.get(0));
             request.getSession().setAttribute("lastName", data.get(1));
+            String useremail = (String) request.getSession().getAttribute("email");
+            request.getSession().setAttribute("email", useremail);
             request.getSession().setAttribute("password", data.get(3));
             request.getSession().setAttribute("job", data.get(4));
             request.getSession().setAttribute("address", data.get(5));
@@ -59,13 +61,13 @@ public class EditProfileServlet extends HttpServlet {
             request.getSession().setAttribute("creditNo4", data.get(6).subSequence(12, data.get(6).length()));
             request.getSession().setAttribute("creditLimit", data.get(7));
             request.getSession().setAttribute("birthdate", data.get(8));
-            
-            request.setAttribute("errorMessage", "Saved");
-            
+
+            request.setAttribute("errorMessage3", "Saved");
+
             request.getRequestDispatcher("editprofile.jsp").forward(request, response);
 
         } else {
-            request.setAttribute("errorMessage", "Please make sure that your data is valid, Name must not contain special characters or numbers."
+            request.setAttribute("errorMessage3", "Please make sure that your data is valid, Name must not contain special characters or numbers."
                     + "<br/>2. Password must be 8 to 30 digits. & Age must be +18, Also make sure that you've entered valid credit number and valid credit limit.");
             request.getRequestDispatcher("editprofile.jsp").forward(request, response);
         }

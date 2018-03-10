@@ -21,7 +21,9 @@ public class ProductsController {
        
         return dao.getAllProducts();
     }
-    
+    public Product getProduct(int id){
+        return dao.getProduct(id);
+    }
     public boolean adminInsertProduct(Product p)
     {
       return dao.insertProducts(p);

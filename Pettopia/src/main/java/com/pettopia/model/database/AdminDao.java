@@ -30,5 +30,11 @@ public class AdminDao implements AdminsDatabaseOperationInterface {
         return adminCrud.insert(statm);
 
     }
+    
+     @Override
+    public User getAllAdmins(String adminEmail) {
+        String statm = "select * from petadmin where adminemail='" + adminEmail + "'";
+        return adminCrud.select(statm,"");
+    }
 
 }

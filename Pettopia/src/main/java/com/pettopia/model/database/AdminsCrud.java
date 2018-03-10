@@ -71,5 +71,32 @@ public class AdminsCrud {
         }
         return true;
     }
+    
+    /******************* select specific admin with his data *************************/
+public User select(String strStatement,String overload) {
+        int counter=0;
+             User usr = new User();
 
+        try {                      
+
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(strStatement);
+            while (rs.next()) {
+                  counter++;
+                usr.setEmail(rs.getString("adminemail"));
+                usr.setPassword(rs.getString("adminpassword"));
+
+            }
+            if(counter <=0 )
+                usr.setEmail("");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminsCrud.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        
+        return usr;
+      
+    }
+    
 }

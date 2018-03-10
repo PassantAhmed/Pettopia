@@ -35,6 +35,11 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
 
     }
 
+    @Override
+    public Product getProduct(int id){
+        String statement = "select * from petproducts where productid="+id;
+        return productsCrud.select(statement,"");
+    }
     
     @Override
     public ArrayList<Product> getAllProducts(){
