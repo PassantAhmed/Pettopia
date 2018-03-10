@@ -1,20 +1,16 @@
-package com.pettopia.view.controller;
-
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package com.pettopia.view.controller;
 
 import com.google.gson.Gson;
-import com.pettopia.model.bean.User;
-import com.pettopia.model.database.UserDao;
+import com.pettopia.controller.ProductsController;
+import com.pettopia.model.bean.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Serializable;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,11 +20,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Hesham Kadry
+ * @author Ahmed
  */
-@WebServlet(urlPatterns = {"/UserReviewServlet"})
-public class UserReviewServlet extends HttpServlet implements Serializable {
-User user = new User() ;
+@WebServlet(name = "AdminEditProduct", urlPatterns = {"/AdminEditProduct"})
+public class AdminEditProduct extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,7 +34,7 @@ User user = new User() ;
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-
+   
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -53,19 +48,7 @@ User user = new User() ;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-              
-        //PrintWriter out = response.getWriter();
-        
-        UserDao ud = new UserDao();
-
-        if(request.getParameter("email") != null)
-        {
-            user = ud.selectUser(request.getParameter("email"));
-        }
-        
-        RequestDispatcher rd = request.getRequestDispatcher("Review.html");
-        rd.forward(request, response);
-        
+     //   processRequest(request, response);
     }
 
     /**
@@ -78,13 +61,39 @@ User user = new User() ;
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
+            throws ServletException, IOException {
+       // processRequest(request, response);
        
-            response.setContentType("application/json");
-            Gson gson = new Gson();
-            response.getWriter().write(gson.toJson(user));
-            response.getWriter().close();
+        response.setContentType("application/json");
+       PrintWriter out = response.getWriter();
+       
+       ProductsController c = new ProductsController();
+       int productId = Integer.parseInt(request.getParameter("id").trim());
+       //get product of entered id 
+        System.out.println(productId);
         
+       Product p = c.getProductById(productId);
+       
+       if(p.getId()!=0)
+       {
+    	   
+       System.out.println(p.getName());
+       System.out.println(p.getPrice());
+       System.out.println(p.getQuantity());
+       System.out.println(p.getDescription());
+       
+       // create ajax object to send back 
+       
+      Gson g = new Gson();
+      String resultproduct = g.toJson(p);
+      
+      out.print(resultproduct);
+       }
+       else
+       {
+    	   
+    	   out.print("no record found");
+       }
     }
 
     /**

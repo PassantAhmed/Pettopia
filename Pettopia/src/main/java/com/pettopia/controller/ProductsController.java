@@ -32,5 +32,14 @@ public class ProductsController {
         return dao.getNextSeq();
     }
     
+    public Product getProductById(int id)
+    {
+      return dao.selectOneProduct(id);
+    }
     
+    public boolean editProduct(Product p)
+    {
+    	
+    	return dao.updateProducts(p);
+    }
 }
