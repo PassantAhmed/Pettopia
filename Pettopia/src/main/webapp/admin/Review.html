@@ -12,6 +12,80 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/UserReviewScript.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 25px;
+  font-style: italic;
+}
+
+.btnedit
+{
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+.btnedit:hover, a:hover {
+  opacity: 0.7;
+}
+
+.ButtonSend{
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 10%;
+  font-size: 18px;
+}
+
+.ButtonSend:hover {
+  opacity: 0.7;
+}
+.editTextff{
+    margin: auto;
+    width: 20%;
+    border: 3px solid green;
+    padding: 10px;
+    display: inline-block;
+}
+.data{
+    
+}
+.container{
+  width: 100%;
+  text-align: center;
+}
+
+</style>
+    
 </head>
 
 <body onload="setInterval(function(){refresh();}, 2000)">
@@ -20,35 +94,32 @@ and open the template in the editor.
     
         <div class="data">
 
-            <input placeholder="User Email" id="uEmail" type="text"/><br><br>
-            <button onclick="sendEmail()">Review</button><br>
+            <input placeholder="User Email" id="uEmail" type="text" class="editTextff"/><br><br>
+            <button onclick="sendEmail()" class="ButtonSend">Review</button><br>
            
 
-            <br>
-           <table border="1" width="40%">
-            <col width="50%">
-            <col width="50%">
-            <tr>
-                <th style="text-align: center;">first Name</th>
-                <th style="text-align: center;">last name</th>
-                <th style="text-align: center;">birth date</th>
-                <th style="text-align: center;">job</th>
-                <th style="text-align: center;">email</th>
-                <th style="text-align: center;">credit lemit</th>
-                <th style="text-align: center;">credit number</th>
-            </tr>
-            <tbody id="tableRows">
-                <tr>
-
-                </tr>
-            </tbody>
-
-            </table> 
+            <br>  
         </div>  
-    <div class="Users">
+        <div class="card">
+            <img src="user_profile.jpg" alt="John" style="width:50%; height:50%">
+                <div id="userData">
+                    <h1>First name</h1>
+                    <p>Last Name</p>
+                    <p>Birth Date</p>
+                    <p>job</p>
+                    <p>email</p>
+                    <p>credit lemit</p>
+                    <p>credit number</p>
+                </div>
+                <div style="margin: 24px 0;">
+                  <a href="#"><i class="fa fa-dribbble"></i></a> 
+                  <a href="#"><i class="fa fa-twitter"></i></a>  
+                  <a href="#"><i class="fa fa-linkedin"></i></a>  
+                  <a href="#"><i class="fa fa-facebook"></i></a> 
+               </div>
+            <p><button class="btnedit">EDIT</button></p>
+        </div>
 
-        
-    </div>
 </div>
         
 </body>

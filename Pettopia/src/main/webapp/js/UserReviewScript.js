@@ -29,11 +29,13 @@ function refresh() {
 function refreshUser(val) {
     var user = val;
     console.log("job "+user.job);
+    
     if(typeof user.firstName  !== "undefined")
     {
-       $("#tableRows tr").remove();
+       $("#userData p").remove();
+       $("#userData h1").remove();
         console.log("user first name "+user.firstName);
-        $('#tableRows').append('<tr ><td>' + user.firstName + '</td><td>' + user.lastName+ '</td ><td>' + user.job+ '</td ><td>' + user.email+ '</td > <td>' + user.creditLimit.toString()+ '</td > <td>' + user.creditNo + '</td></tr>'); 
+        $('#userData').append('<h1 title="first name" class="title">' + user.firstName + '</h1><p title="last name">' + user.lastName+ '</p ><p title="User Jop">' + user.job+ '</p ><p title="User Email">' + user.email+ '</p > <p title="Credit Lemit">' + user.creditLimit.toString()+ '</p > <p title="Credit number">' + user.creditNo + '</p>'); 
     }   
     else{
         console.log("undefined");
