@@ -43,16 +43,17 @@
                         <div class="col-lg-12 ">
                             <center>
                                 <form action="SearchServlet" method="POST" />
-                                <input type="text" size="50" name="neededItem" style="height: 46px;padding:6px;" />
-                                <button class="loginBtn">Search</button>
+                                    <input type="text" size="50" name="neededItem" style="height: 46px;padding:6px;" />
+                                    <button class="loginBtn">Search</button>
+                                </form>
                             </center>
                         </div>
                         <div class="new_arrivals">
 
                             <div class="container">
-                               
+
                                 <c:forEach items="${requestScope.neededProducts}" var="item">
-                                    
+
                                     <div class="product-item men">
                                         <div class="product discount product_filter">
                                             <div class="product_image">
@@ -71,17 +72,17 @@
                                     </div>
 
                                 </c:forEach>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            
+
             <!-- Footer -->
             <jsp:include page="footer.html" />
-            
+
         </div>
     </body>
 </html>
