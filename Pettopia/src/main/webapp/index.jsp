@@ -48,7 +48,7 @@
                             <div class="main_slider_content">
                                 <h6>The first online pet store in the world</h6>
                                 <h2>Welcome to PETTOPIA</h2>
-                                <div class="red_button shop_now_button"><a href="products">shop now</a></div>
+                                <div class="red_button shop_now_button" style="background-color: #ff6347; margin-left: 30%;"><a href="products">shop now</a></div>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
         <script src="plugins/easing/easing.js"></script>
         <script src="js/custom.js"></script>
         <script>
-            function render(){}
+            function render() {}
         </script>
     </body>
 
