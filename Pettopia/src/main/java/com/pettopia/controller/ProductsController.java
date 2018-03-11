@@ -51,4 +51,7 @@ public class ProductsController {
         return dao.deleteProducts(id);
     }
 
+    public boolean makeProductSold(int id){
+        return dao.updateProductSold(id);
+    }
 }

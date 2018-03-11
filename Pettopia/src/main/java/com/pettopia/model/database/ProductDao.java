@@ -99,4 +99,10 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
         return productsCrud.getLast(ss);
     }
 
+    @Override
+    public boolean updateProductSold(int id) {
+        String s = "update petproducts set sold_yn = 'y' where productid="+id;
+        return productsCrud.update(s);
+    }
+
 }
