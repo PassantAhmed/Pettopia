@@ -105,7 +105,7 @@
             <script src="js/custom.js"></script>
             <script>
                 function render() {
-                    document.getElementById("checkout_items").innerHTML = ${sessionScope.cartProductsNo};
+                    document.getElementById("checkout_items").innerHTML = ""+${sessionScope.cartProductsNo};
                 }
             </script>
     </body>

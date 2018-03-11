@@ -49,9 +49,9 @@
                     <c:forEach items="${requestScope.products}" var="item">
                         <div class="product-item men">
                             <div class="product discount product_filter">
-                                <div class="product_image">
-                                    <img src="c:/Users/Public/Downloads/${item.id}.jpg" alt="">
-                                </div>
+                                
+                                    <img style="display: block; min-height:77%; width: 100%; max-width: 100%;" src="productImage?id=${item.id}" alt="">
+                                
 
                                 <div class="product_info">
                                     <h6 class="product_name"><a href="productDetails?id=${item.id}">${item.name}</a></h6>
@@ -60,7 +60,7 @@
                             </div>
                             <form action="CartServlet" method="POST">
                                 <input type="hidden" name="productID" value="${item.id}"/>
-                                <button class="red_button add_to_cart_button" style="color:#FFF;">add to cart</button>
+                                <button class="newsletter_submit_btn trans_300" style="color:#FFF; width: 100%;">add to cart</button>
                             </form>
                         </div>
 

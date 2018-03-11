@@ -126,7 +126,7 @@ public class AdminAddProduct extends HttpServlet {
             Logger.getLogger(AdminAddProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-         response.sendRedirect("admin/adminPanel.html");
+         response.sendRedirect("admin/adminPanel.jsp");
 
     }
 

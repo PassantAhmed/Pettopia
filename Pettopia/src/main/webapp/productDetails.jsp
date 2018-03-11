@@ -56,7 +56,9 @@
 
                                 <div class="col-lg-12 image_col order-lg-2 order-1">
                                     <div class="single_product_image">
-                                        <div class="single_product_image_background" style="background-image:url(c:/Users/Public/Downloads/${requestScope.product.id}.jpg)"></div>
+                                        <div class="single_product_image_background" >
+                                            <img style="display: block; min-height:100%; width: 100%; max-width: 100%;" src="productImage?id=${requestScope.product.id}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +78,10 @@
 
 
                             <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-                                <div class="red_button add_to_cart_button"><a href="">add to cart</a></div>
+                                <form action="CartServlet" method="POST">
+                                    <input type="hidden" name="productID" value="${requestScope.product.id}"/>
+                                    <button class="newsletter_submit_btn trans_300" style="color:#FFF; width:150%;">add to cart</button>
+                                </form>
                             </div>
                         </div>
                     </div>
