@@ -215,11 +215,11 @@
                                                     var jsonData = {"id": $("#productid").val()};
                                                     $.ajax({url: '../AdminRemoveProduct', type: 'POST', data: jsonData, success: function (data)
                                                         {
-                                                            $("#resultremove").html("<div style='color: #FF0000;'>"+data+"</div>");
+                                                            $("#resultremove").html("<div style='color: #FF0000;'>" + data + "</div>");
 
                                                         }, error: function (data)
                                                         {
-                                                            $("#resultremove").html("<div style='color: #FF0000;'>"+data+"</div>");
+                                                            $("#resultremove").html("<div style='color: #FF0000;'>" + data + "</div>");
                                                         }
                                                     });
 
@@ -261,12 +261,11 @@
                                             <div class="card">
                                                 <center>
                                                     <img src="user_profile.jpg" alt="John" style="width:15%; height:15%; margin: 4%;">
-                                                </center>
-                                                <table style="margin-left: 8%;">
+                                                    <table>
                                                         <tr>
-                                                            <td colspan="4" style="margin-right: 5%;">
-                                                                <div>
-                                                                    <p>First Name: </p>
+                                                            <td>
+                                                                <div id="userData">
+                                                                    <p>First name</p>
                                                                     <p>Last Name: </p>
                                                                     <p>Job: </p>
                                                                     <p>Email: </p>
@@ -274,20 +273,9 @@
                                                                     <p>Credit Number: </p>
                                                                 </div>
                                                             </td>
-                                                            <td colspan="2">
-                                                                <div id="userData">
-                                                                    <p></p>
-                                                                    <p></p>
-                                                                    <p></p>
-                                                                    <p></p>
-                                                                    <p></p>
-                                                                    <p></p>
-                                                                    <p></p>
-                                                                </div>
-                                                            </td>
                                                         </tr>
                                                     </table>
-                                                
+                                                </center>
                                                 <div style="margin: 24px 0;">
                                                 </div>
                                             </div>

@@ -60,7 +60,7 @@
                             </div>
                             <form action="PayingServlet" method="GET">
                                 <input type="hidden" name="deletedProductID" value="${item.id}"/>
-                                <button class="red_button add_to_cart_button" style="color:#FFF;">REMOVE</button>
+                                <button class="red_button add_to_cart_button" style="color:#FFF; width: 100%;"> REMOVE</button>
                             </form>
                         </div>
 

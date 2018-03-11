@@ -33,9 +33,9 @@ function refreshUser(val) {
     if(typeof user.firstName  !== "undefined")
     {
        $("#userData p").remove();
-       $("#userData h1").remove();
+       $("#userData table").remove();
         console.log("user first name "+user.firstName);
-        $('#userData').append('<p title="first name">' + user.firstName + '</p><p title="last name">' + user.lastName+ '</p ><p title="User Jop">' + user.job+ '</p ><p title="User Email">' + user.email+ '</p > <p title="Credit Lemit">' + user.creditLimit.toString()+ '</p > <p title="Credit number">' + user.creditNo + '</p>'); 
+        $('#userData').append('<table><tr><p><td>First Name: ' + user.firstName + '</td></p><p><td>Last Name: ' + user.lastName+ '</td></p><p><td>Job: ' + user.job+ '</td></p><p><td>Email: ' + user.email+ '</td></p><p><td>Credit Limit: ' + user.creditLimit.toString()+ '</td></p><p><td>Credit Number: ' + user.creditNo + '</td></p></tr></table>'); 
     }   
     else{
         console.log("undefined");
