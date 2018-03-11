@@ -75,13 +75,13 @@
                                                 </tr>
                                                 <tr class="tableRow">
                                                     <td class="tableCell"><h5>Password:</h5></td>
-                                                    <td class="inputs"><input type="password" name="password" class="reginputFields form-control" required="true" size="34" tabindex="4" /></td>
+                                                    <td class="inputs"><input type="password" name="password" minlength="8" maxlength="30" class="reginputFields form-control" required="true" size="34" tabindex="4" /></td>
                                                     <td class="tableCell regtableCell"><h5>Address:</h5></td>
                                                     <td class="inputs"><input type="text" name="address" class="reginputFields form-control" required="true" size="34" tabindex="12" /></td>
                                                 </tr>
                                                 <tr class="tableRow">
                                                     <td class="tableCell"><h5>Re-password:</h5></td>
-                                                    <td class="inputs"><input type="password" name="rePassword" size="34" class="reginputFields form-control" required="true" tabindex="5"/></td>
+                                                    <td class="inputs"><input type="password" name="rePassword" minlength="8" maxlength="30" size="34" class="reginputFields form-control" required="true" tabindex="5"/></td>
                                                     <td class="tableCell regtableCell"><h5>Job:</h5></td>
                                                     <td class="inputs"><input type="text" name="job" class="reginputFields form-control" required="true" size="34" tabindex="13"/></td>
                                                 </tr>

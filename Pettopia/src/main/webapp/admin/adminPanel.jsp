@@ -47,10 +47,10 @@
         </head>
 
         <body>
-            <div style="float: right;margin-right:150px;margin-top: 2%;">
+            <div style="float: right;margin-right:150px;margin-top: 3%;">
                 <img src="..\styles\imgs\pettopialogo.png" style="width: 40px; height: 35px; margin-bottom: 10px;" />
-                <a style="font-size: 18;color: #000;font-style: italic;font-family: sans-serif" href="../AdminLogout">Logout</a>
-            </div><br/>
+                <a style="font-size: x-large;color: #000;font-style: italic;font-family: sans-serif" href="../login.jsp">Logout</a>
+            </div><br/><br/><br/>
 
             <div class="container">      
 
@@ -60,31 +60,31 @@
 
                         <li class="tab fancyTab active">
                             <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                            <a id="tab0" href="#tabBody0" role="tab" aria-controls="tabBody0" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-desktop littleIcon"></span><span class="hidden-xs">Add product</span></a>
+                            <a id="tab0" href="#tabBody0" role="tab" aria-controls="tabBody0" aria-selected="true" data-toggle="tab" tabindex="0"><!--<span class="fa fa-desktop littleIcon"></span>--><span class="hidden-xs" style="font-weight: bolder;">Add Product</span></a>
                             <div class="whiteBlock"></div>
                         </li>
 
                         <li class="tab fancyTab">
                             <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                            <a id="tab1" href="#tabBody1" role="tab" aria-controls="tabBody1" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-firefox littleIcon"></span><span class="hidden-xs">Edit Product</span></a>
+                            <a id="tab1" href="#tabBody1" role="tab" aria-controls="tabBody1" aria-selected="true" data-toggle="tab" tabindex="0"><!--<span class="fa fa-firefox littleIcon"></span>--><span class="hidden-xs" style="font-weight: bolder;">Edit Product</span></a>
                             <div class="whiteBlock"></div>
                         </li>
 
                         <li class="tab fancyTab">
                             <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                            <a id="tab2" href="#tabBody2" role="tab" aria-controls="tabBody2" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-envira littleIcon"></span><span class="hidden-xs">Remove Product</span></a>
+                            <a id="tab2" href="#tabBody2" role="tab" aria-controls="tabBody2" aria-selected="true" data-toggle="tab" tabindex="0"><!--<span class="fa fa-envira littleIcon"></span>--><span class="hidden-xs" style="font-weight: bolder;">Remove Product</span></a>
                             <div class="whiteBlock"></div>
                         </li>
 
                         <li class="tab fancyTab">
                             <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                            <a id="tab3" href="#tabBody3" role="tab" aria-controls="tabBody3" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-mortar-board littleIcon"></span><span class="hidden-xs">Review Users</span></a>
+                            <a id="tab3" href="#tabBody3" role="tab" aria-controls="tabBody3" aria-selected="true" data-toggle="tab" tabindex="0"><!--<span class="fa fa-mortar-board littleIcon"></span>--><span class="hidden-xs" style="font-weight: bolder;">Review Users</span></a>
                             <div class="whiteBlock"></div>
                         </li> 
 
                         <li class="tab fancyTab">
                             <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                            <a id="tab4" href="#tabBody4" role="tab" aria-controls="tabBody4" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-stack-overflow littleIcon"></span><span class="hidden-xs">Add Admin</span></a>
+                            <a id="tab4" href="#tabBody4" role="tab" aria-controls="tabBody4" aria-selected="true" data-toggle="tab" tabindex="0"><!--<span class="fa fa-stack-overflow littleIcon"></span>--><span class="hidden-xs" style="font-weight: bolder;">Add Admin</span></a>
                             <div class="whiteBlock"></div>
                         </li>
 
@@ -168,7 +168,7 @@
                                                     $("#target :input").prop("disabled", false);
                                                     $("#productid1").value = 0;
                                                     //hide second form
-                                                    $("#result").html("<h4> data edited</h4>");
+                                                    $("#result").html("<div style='color: #FF0000;'>Data Edited</div>");
                                                 }
                                             });
 
@@ -215,11 +215,11 @@
                                                     var jsonData = {"id": $("#productid").val()};
                                                     $.ajax({url: '../AdminRemoveProduct', type: 'POST', data: jsonData, success: function (data)
                                                         {
-                                                            $("#resultremove").html("<h4> " + data + " </h4>")
+                                                            $("#resultremove").html("<div style='color: #FF0000;'>"+data+"</div>");
 
                                                         }, error: function (data)
                                                         {
-                                                            $("#resultremove").html("<h4>" + data + "</h4>")
+                                                            $("#resultremove").html("<div style='color: #FF0000;'>"+data+"</div>");
                                                         }
                                                     });
 
@@ -259,82 +259,99 @@
                                                 </center>
                                             </div>  
                                             <div class="card">
-                                                <img src="user_profile.jpg" alt="John" style="width:30%; height:30%">
-                                                <div id="userData">
-                                                    <h1>First name</h1>
-                                                    <p>Last Name</p>
-                                                    <p>Birth Date</p>
-                                                    <p>job</p>
-                                                    <p>email</p>
-                                                    <p>credit lemit</p>
-                                                    <p>credit number</p>
-                                                </div>
+                                                <center>
+                                                    <img src="user_profile.jpg" alt="John" style="width:15%; height:15%; margin: 4%;">
+                                                </center>
+                                                <table style="margin-left: 8%;">
+                                                        <tr>
+                                                            <td colspan="4" style="margin-right: 5%;">
+                                                                <div>
+                                                                    <p>First Name: </p>
+                                                                    <p>Last Name: </p>
+                                                                    <p>Job: </p>
+                                                                    <p>Email: </p>
+                                                                    <p>Credit Limit: </p>
+                                                                    <p>Credit Number: </p>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2">
+                                                                <div id="userData">
+                                                                    <p></p>
+                                                                    <p></p>
+                                                                    <p></p>
+                                                                    <p></p>
+                                                                    <p></p>
+                                                                    <p></p>
+                                                                    <p></p>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                
                                                 <div style="margin: 24px 0;">
-
-
-
-
                                                 </div>
-                                                <p><button class="btnedit"></a>  <i class="fa fa-facebook"></i></a>  <a href="#"><i class="fa fa-dribbble"></i></a>  <a href="#"><a href="#"><i class="fa fa-twitter"></i><a href="#"><i class="fa fa-linkedin"></i></a>  </button></p>
-                                                                </div>
+                                            </div>
 
-                                                                </div>
-                                                                <!-- end of preview user data  -->
-
+                                        </div>
+                                        <!-- end of preview user data  -->
 
 
 
 
 
 
-                                                                </div>
-                                                                </div>
-                                                                </div>
-                                                                <div class="tab-pane  fade" id="tabBody4" role="tabpanel" aria-labelledby="tab4" aria-hidden="true" tabindex="0">
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane  fade" id="tabBody4" role="tabpanel" aria-labelledby="tab4" aria-hidden="true" tabindex="0">
+                            <div class="row">
+                                <div class="col-md-12">
 
 
 
 
 
-                                                                            <div class="login">
+                                    <div class="login">
 
-                                                                                <div class="login-top">
-                                                                                    <body>
+                                        <div class="login-top">
+                                            <body>
 
-                                                                                        <form action="../AddAdminServlet" method="POST">
-                                                                                            <input placeholder=" new Admin email" type="email" required="" name="adminEmail" class="reginputFields form-control" /><br><br>
-                                                                                            <input placeholder="new Admin password" required="" type="password" name="adminPassword" class="reginputFields form-control" />
+                                                <form action="../AddAdminServlet" method="POST">
+                                                    <input placeholder=" new Admin email" type="email" required="" name="adminEmail" class="reginputFields form-control" /><br><br>
+                                                    <input placeholder="new Admin password" required="" type="password" name="adminPassword" class="reginputFields form-control" minlength="8" maxlength="30"/>
 
-                                                                                            <div class="forgot">
+                                                    <div class="forgot">
 
-                                                                                                <!-- <input type="submit" id="submitadd" class="loginBtn" /> -->
-                                                                                                <button  type="submit" id="submitadd" class="loginBtn">ADD NEW ADMIN</button>
+                                                        <!-- <input type="submit" id="submitadd" class="loginBtn" /> -->
+                                                        <button  type="submit" id="submitadd" class="loginBtn">ADD NEW ADMIN</button>
 
-                                                                                            </div>
-                                                                                        </form>
-                                                                                </div>
+                                                    </div>
+                                                </form>
+                                        </div>
 
-                                                                            </div>
-                                                                        </div>
+                                    </div>
+                                </div>
 
-                                                                    </div>
+                            </div>
+                        </div>
+                </section>
+            </div>
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+            <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
-                                                                    </section>
-                                                                </div>
-                                                                <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-                                                                <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+            <script src="..\js\index.js"></script>
+            <script
+            src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+            <script
+            src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+            <script src="..\js\index.js"></script>
 
-                                                                <script src="..\js\index.js"></script>
-                                                                <script
-                                                                src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-                                                                <script
-                                                                src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-                                                                <script src="..\js\index.js"></script>
+            <!-- Banner -->
+            <jsp:include page="..\footer.html" />
 
+        </body>
 
-                                                                </body>
-
-                                                                </html>
-                                                            </c:if>
+    </html>
+</c:if>

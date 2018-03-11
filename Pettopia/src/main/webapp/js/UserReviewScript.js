@@ -35,7 +35,7 @@ function refreshUser(val) {
        $("#userData p").remove();
        $("#userData h1").remove();
         console.log("user first name "+user.firstName);
-        $('#userData').append('<h1 title="first name" class="title">' + user.firstName + '</h1><p title="last name">' + user.lastName+ '</p ><p title="User Jop">' + user.job+ '</p ><p title="User Email">' + user.email+ '</p > <p title="Credit Lemit">' + user.creditLimit.toString()+ '</p > <p title="Credit number">' + user.creditNo + '</p>'); 
+        $('#userData').append('<p title="first name">' + user.firstName + '</p><p title="last name">' + user.lastName+ '</p ><p title="User Jop">' + user.job+ '</p ><p title="User Email">' + user.email+ '</p > <p title="Credit Lemit">' + user.creditLimit.toString()+ '</p > <p title="Credit number">' + user.creditNo + '</p>'); 
     }   
     else{
         console.log("undefined");
