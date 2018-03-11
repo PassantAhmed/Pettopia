@@ -92,7 +92,7 @@ public class ProductsCrud {
             stmt.executeUpdate(sqlStatment);
             System.out.println("Records updated");
         } catch (SQLException e) {
-            System.out.println(e + "com.pettopia.model.database.ProductsCrud.updateException()");
+            System.out.println(e);
             return false;
         }
         return true;

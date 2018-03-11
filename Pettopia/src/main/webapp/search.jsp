@@ -57,7 +57,7 @@
                                     <div class="product-item men">
                                         <div class="product discount product_filter">
                                             
-                                    <img style="display: block; min-height:77%; width: 100%; max-width: 100%;" src="productImage?id=${item.id}" alt="">
+                                    <img style="display: block; height:77%; width: 100%; max-width: 100%;" src="productImage?id=${item.id}" alt="">
                                             
 
                                             <div class="product_info">

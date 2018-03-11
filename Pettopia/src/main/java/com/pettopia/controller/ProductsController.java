@@ -46,5 +46,8 @@ public class ProductsController {
 
         return dao.updateProducts(p);
     }
-
+    
+    public boolean makeProductSold(int id){
+        return dao.updateProductSold(id);
+    }
 }

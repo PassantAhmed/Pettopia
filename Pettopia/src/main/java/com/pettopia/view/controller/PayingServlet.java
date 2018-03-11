@@ -6,6 +6,7 @@
 package com.pettopia.view.controller;
 
 import com.pettopia.controller.HelperController;
+import com.pettopia.controller.ProductsController;
 import com.pettopia.controller.UserController;
 import com.pettopia.model.bean.Product;
 import java.io.IOException;
@@ -26,10 +27,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "PayingServlet", urlPatterns = {"/PayingServlet"})
 public class PayingServlet extends HttpServlet {
 
-    UserController editController;
-    HelperController helperController;
-    List<Product> listedProducts = new ArrayList<>();
-    List<String> data;
+    private UserController editController;
+    private List<Product> listedProducts = new ArrayList<>();
+    private List<String> data;
+    private ProductsController pCtrl = new ProductsController();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -64,6 +65,10 @@ public class PayingServlet extends HttpServlet {
                     bill += listedProducts.get(counter).getPrice();
                 }
                 if (Long.parseLong(creditLimit) >= bill) {
+                    for (int counter = 0; counter < listedProducts.size(); counter++) {
+                        int productId = listedProducts.get(counter).getId();
+                        pCtrl.makeProductSold(productId);
+                    }
                     listedProducts = new ArrayList<>();
                     request.getSession().setAttribute("cartListedProducts", listedProducts);
                     request.getSession().setAttribute("cartProductsNo", listedProducts.size());

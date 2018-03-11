@@ -14,6 +14,8 @@ import java.util.ArrayList;
  */
 public interface ProductsDatabaseOperationInterface {
 
+    public boolean updateProductSold(int id);
+    
     public ArrayList<Product> getAllProducts();
     
     public Product getProduct(int id);
