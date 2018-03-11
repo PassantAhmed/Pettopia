@@ -48,7 +48,13 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
 
     @Override
     public ArrayList<Product> getNeededProducts(String item) {
-        String statement = "select * from petproducts where productprice=" + item+" or category='"+item+"'";
+        String statement;
+        try {
+            Double.parseDouble(item);
+            statement = "select * from petproducts where productprice=" + item;
+        } catch (NumberFormatException e) {
+            statement = "select * from petproducts where category='" + item + "'";
+        }
         return productsCrud.getAll(statement);
     }
 
