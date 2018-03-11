@@ -103,15 +103,15 @@
 
                                         <form action="../AdminAddProduct" method="post"
                                               enctype="multipart/form-data">
-                                                <h5>Product Name:</h5><input type="text" name="productname" required="true" class="reginputFields form-control"/><br/>
-                                                <h5>Product Price:</h5><input type="number" min="0" name="productprice" required="true" class="reginputFields form-control" /><br/> 
-                                                <h5>Product Description:</h5><input type="text" name="productdesc" required="true" class="reginputFields form-control" /><br/>
-                                                <h5>product category:</label></h5>
-                                                <input type="text" name="productcategory" required="true" class="reginputFields form-control" /><br/>
-                                                <h5>Select picture for your product :</h5><br/>
-                                                <input type="file" name="fileName" accept="image/*" required="true" class="reginputFields form-control" />
+                                            <h5>Product Name:</h5><input type="text" name="productname" required="true" class="reginputFields form-control"/><br/>
+                                            <h5>Product Price:</h5><input type="number" min="0" name="productprice" required="true" class="reginputFields form-control" /><br/> 
+                                            <h5>Product Description:</h5><input type="text" name="productdesc" required="true" class="reginputFields form-control" /><br/>
+                                            <h5>product category:</label></h5>
+                                            <input type="text" name="productcategory" required="true" class="reginputFields form-control" /><br/>
+                                            <h5>Select picture for your product :</h5><br/>
+                                            <input type="file" name="fileName" accept="image/*" required="true" class="reginputFields form-control" />
                                             <!-- <input type="submit" id="submitadd"> -->
-                                                <button class="loginBtn" type="submit" id="submitadd">ADD</button>
+                                            <button class="loginBtn" type="submit" id="submitadd">ADD</button>
                                         </form>
                                     </div>
 
@@ -187,16 +187,52 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- remove product -->
                         <div class="tab-pane  fade" id="tabBody2" role="tabpanel"
                              aria-labelledby="tab2" aria-hidden="true" tabindex="0">
                             <div class="row">
                                 <div class="col-md-12">
+
                                     <form>
-                                        <h5>Enter Product id : </h5>
-                                        <input type="text" name="productid" class="reginputFields form-control" /><br/> 
-                                        <!-- <input type="submit" id="submiteedit" name="remove" /> -->
-                                        <button class="loginBtn" type="submit" id="submiteedit">REMOVE</button>
+                                        <h5>Enter product id : </h5>
+                                        <input type="number" name="productid" id="productid" required="true" min="0" class="reginputFields form-control" />
+                                        <br> 
+                                        <!--<input type="button" id="remove" name="remove" value="remove">-->
+                                        <button class="loginBtn" type="button" name="remove" id="remove">REMOVE</button>
                                     </form>
+                                    <div id="resultremove"></div>
+                                    <script>
+                                        $(document).ready(function () {
+
+                                            $("#remove").click(function ()
+                                            {
+                                                if ($("#productid").val() == '')
+                                                {
+                                                    $("#resultremove").html("<h4>enter id first</h4>")
+                                                } else
+                                                {
+
+                                                    var jsonData = {"id": $("#productid").val()};
+                                                    $.ajax({url: '../AdminRemoveProduct', type: 'POST', data: jsonData, success: function (data)
+                                                        {
+                                                            $("#resultremove").html("<h4> " + data + " </h4>")
+
+                                                        }, error: function (data)
+                                                        {
+                                                            $("#resultremove").html("<h4>" + data + "</h4>")
+                                                        }
+                                                    });
+
+                                                }
+
+                                            });
+
+
+                                        });
+
+                                    </script>
+
+
                                 </div>
                             </div>
                         </div>
@@ -217,9 +253,9 @@
 
                                             <div class="data">
                                                 <center>
-                                                <input placeholder="User Email" id="uEmail" type="text" class="reginputFields form-control" style="width: 50%;"/>
-                                                <button onclick="sendEmail()" class="ButtonSend loginBtn">Review</button><br>
-                                                <br>  
+                                                    <input placeholder="User Email" id="uEmail" type="text" class="reginputFields form-control" style="width: 50%;"/>
+                                                    <button onclick="sendEmail()" class="ButtonSend loginBtn">Review</button><br>
+                                                    <br>  
                                                 </center>
                                             </div>  
                                             <div class="card">
@@ -263,7 +299,7 @@
 
 
                                                                             <div class="login">
-                                                                              
+
                                                                                 <div class="login-top">
                                                                                     <body>
 
