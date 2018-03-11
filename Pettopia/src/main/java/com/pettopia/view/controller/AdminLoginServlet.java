@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author ahmedelgawesh
  */
-@WebServlet(urlPatterns = {"/AdminLoginServlet","/AdminLogout"})
+@WebServlet(urlPatterns = {"/AdminLoginServlet", "/AdminLogout"})
 public class AdminLoginServlet extends HttpServlet {
 
     /**
@@ -33,10 +33,9 @@ public class AdminLoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,35 +50,31 @@ public class AdminLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       User usrObj = new User();
-    HttpSession session = request.getSession();
-       session.setAttribute("adminLoggedin", "false");
-            
-        AdminDao adminDao= new AdminDao();
-        String adminEmail = request.getParameter("adminEmail");
-        String adminPassword = request.getParameter("adminPass");
-      
-        usrObj=adminDao.getAllAdmins(adminEmail);
-        if((usrObj.getEmail().equals(adminEmail))  )
-        { 
-            if(usrObj.getPassword().equals(adminPassword))
-            {  response.sendRedirect("admin/adminPanel.jsp");
-                
-           
-            session.setAttribute("adminLoggedin", "true");
+        User usrObj = new User();
+        HttpSession session = request.getSession();
+        session.setAttribute("adminLoggedin", "false");
+
+        AdminDao adminDao = new AdminDao();
+        //String adminEmail = request.getParameter("adminEmail");
+        //String adminPassword = request.getParameter("adminPass");
+        String adminEmail = request.getParameter("email");
+        String adminPassword = request.getParameter("password");
+
+        usrObj = adminDao.getAllAdmins(adminEmail);
+        if ((usrObj.getEmail().equals(adminEmail))) {
+            if (usrObj.getPassword().equals(adminPassword)) {
+                response.sendRedirect("admin/adminPanel.jsp");
+                session.setAttribute("adminLoggedin", "true");
+            } else {
+                response.sendRedirect("admin/index.jsp");
+                session.setAttribute("adminLoggedin", "false");
             }
-            else{
+        } else {
             response.sendRedirect("admin/index.jsp");
             session.setAttribute("adminLoggedin", "false");
-            }
-            }
-         else
-        {
-            response.sendRedirect("admin/index.jsp");
-                    session.setAttribute("adminLoggedin", "false");
 
-        }   
-        
+        }
+
     }
 
     /**
@@ -93,9 +88,9 @@ public class AdminLoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
-       session.setAttribute("adminLoggedin", "false");
+        session.setAttribute("adminLoggedin", "false");
     }
 
     /**

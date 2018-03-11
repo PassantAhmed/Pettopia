@@ -6,6 +6,8 @@
 package com.pettopia.view.controller;
 
 import com.pettopia.controller.HelperController;
+import com.pettopia.model.bean.User;
+import com.pettopia.model.database.AdminDao;
 import com.pettopia.view.utilities.ValidationChecks;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -60,8 +63,33 @@ public class LoginServlet extends HttpServlet {
                 }
 
             } else {
-                request.setAttribute("errorMessage1", "Wrong E-mail Address, Please enter correct email");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                // FLAG
+                boolean isAdmin = true;
+                User usrObj = new User();
+                HttpSession session = request.getSession();
+                session.setAttribute("adminLoggedin", "false");
+                if (isAdmin) {
+                    AdminDao adminDao = new AdminDao();
+                    //String adminEmail = request.getParameter("adminEmail");
+                    //String adminPassword = request.getParameter("adminPass");
+                    String adminEmail = request.getParameter("email");
+                    String adminPassword = request.getParameter("password");
+
+                    usrObj = adminDao.getAllAdmins(adminEmail);
+                    if ((usrObj.getEmail().equals(adminEmail))) {
+                        if (usrObj.getPassword().equals(adminPassword)) {
+                            response.sendRedirect("admin/adminPanel.jsp");
+                            session.setAttribute("adminLoggedin", "true");
+                        } else {
+                            response.sendRedirect("login.jsp");
+                            session.setAttribute("adminLoggedin", "false");
+                        }
+                    }
+                }
+                if (session.getAttribute("adminLoggedin").equals("false")) {
+                    request.setAttribute("errorMessage1", "Wrong E-mail Address, Please enter correct email");
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
+                }
             }
         } else {
             request.setAttribute("errorMessage1", "Please make sure that your data is valid");
