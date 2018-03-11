@@ -110,7 +110,6 @@
                                             <input type="text" name="productcategory" required="true" class="reginputFields form-control" /><br/>
                                             <h5>Select picture for your product :</h5><br/>
                                             <input type="file" name="fileName" accept="image/*" required="true" class="reginputFields form-control" />
-                                            <!-- <input type="submit" id="submitadd"> -->
                                             <button class="loginBtn" type="submit" id="submitadd">ADD</button>
                                         </form>
                                     </div>
@@ -149,7 +148,7 @@
                                                         $("#result").html("<form id='secondform'><h5>Product id : </h5><input class='reginputFields form-control' id='productid' value='" + data.id + "' disabled='true'/><h5>Product name : </h5><input class='reginputFields form-control' id='productname' value='" + data.name + "' required='true'/><h5>Product price : </h5><input class='reginputFields form-control' id='price' value='" + data.price + "'type='number' required='true'/><h5>Product description : </h5><input class='reginputFields form-control' id='desc' value='" + data.description + "' required='true'/><h5>Product category : </h5><input class='reginputFields form-control' id='category' value='" + data.category + "' required='true'/><h5>solded or not : </h5><input class='reginputFields form-control' id='quantity' value='" + data.quantity + "' required='true'/><input class='loginBtn' type='button' id='editbutton' value='edit' onclick='change()'></form>")
                                                     }, error: function (data)
                                                     {
-                                                        $("#result").html("<h4> no data found  </h4>")
+                                                        $("#result").html("<div style='color: #FF0000;'>No Data Found</div>")
                                                     }
                                                 });
                                             });
