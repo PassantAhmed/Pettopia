@@ -43,7 +43,7 @@
                         <div class="col-lg-12 ">
                             <center>
                                 <form action="SearchServlet" method="POST" />
-                                    <input type="text" size="50" name="neededItem" placeholder="search by price" style="height: 46px;padding:6px;" />
+                                    <input type="text" size="50" name="neededItem" placeholder="search by price or category" style="height: 46px;padding:6px;" />
                                     <button class="loginBtn">Search</button>
                                 </form>
                             </center>
@@ -56,9 +56,9 @@
 
                                     <div class="product-item men">
                                         <div class="product discount product_filter">
-                                            <div class="product_image">
-                                                <img src="c:/Users/Public/Downloads/${item.id}.jpg" alt="">
-                                            </div>
+                                            
+                                    <img style="display: block; min-height:77%; width: 100%; max-width: 100%;" src="productImage?id=${item.id}" alt="">
+                                            
 
                                             <div class="product_info">
                                                 <h6 class="product_name"><a href="productDetails?id=${item.id}">${item.name}</a></h6>

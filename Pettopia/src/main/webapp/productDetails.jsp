@@ -78,7 +78,10 @@
 
 
                             <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-                                <div class="red_button add_to_cart_button"><a href="">add to cart</a></div>
+                                <form action="CartServlet" method="POST">
+                                    <input type="hidden" name="productID" value="${requestScope.product.id}"/>
+                                    <button class="newsletter_submit_btn trans_300" style="color:#FFF; width:150%;">add to cart</button>
+                                </form>
                             </div>
                         </div>
                     </div>
