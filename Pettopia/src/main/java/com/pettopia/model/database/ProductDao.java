@@ -53,7 +53,7 @@ public class ProductDao implements ProductsDatabaseOperationInterface {
             Double.parseDouble(item);
             statement = "select * from petproducts where productprice=" + item;
         } catch (NumberFormatException e) {
-            statement = "select * from petproducts where category='" + item + "'";
+            statement = "select * from petproducts where upper(petproducts.category) like upper('"+item+"')";
         }
         return productsCrud.getAll(statement);
     }
