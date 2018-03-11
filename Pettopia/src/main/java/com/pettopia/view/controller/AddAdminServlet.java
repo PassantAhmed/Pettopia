@@ -78,8 +78,12 @@ public class AddAdminServlet extends HttpServlet {
             {
                 response.sendRedirect("admin/adminPanel.jsp");
               }else{               
+                                response.sendRedirect("admin/adminPanel.jsp");
+
              }
         }else{
+                            response.sendRedirect("admin/adminPanel.jsp");
+
            }
         
     }
