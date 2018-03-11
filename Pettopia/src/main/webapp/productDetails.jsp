@@ -56,7 +56,9 @@
 
                                 <div class="col-lg-12 image_col order-lg-2 order-1">
                                     <div class="single_product_image">
-                                        <div class="single_product_image_background" style="background-image:url(c:/Users/Public/Downloads/${requestScope.product.id}.jpg)"></div>
+                                        <div class="single_product_image_background" >
+                                            <img style="display: block; min-height:100%; width: 100%; max-width: 100%;" src="productImage?id=${requestScope.product.id}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
