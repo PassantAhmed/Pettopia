@@ -49,9 +49,9 @@
                     <c:forEach items="${requestScope.products}" var="item">
                         <div class="product-item men">
                             <div class="product discount product_filter">
-                                <div class="product_image">
-                                    <img src="c:/Users/Public/Downloads/${item.id}.jpg" alt="">
-                                </div>
+                                
+                                    <img style="display: block; min-height:77%; width: 100%; max-width: 100%;" src="productImage?id=${item.id}" alt="">
+                                
 
                                 <div class="product_info">
                                     <h6 class="product_name"><a href="productDetails?id=${item.id}">${item.name}</a></h6>
