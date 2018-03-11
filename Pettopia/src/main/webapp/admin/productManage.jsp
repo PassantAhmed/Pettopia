@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>product management</title>
-        
+        <title>Product Management</title>
+        <link rel="icon" href="..\styles\imgs\pettopialogo.png" />
         
         <link rel="stylesheet" href="..\styles\adminPages_style.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>

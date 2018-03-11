@@ -9,6 +9,7 @@
 <html>
 <head>
 	<link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
+        <link rel="icon" href="..\styles\imgs\pettopialogo.png" />
 </head>
 <body>
 	<div class="error-main">

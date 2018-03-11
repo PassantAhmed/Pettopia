@@ -49,28 +49,28 @@
                                             <table class="registerTable">
                                                 <tr class="tableRow" >
                                                     <td class="tableCell"><h5>First Name:</h5></td>
-                                                    <td class="inputs"><input type="text" name="firstName" class="reginputFields form-control" required="true" size="34" tabindex="1" /></td>
+                                                    <td class="inputs"><input type="text" name="firstName" class="reginputFields form-control" required="true" size="34" tabindex="1" minlength="3"/></td>
                                                     <td class="tableCell regtableCell"><h5>Birth-date:</h5></td>
                                                     <td class="inputs"><center><input type="date" name="birthdate" class="reginputFields form-control" required="true" tabindex="6" /></center></td>           
                                                 </tr>
                                                 <tr class="tableRow">
                                                     <td class="tableCell"><h5>Last Name:</h5></td>
-                                                    <td class="inputs"><input type="text" name="lastName" class="reginputFields form-control" required="true" size="34" tabindex="2"/></td>
+                                                    <td class="inputs"><input type="text" name="lastName" class="reginputFields form-control" required="true" size="34" tabindex="2" minlength="3"/></td>
                                                     <td class="tableCell regtableCell"><h5>Credit-Limit:</h5></td>
-                                                    <td class="inputs"><center><input type="number" name="creditLimit" class="reginputFields form-control" required="true" tabindex="7" /></center></td>
+                                                    <td class="inputs"><center><input type="number" name="creditLimit" class="reginputFields form-control" required="true" tabindex="7" minlength="1"/></center></td>
                                                 </tr>
                                                 <tr class="tableRow">
                                                     <td class="tableCell"><h5>Email:</h5></td>
                                                     <td class="inputs"><input type="email" name="email" class="reginputFields form-control" required="true" size="34" tabindex="3" /></td>
                                                     <td class="tableCell regtableCell"><h5>Credit Number:</h5></td>
                                                     <td class="inputs"><input type="text" name="creditNo1" size="2" maxlength="4" class="reginputFields form-control" required="true" tabindex="8"
-                                                               style="width:22%; float: left;"/> <span style="float: left; margin-top: 2%;">&nbsp;-&nbsp;</span>
+                                                               style="width:22%; float: left;" minlength="4" /> <span style="float: left; margin-top: 2%;">&nbsp;-&nbsp;</span>
                                                         <input type="text" name="creditNo2" maxlength="4" class="reginputFields form-control" size="2" required="true" tabindex="9" 
-                                                               style="width:22%; float: left;"/> <span style="float: left; margin-top: 2%;">&nbsp;-&nbsp;</span>
+                                                               style="width:22%; float: left;" minlength="4" /> <span style="float: left; margin-top: 2%;">&nbsp;-&nbsp;</span>
                                                         <input type="text" name="creditNo3" size="2" maxlength="4" class="reginputFields form-control" required="true" tabindex="10"
-                                                               style="width:22%; float: left;"/> <span style="float: left; margin-top: 2%;">&nbsp;-&nbsp;</span>
+                                                               style="width:22%; float: left;" minlength="4" /> <span style="float: left; margin-top: 2%;">&nbsp;-&nbsp;</span>
                                                         <input type="text" name="creditNo4" size="2" maxlength="4" class="reginputFields form-control" required="true" tabindex="11" 
-                                                               style="width:22%; float: left;"/>
+                                                               style="width:22%; float: left;" minlength="4" />
                                                     </td>
                                                 </tr>
                                                 <tr class="tableRow">

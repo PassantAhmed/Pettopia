@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="..\styles\adminPages_style.css">
+        <link rel="icon" href="..\styles\imgs\pettopialogo.png" />
     </head>
     <body>
         <form action="AdminAddProduct" method="get">

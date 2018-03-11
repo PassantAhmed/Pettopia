@@ -29,7 +29,8 @@
         <script type="text/javascript" src="..\js\adminPages.js"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Administration Page</title>
+        <link rel="icon" href="..\styles\imgs\pettopialogo.png" />
     </head>
 
     <body id="main">

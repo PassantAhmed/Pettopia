@@ -17,6 +17,7 @@ and open the template in the editor.
 
 <head>
     <title>User Review</title>
+    <link rel="icon" href="..\styles\imgs\pettopialogo.png" />
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="UserReviewScript.js"></script>

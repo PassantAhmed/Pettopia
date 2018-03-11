@@ -12,7 +12,8 @@
     <html >
         <head>
             <meta charset="UTF-8">
-            <title>Featured Tabs</title>
+            <title>Administration Panel</title>
+            <link rel="icon" href="..\styles\imgs\pettopialogo.png" />
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script type="text/javascript" src="../js/UserReviewScript.js"></script>
             <link rel="stylesheet" href="css/style.css">
