@@ -66,7 +66,7 @@
                                     </div>
                                     <form action="CartServlet" method="POST">
                                         <input type="hidden" name="productID" value="${item.id}"/>
-                                        <button class="red_button add_to_cart_button" style="color:#FFF; width: 100%;">add to cart</button>
+                                        <button class="newsletter_submit_btn trans_300" style="color:#FFF; width: 100%;">add to cart</button>
                                     </form>
                                 </div>
 
