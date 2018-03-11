@@ -75,8 +75,8 @@
                             <center>
                                 <div class="editprofile">
                                     <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive" /> 
-                                    <input id="profile-image-upload" class="hidden" type="file" />
-                                    <div style="color:#999; margin-bottom: 5%;" >click here to change profile image</div>
+                                    
+                                    
 
                                     <div class="register-top">
                                         <form action="EditProfileServlet" method="POST">
