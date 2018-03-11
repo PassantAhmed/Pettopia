@@ -35,6 +35,7 @@ public class CartServlet extends HttpServlet {
             listedProducts = (List<Product>) request.getSession().getAttribute("cartListedProducts");
         }
         request.setAttribute("cartListedProducts", listedProducts);
+        request.setAttribute("servletVisited", "true");
         request.getSession().setAttribute("cartListedProducts", listedProducts);
         RequestDispatcher dispatcher = request.getRequestDispatcher("productscart.jsp");
         dispatcher.forward(request, response);

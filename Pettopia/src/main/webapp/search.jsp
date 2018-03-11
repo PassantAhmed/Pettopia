@@ -43,7 +43,7 @@
                         <div class="col-lg-12 ">
                             <center>
                                 <form action="SearchServlet" method="POST" />
-                                    <input type="text" size="50" name="neededItem" style="height: 46px;padding:6px;" />
+                                    <input type="text" size="50" name="neededItem" placeholder="search by price" style="height: 46px;padding:6px;" />
                                     <button class="loginBtn">Search</button>
                                 </form>
                             </center>

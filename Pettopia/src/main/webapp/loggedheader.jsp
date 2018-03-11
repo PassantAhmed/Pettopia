@@ -52,7 +52,7 @@
                             <nav class="navbar">
                                 <ul class="navbar_menu">
                                     <li><a href="index.jsp">home</a></li>
-                                    <li><a href="adminAddProduct.jsp"><i class="fa" aria-hidden="true"></i>checkout</a></li>
+                                    <li><a href="CartServlet"><i class="fa" aria-hidden="true"></i>checkout</a></li>
                                     <li><a href="products"><i class="fa" aria-hidden="true"></i>shop</a></li>
                                     <li><a href="contact.jsp">contact us</a></li>
                                     <li><a href="logOut">log out</a></li>

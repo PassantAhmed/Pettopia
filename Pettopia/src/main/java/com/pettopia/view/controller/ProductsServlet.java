@@ -33,6 +33,7 @@ public class ProductsServlet extends HttpServlet {
         ProductsController conroller = new ProductsController();
         ArrayList<Product> products = conroller.getAvailableProducts();
         request.setAttribute("products", products);
+        request.setAttribute("servletVisited", "true");
         RequestDispatcher rd = request.getRequestDispatcher("products.jsp");
         rd.forward(request, response);
     }
