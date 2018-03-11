@@ -54,7 +54,7 @@
                                         <li><a href="index.jsp">home</a></li>
                                         <li><a href="login.jsp"><i class="fa" aria-hidden="true"></i>Sign In</a></li>
                                         <li><a href="registration.jsp"><i class="fa" aria-hidden="true"></i>Register</a></li>
-                                        <li><a href="admin\adminPanel.html"><i class="fa" aria-hidden="true"></i>checkout</a></li>
+                                        <li><a href="CartServlet"><i class="fa" aria-hidden="true"></i>checkout</a></li>
                                         <li><a href="products"><i class="fa" aria-hidden="true"></i>shop</a></li>
                                         <li><a href="contact.jsp">contact us</a></li>
                                     </ul>
